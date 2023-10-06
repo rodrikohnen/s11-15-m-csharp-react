@@ -1,0 +1,30 @@
+{
+  "usuarios": [
+    {
+      "id_usuario": 1,
+      "id_rol": 1,
+      "usuario": "ejemplo_usuario",
+      "genero": "masculino",
+      "contraseña": "contraseña_segura",
+      "correo": "usuario@example.com",
+      "avatar_root": "/ruta/al/avatar",
+      "nombre_avatar": "avatar.png",
+      "telefono": "+123456789",
+      "pais": "Ejemplo",
+      "id_idioma": 1
+    },
+    {
+      "id_usuario": 2,
+      "id_rol": 2,
+      "usuario": "otro_usuario",
+      "genero": "femenino",
+      "contraseña": "otra_contraseña_segura",
+      "correo": "otrousuario@example.com",
+      "avatar_root": "/ruta/al/otro/avatar",
+      "nombre_avatar": "otro_avatar.png",
+      "telefono": "+987654321",
+      "pais": "Ejemplo",
+      "id_idioma": 2
+    }
+  ]
+}
