@@ -1,4 +1,5 @@
 "use client"
+
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import {
   object,
@@ -18,13 +19,13 @@ const LoginSchema = object({
     email('The email address is badly formatted.'),
   ]),
   contrasena: string('Your password must be a string.', [
-    minLength(1, 'Please enter your password.'),
-    maxLength(10, 'Your password must have 8 characters or more.'),
+    minLength(8, 'Please enter your password.'),
+    maxLength(15, 'Your password must have 8 characters or more.'),
   ]),
 });
 
 export default function LoginForm() {
-  const { control, handleSubmit, formState: { errors } } = useForm(
+  const { control, handleSubmit, formState: { errors, isSubmitted  } } = useForm(
     {resolver: valibotResolver(LoginSchema),}
   );
 
@@ -65,7 +66,7 @@ export default function LoginForm() {
               />
             )}
           />
-          {errors.contrasena && <p>{errors.contrasena.message}</p>}      </div>
+          {errors.contrasena && <p>{errors.contrasena.message}</p>}</div>
       <button type='submit' className='border border-red-500 rounded-md w-20'>
         Ingresar
       </button>
