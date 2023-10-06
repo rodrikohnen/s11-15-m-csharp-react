@@ -52,7 +52,6 @@ export default function LoginForm() {
             )}
           />
           {errors.correo && <p>{errors.correo.message}</p>}
-
           <Controller
             name="contrasena"
             control={control}
