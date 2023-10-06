@@ -34,8 +34,8 @@ export default function LoginForm() {
   };
 
   return(
-    <>
-    <form className='flex flex-col items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
+    <sapn div className="h-screen flex items-center justify-center">
+    <form className='flex flex-col items-center border border-red-600 rounded max-w-[20rem]' onSubmit={handleSubmit(onSubmit)}>
       <div className='font-bold'>
         <h1>Mate Speak</h1>
       </div>
@@ -70,7 +70,8 @@ export default function LoginForm() {
       <button type='submit' className='border border-red-500 rounded-md w-20'>
         Ingresar
       </button>
+      <a className="text-sm text-sky-500" href="">Olvidaste tu contraseña?</a>
     </form>
-    </>
+    </sapn>
   )
 }
