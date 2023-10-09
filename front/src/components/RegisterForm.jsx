@@ -43,13 +43,13 @@ export const RegisterForm = () => {
 
   return (
     <form
-      className="flex flex-col"
+      className="flex flex-col w-full justify-center items-center"
       onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="name">Nombre</label>
       <input
         name="name"
         type="text"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("name")}
       />
       {errors.name && (
@@ -59,7 +59,7 @@ export const RegisterForm = () => {
       <input
         name="lastname"
         type="text"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("lastname")}
       />
       {errors.lastname && (
@@ -69,7 +69,7 @@ export const RegisterForm = () => {
       <input
         name="username"
         type="text"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("username")}
       />
       {errors.username && (
@@ -79,7 +79,7 @@ export const RegisterForm = () => {
       <input
         name="email"
         type="email"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("email")}
       />
       {errors.email && (
@@ -89,7 +89,7 @@ export const RegisterForm = () => {
       <input
         name="city"
         type="text"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("city")}
       />
       {errors.city && (
@@ -99,7 +99,7 @@ export const RegisterForm = () => {
       <select
         {...register("nativelanguage")}
         name="nativelanguage"
-        className="w-96 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500">
         <option value="">-</option>
         <option value="english">Inglés</option>
         <option value="spanish">Español</option>
@@ -113,7 +113,7 @@ export const RegisterForm = () => {
       <select
         {...register("languagetolearn")}
         name="languagetolearn"
-        className="w-96 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500">
         <option value="">-</option>
         <option value="english">Inglés</option>
         <option value="spanish">Español</option>
@@ -127,7 +127,7 @@ export const RegisterForm = () => {
       <select
         {...register("level")}
         name="level"
-        className="w-96 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500">
         <option value="-">-</option>
         <option value="begginer">Principiante</option>
         <option value="intermediate">Intermedio</option>
@@ -138,20 +138,20 @@ export const RegisterForm = () => {
       )}
       <label
         htmlFor="password"
-        className="w-96">
+        className="w-11/12">
         Contraseña
       </label>
       <input
         name="password"
         type="password"
-        className="w-96 border-solid border-2 border-slate-500"
+        className="w-11/12 border-solid border-2 border-slate-500"
         {...register("password")}
       />
       {errors.password && (
         <p className="text-xs text-red-600	mb-4">{errors.password.message}</p>
       )}
       <button
-        className="bg-red-500 w-96 rounded"
+        className="bg-red-500 w-11/12 rounded"
         type="submit"
         value="Registrarme">
         Registrarme
