@@ -17,8 +17,6 @@ export default function HomeUser() {
         Quiero ser mentor
       </Link>
       </span>
-      </div> 
-      <div className="text-3xl flex justify-start flex-col mt-12 mb-24 ml-4">
       <div >
         <h1>En vivo</h1>
         <span className="flex flex-col justify-start items-start ">
@@ -26,7 +24,7 @@ export default function HomeUser() {
             <CardEnVivo key={index} />
           ))}
         </span>
-      </div>
+      </div> 
       </div> 
     </main>
   );

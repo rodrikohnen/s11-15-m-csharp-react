@@ -34,19 +34,19 @@ export default function LoginForm() {
         className="flex flex-col items-center max-full mb-20 "
         onSubmit={handleSubmit(onSubmit)}
       >
-        <label className="text-xl font-bold">Correo</label>
         <input
+          placeholder="Correo elctronico"
           type="email"
-          className="rounded-xl border border-primary-50"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
           {...register("correo")}
         />
         {errors.correo && (
           <p className="text-pink-700">{errors.correo?.message}</p>
         )}
-        <label className="text-xl font-bold">Contraseña</label>
         <input
+          placeholder="Contraseña"
           type="password"
-          className="rounded-xl border border-primary-50"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
           {...register("contraseña")}
         />
         {errors.contraseña && (
