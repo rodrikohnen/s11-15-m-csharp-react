@@ -1,7 +1,7 @@
 export default function NavBar() {
   return (
     <div
-      className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-4
+      className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-3
     "
     >
       <h2 className=" p-2">LOGO</h2>
