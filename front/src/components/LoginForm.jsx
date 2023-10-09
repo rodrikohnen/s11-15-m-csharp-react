@@ -29,7 +29,7 @@ export default function LoginForm() {
   return (
     <span className="flex flex-col items-center justify-center">
       <form
-        className="flex flex-col items-center max-full"
+        className="flex flex-col items-center max-full mb-20"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex flex-col">
