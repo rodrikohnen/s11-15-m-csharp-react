@@ -66,7 +66,7 @@ export default function LoginForm() {
         </a>
         <button
           type="submit"
-          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-60"
+          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]"
         >
           Iniciar sesión
         </button>
