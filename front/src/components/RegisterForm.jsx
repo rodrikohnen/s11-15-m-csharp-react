@@ -1,37 +1,69 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import { email, minLength, maxLength, object, string, regex } from "valibot";
+import {
+  email,
+  minLength,
+  maxLength,
+  object,
+  string,
+  ValiError,
+} from "valibot";
 
-const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/;
-
-const RegisterSchema = object({
-  name: string([
-    minLength(2, "Tu nombre debe tener un mínimo de dos caracteres"),
-  ]),
-  lastname: string([
-    minLength(1, "Tu apellido debe tener un mínimo de un caracteres"),
-  ]),
-  username: string([
-    minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
-    maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
-  ]),
-  email: string([
-    minLength(1, "Debes ingresar un e-mail."),
-    email("Tu e-mail cuenta con un formato incorrecto."),
-  ]),
-  password: string([
-    minLength(6, "Tu password debe tener un mínimo de 8 caracteres"),
-    regex(
-      passwordRegex,
-      "Tu password debe contener un mínimo de 6 caracteres, debe incluir números y mayúsculas"
-    ),
-  ]),
-  city: string([minLength(2, "Por favor ingresa tu ciudad")]),
-  nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-  languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
-  level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
-});
+const RegisterSchema = object(
+  {
+    name: string([
+      minLength(2, "Tu nombre debe tener un mínimo de dos caracteres"),
+    ]),
+    lastname: string([
+      minLength(1, "Tu apellido debe tener un mínimo de un caracteres"),
+    ]),
+    username: string([
+      minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
+      maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
+    ]),
+    email: string([
+      minLength(1, "Debes ingresar un e-mail."),
+      email("Tu e-mail cuenta con un formato incorrecto."),
+    ]),
+    password: string([
+      minLength(1, "Ingresa tu contraseña"),
+      minLength(6, "Tu password debe contener de 6 caracteres"),
+    ]),
+    confirmpassword: string([
+      minLength(1, "Confirma tu contraseña"),
+      minLength(6, "Tu contraseña debe contener 6 caracteres"),
+    ]),
+    city: string([minLength(2, "Por favor ingresa tu ciudad")]),
+    nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
+    languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
+    level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
+  },
+  [
+    (input) => {
+      if (input.password !== input.confirmpassword) {
+        throw new ValiError([
+          {
+            reason: "string",
+            validation: "custom",
+            origin: "value",
+            message: "Las contraseñas no son iguales.",
+            input: input.confirmpassword,
+            path: [
+              {
+                schema: "object",
+                input: input.confirmpassword,
+                key: "confirmpassword",
+                value: input.confirmpassword,
+              },
+            ],
+          },
+        ]);
+      }
+      return input;
+    },
+  ]
+);
 
 export const RegisterForm = () => {
   const {
@@ -44,7 +76,8 @@ export const RegisterForm = () => {
   return (
     <form
       className="flex flex-col w-full justify-center items-center"
-      onSubmit={handleSubmit(onSubmit)}>
+      onSubmit={handleSubmit(onSubmit)}
+    >
       <label htmlFor="name">Nombre</label>
       <input
         name="name"
@@ -99,7 +132,8 @@ export const RegisterForm = () => {
       <select
         {...register("nativelanguage")}
         name="nativelanguage"
-        className="w-11/12 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500"
+      >
         <option value="">-</option>
         <option value="english">Inglés</option>
         <option value="spanish">Español</option>
@@ -113,7 +147,8 @@ export const RegisterForm = () => {
       <select
         {...register("languagetolearn")}
         name="languagetolearn"
-        className="w-11/12 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500"
+      >
         <option value="">-</option>
         <option value="english">Inglés</option>
         <option value="spanish">Español</option>
@@ -127,7 +162,8 @@ export const RegisterForm = () => {
       <select
         {...register("level")}
         name="level"
-        className="w-11/12 border-solid border-2 border-slate-500">
+        className="w-11/12 border-solid border-2 border-slate-500"
+      >
         <option value="-">-</option>
         <option value="begginer">Principiante</option>
         <option value="intermediate">Intermedio</option>
@@ -136,9 +172,7 @@ export const RegisterForm = () => {
       {errors.level && (
         <p className="text-xs text-red-600	mb-4">{errors.level.message}</p>
       )}
-      <label
-        htmlFor="password"
-        className="w-11/12">
+      <label htmlFor="password" className="w-11/12">
         Contraseña
       </label>
       <input
@@ -148,12 +182,24 @@ export const RegisterForm = () => {
         {...register("password")}
       />
       {errors.password && (
-        <p className="text-xs text-red-600	mb-4">{errors.password.message}</p>
+        <p className="text-xs text-red-600 mb-4">{errors.password.message}</p>
+      )}
+      <label className="w-11/12">Confirmar contraseña</label>
+      <input
+        type="password"
+        className="w-11/12 border-solid border-2 border-slate-500"
+        {...register("confirmpassword")}
+      />
+      {errors.confirmpassword && (
+        <p className="text-xs text-red-600 mb-4">
+          {errors.confirmpassword.message}
+        </p>
       )}
       <button
         className="bg-red-500 w-11/12 rounded"
         type="submit"
-        value="Registrarme">
+        value="Registrarme"
+      >
         Registrarme
       </button>
     </form>
