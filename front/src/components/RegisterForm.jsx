@@ -36,7 +36,7 @@ const RegisterSchema = object(
     ]),
     city: string([minLength(2, "Por favor ingresa tu ciudad")]),
     nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-    languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
+    languagetolearn: string([minLength(2, "Elije un idioma a aprender del listado")]),
     level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
   },
   [
@@ -71,16 +71,17 @@ export const RegisterForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: valibotResolver(RegisterSchema) });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <form
       className="flex flex-col w-full justify-center items-center"
       onSubmit={handleSubmit(onSubmit)}
     >
-      <label htmlFor="name">Nombre</label>
+      <label>Nombre</label>
       <input
-        name="name"
         type="text"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("name")}
@@ -88,9 +89,8 @@ export const RegisterForm = () => {
       {errors.name && (
         <p className="text-xs text-red-600	mb-4">{errors.name.message}</p>
       )}
-      <label htmlFor="lastname">Apellido</label>
+      <label>Apellido</label>
       <input
-        name="lastname"
         type="text"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("lastname")}
@@ -98,9 +98,8 @@ export const RegisterForm = () => {
       {errors.lastname && (
         <p className="text-xs text-red-600	mb-4">{errors.lastname.message}</p>
       )}
-      <label htmlFor="username">Username</label>
+      <label>Username</label>
       <input
-        name="username"
         type="text"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("username")}
@@ -108,9 +107,8 @@ export const RegisterForm = () => {
       {errors.username && (
         <p className="text-xs text-red-600	mb-4">{errors.username.message}</p>
       )}
-      <label htmlFor="email">Email</label>
+      <label>Email</label>
       <input
-        name="email"
         type="email"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("email")}
@@ -118,9 +116,8 @@ export const RegisterForm = () => {
       {errors.email && (
         <p className="text-xs text-red-600	mb-4">{errors.email.message}</p>
       )}
-      <label htmlFor="city">Ciudad</label>
+      <label>Ciudad</label>
       <input
-        name="city"
         type="text"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("city")}
@@ -128,10 +125,9 @@ export const RegisterForm = () => {
       {errors.city && (
         <p className="text-xs text-red-600	mb-4">{errors.city.message}</p>
       )}
-      <label htmlFor="nativelanguage"> Idioma Nativo</label>
+      <label> Idioma Nativo</label>
       <select
         {...register("nativelanguage")}
-        name="nativelanguage"
         className="w-11/12 border-solid border-2 border-slate-500"
       >
         <option value="">-</option>
@@ -139,14 +135,13 @@ export const RegisterForm = () => {
         <option value="spanish">Español</option>
       </select>
       {errors.nativelanguage && (
-        <p className="text-xs text-red-600	mb-4">
+        <p className="text-xs text-red-600 mb-4">
           {errors.nativelanguage.message}
         </p>
       )}
       <label htmlFor="languagetolearn">Lenguaje a aprender</label>
       <select
         {...register("languagetolearn")}
-        name="languagetolearn"
         className="w-11/12 border-solid border-2 border-slate-500"
       >
         <option value="">-</option>
@@ -154,7 +149,7 @@ export const RegisterForm = () => {
         <option value="spanish">Español</option>
       </select>
       {errors.languagetolearn && (
-        <p className="text-xs text-red-600	mb-4">
+        <p className="text-xs text-red-600 mb-4">
           {errors.languagetolearn.message}
         </p>
       )}
@@ -172,11 +167,10 @@ export const RegisterForm = () => {
       {errors.level && (
         <p className="text-xs text-red-600	mb-4">{errors.level.message}</p>
       )}
-      <label htmlFor="password" className="w-11/12">
+      <label className="w-11/12">
         Contraseña
       </label>
       <input
-        name="password"
         type="password"
         className="w-11/12 border-solid border-2 border-slate-500"
         {...register("password")}
@@ -196,9 +190,8 @@ export const RegisterForm = () => {
         </p>
       )}
       <button
-        className="bg-red-500 w-11/12 rounded"
+        className="bg-emerald-500 w-11/12 rounded"
         type="submit"
-        value="Registrarme"
       >
         Registrarme
       </button>
