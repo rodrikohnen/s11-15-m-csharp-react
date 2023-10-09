@@ -34,11 +34,15 @@ export default function LoginForm() {
   };
 
   return(
-    <sapn div className="h-screen flex items-center justify-center">
-    <form className='flex flex-col items-center border border-red-600 rounded max-w-[20rem]' onSubmit={handleSubmit(onSubmit)}>
-      <div className='font-bold'>
-        <h1>Mate Speak</h1>
-      </div>
+      <div className=''>
+        <div className='text-3xl flex justify-start flex-col'>
+          <h1>Iniciar sesión</h1>
+          <a className="text-sm text-sky-500">
+            ¿Aun no tienes cuenta?
+          </a>
+        </div>
+    <sapn  className="h-screen flex flex-col items-center justify-center">
+    <form className='flex flex-col items-center max-w-[30rem]' onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col'>
       <Controller
             name="correo"
@@ -46,8 +50,8 @@ export default function LoginForm() {
             defaultValue=""
             render={({ field }) => (
               <input
-                placeholder='Correo'
-                className='border border-red-500 w-60 m-1 rounded-md'
+                placeholder='Correo electronico'
+                className='border border-zinc-800 w-[20rem] m-3 rounded-sm'
                 {...field}
               />
             )}
@@ -60,18 +64,20 @@ export default function LoginForm() {
             render={({ field }) => (
               <input
                 placeholder='Contraseña'
-                className='border border-red-500 w-60 m-1 rounded-md'
+                className='border border-zinc-800 w-[20rem] h-[2rem] m-3 rounded-sm'
                 type="password"
                 {...field}
               />
             )}
           />
           {errors.contrasena && <p>{errors.contrasena.message}</p>}</div>
-      <button type='submit' className='border border-red-500 rounded-md w-20'>
-        Ingresar
-      </button>
       <a className="text-sm text-sky-500" href="">Olvidaste tu contraseña?</a>
     </form>
+      <button type='submit' className='border border-zinc-800 rounded-xl h-[2rem] w-[20rem]'>
+        Iniciar sesión
+      </button>
     </sapn>
+    </div>
+
   )
 }
