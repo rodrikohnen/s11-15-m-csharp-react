@@ -51,7 +51,7 @@ export default function LoginForm() {
             render={({ field }) => (
               <input
                 placeholder='Correo electronico'
-                className='border border-zinc-800 w-[20rem] m-3 rounded-sm'
+                className='border border-zinc-800 h-[2rem] w-[20rem] m-3 rounded-sm'
                 {...field}
               />
             )}
