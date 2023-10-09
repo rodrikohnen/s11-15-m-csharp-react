@@ -15,10 +15,10 @@ export default function HomeUser() {
       </Link>
       </span>
       </div> 
-      <di className="text-3xl flex justify-start flex-col mt-12 mb-24 ml-4"v>
+      <div className="text-3xl flex justify-start flex-col mt-12 mb-24 ml-4">
         <h1>En vivo</h1>
         <CardEnVivo/>
-      </di>
+      </div>
     </main>
   );
 }
