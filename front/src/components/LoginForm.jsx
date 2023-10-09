@@ -35,7 +35,7 @@ export default function LoginForm() {
 
   return(
     <span  className="flex flex-col items-center justify-center">
-    <form className='flex flex-col items-center' onSubmit={handleSubmit(onSubmit)}>
+    <form className='flex flex-col items-center max-full' onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col'>
       <Controller
             name="correo"
@@ -44,7 +44,7 @@ export default function LoginForm() {
             render={({ field }) => (
               <input
                 placeholder='Correo electronico'
-                className='border border-zinc-800 h-[2rem] w-[20rem] m-3 rounded-sm'
+                className='border border-zinc-800 h-[2.5rem] w-[20rem] m-3 rounded-sm'
                 {...field}
               />
             )}
@@ -57,7 +57,7 @@ export default function LoginForm() {
             render={({ field }) => (
               <input
                 placeholder='Contraseña'
-                className='border border-zinc-800 w-[20rem] h-[2rem] m-3 rounded-sm'
+                className='border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-sm'
                 type="password"
                 {...field}
               />
@@ -65,7 +65,7 @@ export default function LoginForm() {
           />
           {errors.contrasena && <p>{errors.contrasena.message}</p>}</div>
       <a className="text-sm text-sky-500" href="">¿Olvidaste tu contraseña?</a>
-      <button type='submit' className='border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-20'>
+      <button type='submit' className='border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-60'>
         Iniciar sesión
       </button>
     </form>
