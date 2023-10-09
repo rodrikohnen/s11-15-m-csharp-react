@@ -34,15 +34,8 @@ export default function LoginForm() {
   };
 
   return(
-      <div className=''>
-        <div className='text-3xl flex justify-start flex-col'>
-          <h1>Iniciar sesión</h1>
-          <a className="text-sm text-sky-500">
-            ¿Aun no tienes cuenta?
-          </a>
-        </div>
-    <sapn  className="h-screen flex flex-col items-center justify-center">
-    <form className='flex flex-col items-center max-w-[30rem]' onSubmit={handleSubmit(onSubmit)}>
+    <span  className="flex flex-col items-center justify-center">
+    <form className='flex flex-col items-center' onSubmit={handleSubmit(onSubmit)}>
       <div className='flex flex-col'>
       <Controller
             name="correo"
@@ -71,13 +64,11 @@ export default function LoginForm() {
             )}
           />
           {errors.contrasena && <p>{errors.contrasena.message}</p>}</div>
-      <a className="text-sm text-sky-500" href="">Olvidaste tu contraseña?</a>
-    </form>
-      <button type='submit' className='border border-zinc-800 rounded-xl h-[2rem] w-[20rem]'>
+      <a className="text-sm text-sky-500" href="">¿Olvidaste tu contraseña?</a>
+      <button type='submit' className='border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-20'>
         Iniciar sesión
       </button>
-    </sapn>
-    </div>
-
+    </form>
+    </span>
   )
 }
