@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "LZe7DnmoomyNqqzEdLspNbF+4XUmMVDvp/a/W/OAg6hFjjFSGMGksOgjEPFXGfJ6aOgidyymTUJifsvTJ/F9iQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.API\\Mate.Speak.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Tecno\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Tecno\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Tecno\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Tecno\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Tecno\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Tecno\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
