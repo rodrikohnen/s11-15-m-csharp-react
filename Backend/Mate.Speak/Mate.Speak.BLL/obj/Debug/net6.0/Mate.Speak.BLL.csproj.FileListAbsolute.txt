@@ -1,0 +1,17 @@
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.BLL.deps.json
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.BLL.dll
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.BLL.pdb
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.DAL.dll
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.Models.dll
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.DAL.pdb
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\bin\Debug\net6.0\Mate.Speak.Models.pdb
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.csproj.AssemblyReference.cache
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.AssemblyInfoInputs.cache
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.AssemblyInfo.cs
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.csproj.CoreCompileInputs.cache
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.csproj.CopyComplete
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.dll
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\refint\Mate.Speak.BLL.dll
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\Mate.Speak.BLL.pdb
+C:\Users\Tecno\Documents\GitHub\s11-15-m-csharp-react-dev-back\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\obj\Debug\net6.0\ref\Mate.Speak.BLL.dll

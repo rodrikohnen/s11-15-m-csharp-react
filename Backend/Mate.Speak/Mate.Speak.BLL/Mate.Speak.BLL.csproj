@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mate.Speak.DAL\Mate.Speak.DAL.csproj" />
+    <ProjectReference Include="..\Mate.Speak.Models\Mate.Speak.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

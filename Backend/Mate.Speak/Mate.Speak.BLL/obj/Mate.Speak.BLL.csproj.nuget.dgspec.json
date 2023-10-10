@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj": {}
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj": {
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj",
         "projectName": "Mate.Speak.BLL",
-        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj",
+        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.BLL\\Mate.Speak.BLL.csproj",
         "packagesPath": "C:\\Users\\Tecno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.BLL\\obj\\",
+        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,11 +34,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj": {
-                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj"
+              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj": {
+                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj"
               },
-              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
-                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj"
+              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
+                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj"
               }
             }
           }
@@ -72,14 +72,14 @@
         }
       }
     },
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj": {
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj",
         "projectName": "Mate.Speak.DAL",
-        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj",
+        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\Mate.Speak.DAL.csproj",
         "packagesPath": "C:\\Users\\Tecno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.DAL\\obj\\",
+        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -102,8 +102,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
-                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj"
+              "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
+                "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj"
               }
             }
           }
@@ -117,6 +117,18 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -137,14 +149,14 @@
         }
       }
     },
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
         "projectName": "Mate.Speak.Models",
-        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
+        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
         "packagesPath": "C:\\Users\\Tecno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\obj\\",
+        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

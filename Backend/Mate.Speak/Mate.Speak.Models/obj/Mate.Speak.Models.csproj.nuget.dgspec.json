@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {}
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
+    "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
         "projectName": "Mate.Speak.Models",
-        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
+        "projectPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
         "packagesPath": "C:\\Users\\Tecno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\Backend\\Mate.Speak\\Mate.Speak.Models\\obj\\",
+        "outputPath": "C:\\Users\\Tecno\\Documents\\GitHub\\s11-15-m-csharp-react-dev-back\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
