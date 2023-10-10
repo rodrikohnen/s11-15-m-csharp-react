@@ -3,13 +3,21 @@ import avatarwhite from "../assets/icons/avatarwhite.png";
 import { ArrowLeft } from "./svg/Svgs";
 import { UserRating } from "./UserRating";
 
-export const UserCard = ({ users }) => {
+export const UserCard = ({ users, filterType }) => {
+  let filteredUsers = users;
+
+  if (filterType === "populares") {
+    filteredUsers = users.filter((user) => user.rating >= 4);
+    filteredUsers.sort((a, b) => b.rating - a.rating);
+  } else if (filterType === "cerca") {
+    filteredUsers = users.filter((user) => user.country === "Argentina");
+  }
   return (
     <>
-      {users.map((user) => (
+      {filteredUsers.map((user) => (
         <article
           key={user.id}
-          className="w-full bg-[lightgrey] flex gap-4 rounded-md p-4">
+          className="w-full bg-gray-200 flex gap-4 rounded-md p-4">
           <aside className="bg-white rounded-full flex items-center p-4">
             <Image
               src={avatarwhite}
