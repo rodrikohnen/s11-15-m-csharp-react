@@ -18,10 +18,6 @@ const RegisterSchema = object(
     lastname: string([
       minLength(1, "Tu apellido debe tener un mínimo de un caracteres"),
     ]),
-    username: string([
-      minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
-      maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
-    ]),
     email: string([
       minLength(1, "Debes ingresar un e-mail."),
       email("Tu e-mail cuenta con un formato incorrecto."),
@@ -30,31 +26,27 @@ const RegisterSchema = object(
       minLength(1, "Ingresa tu contraseña"),
       minLength(6, "Tu password debe contener de 6 caracteres"),
     ]),
-    confirmpassword: string([
+    /*     confirmpassword: string([
       minLength(1, "Confirma tu contraseña"),
       minLength(6, "Tu contraseña debe contener 6 caracteres"),
-    ]),
-    city: string([minLength(2, "Por favor ingresa tu ciudad")]),
-    nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-    languagetolearn: string([minLength(2, "Elije un idioma a aprender del listado")]),
-    level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
-  },
-  [
+    ]), */
+  }
+  /*  [
     (input) => {
-      if (input.password !== input.confirmpassword) {
+      if (input.confirmpassword !== input.password) {
         throw new ValiError([
           {
             reason: "string",
             validation: "custom",
             origin: "value",
             message: "Las contraseñas no son iguales.",
-            input: input.confirmpassword,
+            input: input.password,
             path: [
               {
                 schema: "object",
-                input: input.confirmpassword,
-                key: "confirmpassword",
-                value: input.confirmpassword,
+                input: input.password,
+                key: "password",
+                value: input.password,
               },
             ],
           },
@@ -62,7 +54,7 @@ const RegisterSchema = object(
       }
       return input;
     },
-  ]
+  ] */
 );
 export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
   const {
@@ -73,7 +65,7 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
 
   const onSubmit = (data) => {
     setUser({
-      ...data,
+      ...user,
       name: data.name,
       lastname: data.lastname,
       email: data.email,
@@ -143,20 +135,17 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
               <p className="errormsj">{errors.password.message}</p>
             )}
           </div>
-          {/*       <input
-        placeholder="Confirmar contraseña"
-        name="confirmpassword"
+          {/*           <input
+            placeholder="Confirmar contraseña"
+            name="confirmpassword"
+            type="password"
+            className="input"
+            {...register("password")}
+          />
 
-        type="password"
-        className="input"
-        {...register("password")}
-      />
-
-      {errors.confirmPaswordpassword && (
-        <p className="errormsj">
-          {errors.confirmPaswordpassword.message}
-        </p>
-      )} */}
+          {errors.confirmPaswordpassword && (
+            <p className="errormsj">{errors.confirmPaswordpassword.message}</p>
+          )} */}
           <input
             className="registerBtn"
             type="submit"
