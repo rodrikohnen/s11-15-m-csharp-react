@@ -2,12 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+@layer components {
   .mainContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
+    @apply flex flex-col justify-start items-center min-h-screen w-full p-4;
+  }
+
+  .input {
+    @apply w-full border-solid border-2 border-slate-500 h-11 rounded p-4 focus:border-slate-800 outline-none;
+  }
+
+  .errormsj {
+    @apply text-slate-400 text-xs;
+  }
+
+  .select {
+    @apply w-full px-3 py-1 border-solid border-2 border-slate-500 h-11 rounded  focus:border-slate-800 outline-none;
+  }
+
+  .registerBtn {
+    @apply w-full rounded-full bg-slate-500 text-white py-2 px-4 cursor-pointer;
+  }
+
+  .registerBtn:disabled {
+    @apply bg-red-100;
   }
 }
