@@ -1,5 +1,5 @@
-/* import CardEnVivo from "@/components/CardEnVIvo";
- */ import Link from "next/link";
+import CardEnVivo from "@/components/CardEnVIvo";
+import Link from "next/link";
 
 export default function HomeUser() {
   const cardsData = [1, 2, 3, 4];
@@ -21,11 +21,11 @@ export default function HomeUser() {
           </Link>
         </span>
         <h1>En vivo</h1>
-        {/*         <span className="flex flex-col justify-start items-start ">
+        <span className="flex flex-col justify-start items-start ">
           {cardsData.map((item, index) => (
             <CardEnVivo key={index} />
           ))}
-        </span> */}
+        </span>
       </div>
     </main>
   );
