@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NavBar() {
   return (
-    <header className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-3 w-[24.5rem] w-full">
+    <header className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-3 w-full">
       <Link href="/">
         <h2 className=" p-2">LOGO</h2>
       </Link>
