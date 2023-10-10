@@ -1,4 +1,7 @@
+"use client";
 import { UserCard } from "@/components/UserCard";
+import { UserFilterBar } from "@/components/UserFilterBar";
+import { useState } from "react";
 
 const users = [
   {
@@ -7,8 +10,8 @@ const users = [
     lastname: "Smith",
     country: "USA",
     rating: 4,
-    nativelanguage: "English",
-    languagetolearn: "Spanish",
+    nativelanguage: "EN",
+    languagetolearn: "ES",
   },
   {
     id: 2,
@@ -16,8 +19,8 @@ const users = [
     lastname: "Johnson",
     country: "Canada",
     rating: 3,
-    nativelanguage: "Spanish",
-    languagetolearn: "English",
+    nativelanguage: "ES",
+    languagetolearn: "EN",
   },
   {
     id: 3,
@@ -25,8 +28,8 @@ const users = [
     lastname: "Brown",
     country: "Mexico",
     rating: 5,
-    nativelanguage: "Portuguese",
-    languagetolearn: "English",
+    nativelanguage: "PR",
+    languagetolearn: "EN",
   },
   {
     id: 4,
@@ -34,8 +37,8 @@ const users = [
     lastname: "Lee",
     country: "Spain",
     rating: 2,
-    nativelanguage: "English",
-    languagetolearn: "Portuguese",
+    nativelanguage: "EN",
+    languagetolearn: "PR",
   },
   {
     id: 5,
@@ -43,8 +46,8 @@ const users = [
     lastname: "Garcia",
     country: "Brazil",
     rating: 1,
-    nativelanguage: "Portuguese",
-    languagetolearn: "Spanish",
+    nativelanguage: "PR",
+    languagetolearn: "ES",
   },
   {
     id: 6,
@@ -52,8 +55,8 @@ const users = [
     lastname: "Martinez",
     country: "Argentina",
     rating: 4,
-    nativelanguage: "Spanish",
-    languagetolearn: "Portuguese",
+    nativelanguage: "ES",
+    languagetolearn: "PR",
   },
   {
     id: 7,
@@ -61,8 +64,8 @@ const users = [
     lastname: "Chen",
     country: "Portugal",
     rating: 5,
-    nativelanguage: "English",
-    languagetolearn: "Spanish",
+    nativelanguage: "EN",
+    languagetolearn: "ES",
   },
   {
     id: 8,
@@ -70,8 +73,8 @@ const users = [
     lastname: "Lopez",
     country: "France",
     rating: 3,
-    nativelanguage: "Portuguese",
-    languagetolearn: "English",
+    nativelanguage: "PR",
+    languagetolearn: "EN",
   },
   {
     id: 9,
@@ -79,8 +82,8 @@ const users = [
     lastname: "Wang",
     country: "Germany",
     rating: 2,
-    nativelanguage: "English",
-    languagetolearn: "Portuguese",
+    nativelanguage: "EN",
+    languagetolearn: "PR",
   },
   {
     id: 10,
@@ -88,16 +91,27 @@ const users = [
     lastname: "Taylor",
     country: "Italy",
     rating: 4,
-    nativelanguage: "Spanish",
-    languagetolearn: "English",
+    nativelanguage: "ES",
+    languagetolearn: "EN",
   },
 ];
 
 const UserPage = () => {
+  const [filterType, setFilterType] = useState("general");
+
+  console.log(filterType);
+
   return (
-    <main className="mainContainer gap-2">
-      <UserCard users={users} />
-    </main>
+    <>
+      <h1 className="text-lg font-normal self-start p-4">Usuarios</h1>
+      <UserFilterBar setFilterType={setFilterType} />
+      <main className="mainContainer gap-2">
+        <UserCard
+          users={users}
+          filterType={filterType}
+        />
+      </main>
+    </>
   );
 };
 
