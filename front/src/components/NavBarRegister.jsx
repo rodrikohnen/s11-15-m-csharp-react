@@ -1,17 +1,16 @@
-"use client"; 
+"use client";
 
-import Link from "next/link"; 
+import Link from "next/link";
 import {
   MenuRegister,
   UserRegister,
   Salas,
   MisSalas,
   Usuarios,
-} from "./svg/Svgs"; 
-import { useState } from "react"; 
+} from "./svg/Svgs";
+import { useState } from "react";
 
 export default function NavBar() {
-
   // Definición de estados iniciales utilizando el hook useState
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar la apertura/cierre del menú
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
@@ -47,13 +46,13 @@ export default function NavBar() {
                   className={`px-10 py-2 cursor-pointer flex items-center ${
                     option === selectedOption ? "hover:bg-gray-400" : ""
                   }`}
-                  onClick={() => selectOption(option)}
-                >
+                  onClick={() => selectOption(option)}>
                   {/* Renderizar iconos de acuerdo a la opción seleccionada */}
                   {option === "Salas" && <Salas />}
                   {option === "Mis Salas" && <MisSalas />}
                   {option === "Usuarios" && <Usuarios />}
-                  <span className="ml-4">{option}</span> {/* Renderizar el nombre de la opción */}
+                  <span className="ml-4">{option}</span>{" "}
+                  {/* Renderizar el nombre de la opción */}
                 </li>
               ))}
             </ul>
@@ -71,8 +70,3 @@ export default function NavBar() {
     </header>
   );
 }
-
-
-
-
-
