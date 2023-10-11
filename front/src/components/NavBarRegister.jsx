@@ -9,8 +9,13 @@ import {
   Usuarios,
 } from "./svg/Svgs";
 import { useState } from "react";
+import { useAuthStore } from "@/context/authUser";
+import { useRouter } from "next/navigation";
 
-export default function NavBar() {
+export default function NavBarRegister() {
+  const logout = useAuthStore((state) => state.isLogout);
+  const router = useRouter();
+
   // Definición de estados iniciales utilizando el hook useState
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar la apertura/cierre del menú
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
@@ -39,7 +44,7 @@ export default function NavBar() {
           </button>
           {menuOpen && (
             // Renderizar el menú desplegable si menuOpen es true
-            <ul className="absolute left-0 mt-2 bg-white border border-gray-300 rounded shadow">
+            <ul className="absolute left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
               {menuOptions.map((option, index) => (
                 <li
                   key={index}
@@ -51,7 +56,7 @@ export default function NavBar() {
                   {option === "Salas" && <Salas />}
                   {option === "Mis Salas" && <MisSalas />}
                   {option === "Usuarios" && <Usuarios />}
-                  <span className="ml-4">{option}</span>{" "}
+                  <span className="ml-4">{option}</span>
                   {/* Renderizar el nombre de la opción */}
                 </li>
               ))}
@@ -62,10 +67,17 @@ export default function NavBar() {
       <Link href="/navregister">
         <h2 className="p-2">LOGO</h2> {/* Renderizar el enlace de "LOGO" */}
       </Link>
-      <div className="flex flex-row justify-around">
+      <div className="flex flex-col justify-around">
         <span>
           <UserRegister /> {/* Renderizar el icono de usuario */}
         </span>
+        <button
+          onClick={() => {
+            logout();
+            router.push("/");
+          }}>
+          Logout
+        </button>
       </div>
     </header>
   );
