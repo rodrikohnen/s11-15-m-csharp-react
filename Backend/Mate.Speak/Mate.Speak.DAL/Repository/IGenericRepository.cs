@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.DAL.Repository
 {
-    public interface IGeneryRepository<TEntityModel> where TEntityModel : class
+    public interface IGenericRepository<TEntityModel> where TEntityModel : class
     {
         Task<bool> Insertar(TEntityModel modelo);
 
@@ -14,8 +14,9 @@ namespace Mate.Speak.DAL.Repository
 
         Task<bool> Eliminar(int id);
 
-        Task<TEntityModel> Obtener(int id); 
+        Task<TEntityModel> Obtener(int id);
 
         Task<IQueryable<TEntityModel>> ObtenerTodos();
+
     }
 }
