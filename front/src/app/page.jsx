@@ -1,4 +1,7 @@
 import CardChoices from "@/components/CardsHome/CardChoices";
+import TravelInfo from "@/components/SectionTravel/Travelnfo";
+import About from "@/components/CardsHome/CardAbout";
+
 import { CircleHome } from "@/components/svg/Svgs";
 
 export default function Home() {
@@ -27,6 +30,12 @@ export default function Home() {
           <div>
             <CardChoices />
           </div>
+        </section>
+        <section className="flex justify-center p-[1rem]">
+          <TravelInfo />
+        </section>
+        <section>
+          <About />
         </section>
       </main>
     </>
