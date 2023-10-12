@@ -26,7 +26,7 @@ namespace Mate.Speak.DAL.Repository
 
         public async Task<bool> Eliminar(int id)
         {
-            Usuario modelo = _dbcontext.Usuarios.First(c => c.IdRol == id);
+            Usuario modelo = _dbcontext.Usuarios.First(c => c.IdUsuario == id);
             _dbcontext.Usuarios.Remove(modelo);
             await _dbcontext.SaveChangesAsync();
             return true;

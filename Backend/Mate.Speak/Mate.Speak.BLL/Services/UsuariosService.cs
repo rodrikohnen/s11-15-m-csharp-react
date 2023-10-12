@@ -21,9 +21,9 @@ namespace Mate.Speak.BLL.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> Actualizar(Usuario modelo)
+        public async Task<bool> Actualizar(Usuario modelo)
         {
-            throw new NotImplementedException();
+            return await _UsuarioRepo.Actualizar(modelo);
         }
 
         public Task<Usuario> Actualizarpassword(int id)
@@ -36,19 +36,19 @@ namespace Mate.Speak.BLL.Services
             throw new NotImplementedException();
         }
 
-        public Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            return await _UsuarioRepo.Eliminar(id);
         }
 
-        public Task<bool> Insertar(Usuario modelo)
+        public async Task<bool> Insertar(Usuario modelo)
         {
-            throw new NotImplementedException();
+            return await _UsuarioRepo.Insertar(modelo);
         }
 
-        public Task<IQueryable<Usuario>> ObtenerTodos()
+        public async Task<IQueryable<Usuario>> ObtenerTodos()
         {
-            throw new NotImplementedException();
+            return await _UsuarioRepo.ObtenerTodos();
         }
 
         public Task<Usuario> Obtenerxusuario(string usuario)
@@ -61,9 +61,9 @@ namespace Mate.Speak.BLL.Services
             throw new NotImplementedException();
         }
 
-        public Task<Usuario> Obtnener(int id)
+        public async Task<Usuario> Obtnener(int id)
         {
-            throw new NotImplementedException();
+            return await _UsuarioRepo.Obtener(id);
         }
     }
 }

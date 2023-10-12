@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Mate.Speak.DAL.DataContext;
-
+using Mate.Speak.Models;
+using Mate.Speak.DAL.Repository;
+using Mate.Speak.BLL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,12 @@ builder.Services.AddDbContext<mateContext>(opciones =>
 {
     opciones.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL"));
 });
+//Inyeccion de dependencias
+builder.Services.AddScoped<IGenericRepository<Usuario>, UsuarioRepository>();
+builder.Services.AddScoped<IUsuariosService, UsuariosService>();
+builder.Services.AddScoped<IGenericRepository<Dato>, DatosRepository>();
+builder.Services.AddScoped<IDatosService, DatosService>();
+//
 
 var app = builder.Build();
 

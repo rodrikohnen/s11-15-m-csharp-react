@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Mate.Speak.BLL\Mate.Speak.BLL.csproj" />
     <ProjectReference Include="..\Mate.Speak.Models\Mate.Speak.Models.csproj" />
   </ItemGroup>
