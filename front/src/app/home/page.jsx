@@ -1,5 +1,4 @@
 import CardEnVivo from "@/components/CardEnVIvo";
-import CardMisGrupos from "@/components/CardMisGrupos";
 import Link from "next/link";
 
 export default function HomeUser() {
@@ -26,7 +25,6 @@ export default function HomeUser() {
         </span>
         <h1>Mis grupos</h1>
         <span className="flex flex-col justify-start items-start ">
-          <CardMisGrupos/>
         </span>
         <h1>En vivo</h1>
         <span className="flex flex-col justify-start items-start ">
