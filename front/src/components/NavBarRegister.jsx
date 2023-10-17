@@ -64,13 +64,13 @@ export default function NavBarRegister() {
           )}
         </div>
       </span>
-      <Link href="/navregister">
+      <Link href="/">
         <h2 className="p-2">LOGO</h2> {/* Renderizar el enlace de "LOGO" */}
       </Link>
       <div className="flex flex-col justify-around">
-        <span>
+        <Link href="/home">
           <UserRegister /> {/* Renderizar el icono de usuario */}
-        </span>
+        </Link>
         <button
           onClick={() => {
             logout();
