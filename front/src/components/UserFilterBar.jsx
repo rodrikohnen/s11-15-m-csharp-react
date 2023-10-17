@@ -1,11 +1,10 @@
 export const UserFilterBar = ({ setFilterType }) => {
   const handleRadioClick = (e) => {
-    e.stopPropagation();
     setFilterType(e.target.value);
   };
 
   return (
-    <section className="h-12 bg-gray-400 w-full m-0">
+    <section className="h-12 bg-gray-400 w-full m-0 mt-4">
       <form className="flex items-center h-12">
         <div className="flex items-center justify-center w-full">
           <label
