@@ -3,9 +3,11 @@ using Mate.Speak.Models.VModels;
 using Mate.Speak.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Cors;
 
 namespace Mate.Speak.API.Controllers
 {
+    [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
