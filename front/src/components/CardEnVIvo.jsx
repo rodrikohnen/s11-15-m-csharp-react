@@ -10,7 +10,7 @@ export default function CardEnVivo() {
     >
       <div className="m-1">
         <div className="flex justify-between">
-        <h1 className="mb-2 font-bold">Verbo to be</h1>
+        <h1 className="mb-2 font-bold">Conversación laboral</h1>
           <Medalla/>
         </div>
         <div className="flex flex-row">
