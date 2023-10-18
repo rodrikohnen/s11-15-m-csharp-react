@@ -84,18 +84,27 @@ export default function NavBarRegister() {
                       <Salas />
                     </Link>
                   )}
-                  {option === "Usuarios" && <Usuarios />}
+
+                  {option === "Usuarios" && (
+                    <Link href="/user">
+                    <Usuarios />
+                  </Link>
+                  )}
+
                   {option === "Mis Salas" && (
                     <Link href="/rooms">
                       <MisSalas />
                     </Link>
                   )}
+
                   {option === "Quiero ser Tutor" && (
                     <Link href="/tutor">
                       <Tutor />
                     </Link>
                   )}
+
                   {option === "Ajustes" && <Ajustes />}
+                  
                   <span className="ml-4">{option}</span>
                 </li>
               ))}
