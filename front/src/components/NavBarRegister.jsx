@@ -48,6 +48,7 @@ export default function NavBarRegister() {
               {menuOptions.map((option, index) => (
                 <li
                   key={index}
+<<<<<<< HEAD
                   className={`px-10 py-2 cursor-pointer flex items-center ${
                     option === selectedOption ? "hover:bg-gray-400" : ""
                   }`}
@@ -56,6 +57,38 @@ export default function NavBarRegister() {
                   {option === "Salas" && <Salas />}
                   {option === "Mis Salas" && <MisSalas />}
                   {option === "Usuarios" && <Usuarios />}
+=======
+                  className="px-5 py-2 cursor-pointer flex items-left hover:bg-gray-400"
+                
+                  onClick={() => selectOption(option)}
+                >
+                  {option === "Salas" && (
+                    <Link href="/rooms">
+                      <Salas />
+                    </Link>
+                  )}
+
+                  {option === "Usuarios" && (
+                    <Link href="/user">
+                    <Usuarios />
+                  </Link>
+                  )}
+
+                  {option === "Mis Salas" && (
+                    <Link href="/rooms">
+                      <MisSalas />
+                    </Link>
+                  )}
+
+                  {option === "Quiero ser Tutor" && (
+                    <Link href="/tutor">
+                      <Tutor />
+                    </Link>
+                  )}
+
+                  {option === "Ajustes" && <Ajustes />}
+                  
+>>>>>>> a2d0d73 (add:change rooms 1)
                   <span className="ml-4">{option}</span>
                   {/* Renderizar el nombre de la opción */}
                 </li>
