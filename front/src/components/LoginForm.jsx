@@ -1,77 +1,69 @@
-"use client"
-
+"use client";
 import { valibotResolver } from "@hookform/resolvers/valibot";
-import {
-  object,
-  string,
-  minLength,
-  maxLength,
-  email,
-} from "valibot";
-import {
-  useForm,
-  Controller
-} from "react-hook-form";
+import { object, string, minLength, maxLength, email } from "valibot";
+import { useForm } from "react-hook-form";
+import { useAuthStore } from "@/context/authUser";
+import { useRouter } from "next/navigation";
 
 const LoginSchema = object({
-  correo: string('Your email must be a string.', [
-    minLength(1, 'Please enter your email.'),
-    email('The email address is badly formatted.'),
+  correo: string("Debes ingresar caracteres validos.", [
+    minLength(1, "Ingresa tu email."),
+    email("The email address is badly formatted."),
   ]),
-  contrasena: string('Your password must be a string.', [
-    minLength(8, 'Please enter your password.'),
-    maxLength(15, 'Your password must have 8 characters or more.'),
+  contraseña: string("Debes ingresar caracteres validos.", [
+    minLength(1, "Ingresa tu contraseña"),
+    minLength(8, "Tu contraseña debe contener 8 caracteres."),
+    maxLength(15, "Tu contraseña no puede contener mas de 15 caracteres."),
   ]),
 });
 
 export default function LoginForm() {
-  const { control, handleSubmit, formState: { errors, isSubmitted  } } = useForm(
-    {resolver: valibotResolver(LoginSchema),}
-  );
+  const router = useRouter();
+  const login = useAuthStore((state) => state.isLogin);
 
-  const onSubmit = (data) => {
-    console.log("Formulario enviado:", data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: valibotResolver(LoginSchema) });
+
+  const onSubmit = (e) => {
+    /*  e.preventDefault(); */
+    login();
+    router.push("/user");
+    console.log("Formulario enviado:", e);
   };
 
-  return(
-    <sapn div className="h-screen flex items-center justify-center">
-    <form className='flex flex-col items-center border border-red-600 rounded max-w-[20rem]' onSubmit={handleSubmit(onSubmit)}>
-      <div className='font-bold'>
-        <h1>Mate Speak</h1>
-      </div>
-      <div className='flex flex-col'>
-      <Controller
-            name="correo"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <input
-                placeholder='Correo'
-                className='border border-red-500 w-60 m-1 rounded-md'
-                {...field}
-              />
-            )}
-          />
-          {errors.correo && <p>{errors.correo.message}</p>}
-          <Controller
-            name="contrasena"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <input
-                placeholder='Contraseña'
-                className='border border-red-500 w-60 m-1 rounded-md'
-                type="password"
-                {...field}
-              />
-            )}
-          />
-          {errors.contrasena && <p>{errors.contrasena.message}</p>}</div>
-      <button type='submit' className='border border-red-500 rounded-md w-20'>
-        Ingresar
-      </button>
-      <a className="text-sm text-sky-500" href="">Olvidaste tu contraseña?</a>
-    </form>
-    </sapn>
-  )
+  return (
+    <span className="flex flex-col items-center justify-center ">
+      <form
+        className="flex flex-col items-center max-full mb-20 "
+        onSubmit={handleSubmit(onSubmit)}>
+        <input
+          placeholder="Correo elctronico"
+          type="email"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          {...register("correo")}
+        />
+        {errors.correo && (
+          <p className="text-pink-700">{errors.correo?.message}</p>
+        )}
+        <input
+          placeholder="Contraseña"
+          type="password"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          {...register("contraseña")}
+        />
+        {errors.contraseña && (
+          <p className="text-pink-700">{errors.contraseña?.message}</p>
+        )}
+        <a className="text-sm text-sky-500">¿Olvidaste tu contraseña?</a>
+        <button
+          type="submit"
+          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]">
+          Iniciar sesión
+        </button>
+      </form>
+    </span>
+  );
 }

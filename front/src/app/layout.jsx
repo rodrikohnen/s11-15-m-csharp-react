@@ -1,17 +1,27 @@
+"use client";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
+import Footer from "../components/Footer";
+import NavBar from "@/components/NavBar";
+import { useAuthStore } from "@/context/authUser";
+import NavBarRegister from "@/components/NavBarRegister";
+const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata = {
+/* export const metadata = {
   title: "Mate Speak",
   description: "Aplicación para practicar conversación en otros idiomas.",
 };
-
+ */
 export default function RootLayout({ children }) {
+  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>
+        {isAuthenticated ? <NavBarRegister /> : <NavBar />}
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
