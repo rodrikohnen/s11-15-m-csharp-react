@@ -16,7 +16,7 @@ export default function Home() {
             <p className="sm:text-xl text-lg text-primary-50">
               Comienza hablar el idioma que amas de manera efectiva.
             </p>
-            <div className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-primary-50 rounded-full">
+            <div className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full">
               Unknown
             </div>
           </div>
