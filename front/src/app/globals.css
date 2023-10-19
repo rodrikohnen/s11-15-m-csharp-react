@@ -36,4 +36,15 @@
     -moz-appearance: none;
     --tw-border-opacity: 1;
   }
+
+  .ratingRadioBtn {
+    @apply z-10 w-7 h-7 absolute;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    --tw-border-opacity: 1;
+  }
+
+  .checkboxRating {
+    @apply flex gap-3 text-sm;
+  }
 }

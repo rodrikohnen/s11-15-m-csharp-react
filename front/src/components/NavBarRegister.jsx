@@ -147,4 +147,8 @@ export default function NavBarRegister() {
       </div>
     </header>
   );
+
 }
+
+
+
