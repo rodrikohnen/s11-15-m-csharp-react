@@ -1,61 +1,24 @@
 import { useForm } from "react-hook-form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 
-import {
-  email,
-  minLength,
-  maxLength,
-  object,
-  string,
-  ValiError,
-} from "valibot";
+import { email, minLength, object, string } from "valibot";
 
-const RegisterSchema = object(
-  {
-    name: string([
-      minLength(2, "Tu nombre debe tener un mínimo de dos caracteres"),
-    ]),
-    lastname: string([
-      minLength(1, "Tu apellido debe tener un mínimo de un caracteres"),
-    ]),
-    email: string([
-      minLength(1, "Debes ingresar un e-mail."),
-      email("Tu e-mail cuenta con un formato incorrecto."),
-    ]),
-    password: string([
-      minLength(1, "Ingresa tu contraseña"),
-      minLength(6, "Tu password debe contener de 6 caracteres"),
-    ]),
-    /*     confirmpassword: string([
-      minLength(1, "Confirma tu contraseña"),
-      minLength(6, "Tu contraseña debe contener 6 caracteres"),
-    ]), */
-  }
-  /*  [
-    (input) => {
-      if (input.confirmpassword !== input.password) {
-        throw new ValiError([
-          {
-            reason: "string",
-            validation: "custom",
-            origin: "value",
-            message: "Las contraseñas no son iguales.",
-            input: input.password,
-            path: [
-              {
-                schema: "object",
-                input: input.password,
-                key: "password",
-                value: input.password,
-              },
-            ],
-          },
-        ]);
-      }
-      return input;
-    },
-  ] */
-);
+const RegisterSchema = object({
+  name: string([
+    minLength(2, "Tu nombre debe tener un mínimo de dos caracteres"),
+  ]),
+  lastname: string([
+    minLength(1, "Tu apellido debe tener un mínimo de un caracteres"),
+  ]),
+  email: string([
+    minLength(1, "Debes ingresar un e-mail."),
+    email("Tu e-mail cuenta con un formato incorrecto."),
+  ]),
+  password: string([
+    minLength(1, "Ingresa tu contraseña"),
+    minLength(6, "Tu password debe contener de 6 caracteres"),
+  ]),
+});
 export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
   const {
     register,
@@ -135,17 +98,6 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
               <p className="errormsj">{errors.password.message}</p>
             )}
           </div>
-          {/*           <input
-            placeholder="Confirmar contraseña"
-            name="confirmpassword"
-            type="password"
-            className="input"
-            {...register("password")}
-          />
-
-          {errors.confirmPaswordpassword && (
-            <p className="errormsj">{errors.confirmPaswordpassword.message}</p>
-          )} */}
           <input
             className="registerBtn"
             type="submit"
