@@ -42,7 +42,7 @@ export default function LoginForm() {
         <input
           placeholder="Correo elctronico"
           type="email"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
           {...register("correo")}
         />
         {errors.correo && (
@@ -51,7 +51,7 @@ export default function LoginForm() {
         <input
           placeholder="Contraseña"
           type="password"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
           {...register("contraseña")}
         />
         {errors.contraseña && (
