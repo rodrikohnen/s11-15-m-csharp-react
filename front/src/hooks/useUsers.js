@@ -1,8 +1,8 @@
 import { useMemo, useRef, useState } from "react";
-import { GRUPO_URL } from "@/libs/routes";
+import { API_URL, GRUPO_URL } from "@/libs/routes";
 import noResults from "../../public/no-results.json";
 
-const API_URL = "http://www.matespeakapi.somee.com";
+
 
 export function useUsers({ saveUsers, sort }) {
   const [getAllusers, setAllUsers] = useState([]);
