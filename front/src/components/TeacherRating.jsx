@@ -3,21 +3,20 @@ import Image from "next/image";
 import starblack from "../assets/icons/starblack.png";
 import starwhite from "../assets/icons/starwhite.png";
 import { useState } from "react";
-import { RatingAppForm } from "./RatingAppForm";
+import { RatingTeacherForm } from "./RatingTeacherForm";
 import { useRouter } from "next/navigation";
 
-export const RoomRating = () => {
+export const TeacherRating = () => {
   const router = useRouter();
 
   const [ratingIsSet, setRatingIsSet] = useState(false);
   const [isRatingLocked, setIsRatingLocked] = useState(false);
   const [formValues, setFormValues] = useState({
     rating: 0,
-    comprension: false,
-    nivel: false,
-    recursos: false,
-    duracion: false,
-    temario: false,
+    comunicacion: false,
+    interaccion: false,
+    retroalimentacion: false,
+    respuesta: false,
     otroCheck: false,
     otroValue: "",
   });
@@ -99,7 +98,7 @@ export const RoomRating = () => {
         </aside>
         <article>
           {ratingIsSet && (
-            <RatingAppForm
+            <RatingTeacherForm
               formValues={formValues}
               setFormValues={setFormValues}
             />
