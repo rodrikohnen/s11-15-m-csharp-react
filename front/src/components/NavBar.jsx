@@ -13,7 +13,7 @@ export default function NavBar() {
           Registrarme
         </Link>
         <Link
-          className="hover:bg-gray-800 rounded-full text-white	text-sm	 px-4 py-2 bg-gray-600 min-w-fit sm:text-base "
+          className="hover:bg-gray-800 rounded-full text-white	text-sm	 px-4 py-2 bg-secondary min-w-fit sm:text-base "
           href="/login">
           Iniciar sesión
         </Link>

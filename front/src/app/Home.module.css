@@ -19,7 +19,7 @@
   }
   
   .divButton {
-    @apply flex items-center justify-center shadow-xl text-white w-36 h-10 bg-primary-50 rounded-full;
+    @apply flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full;
   }
   
   .titleChoice {
