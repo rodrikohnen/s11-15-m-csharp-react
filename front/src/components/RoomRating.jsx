@@ -87,6 +87,7 @@ export const RoomRating = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit", formValues);
+    router.push("/teacherratings");
   };
 
   return (

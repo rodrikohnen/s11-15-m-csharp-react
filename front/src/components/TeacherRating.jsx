@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 export const TeacherRating = () => {
   const router = useRouter();
-
+  const [view, setView] = useState(1);
   const [ratingIsSet, setRatingIsSet] = useState(false);
   const [isRatingLocked, setIsRatingLocked] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -19,6 +19,7 @@ export const TeacherRating = () => {
     respuesta: false,
     otroCheck: false,
     otroValue: "",
+    comentario: "",
   });
 
   const handleChange = (index) => {
@@ -85,6 +86,7 @@ export const TeacherRating = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    router.push("/thanksratings");
     console.log("submit", formValues);
   };
 
@@ -93,14 +95,18 @@ export const TeacherRating = () => {
       <form
         className="flex mt-4 justify-center flex-col items-center"
         onSubmit={handleSubmit}>
-        <aside className="flex gap-8 mt-4 justify-center">
-          {renderImages()}
-        </aside>
+        {view === 1 && (
+          <aside className="flex gap-8 mt-4 justify-center">
+            {renderImages()}
+          </aside>
+        )}
         <article>
           {ratingIsSet && (
             <RatingTeacherForm
               formValues={formValues}
               setFormValues={setFormValues}
+              view={view}
+              setView={setView}
             />
           )}
         </article>
