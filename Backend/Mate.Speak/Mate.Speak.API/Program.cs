@@ -33,6 +33,8 @@ builder.Services.AddScoped<IGenericRepository<Usuario>, UsuarioRepository>();
 builder.Services.AddScoped<IUsuariosService, UsuariosService>();
 builder.Services.AddScoped<IGenericRepository<Dato>, DatosRepository>();
 builder.Services.AddScoped<IDatosService, DatosService>();
+builder.Services.AddScoped<IGenericRepository<Role>, RoleRepository>();
+builder.Services.AddScoped<IRolService, RolService>();
 builder.Services.AddScoped<IGenericRepository<Estudio>, EstudioRepository>();
 builder.Services.AddScoped<IEstudioService, EstudioService>();
 builder.Services.AddScoped<IGenericRepository<Grupo>, GrupoRepository>();
@@ -45,12 +47,14 @@ var app = builder.Build();
 /*
 if (app.Environment.IsDevelopment())
 {
-    //app.UseSwagger();
-    //app.UseSwaggerUI();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }*/
+
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
 
 app.UseCors(MisReglasCors);
 app.UseHttpsRedirection();

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.Models.VModels
 {
-    public class VMGrupo
+    public class VMRol
     {
-        public int IdGrupo { get; set; }
-        public string? Grupo { get; set; }
+        public int IdRol { get; set; }
+        public string? Roles { get; set; }
     }
 }
