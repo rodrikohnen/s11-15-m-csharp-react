@@ -1,115 +1,57 @@
 "use client";
 import { UserCard } from "@/components/UserCard";
 import { UserFilterBar } from "@/components/UserFilterBar";
-import { UserType } from "@/components/UserType";
+import { MdPersonSearch } from "react-icons/md";
+import { useUsers } from "@/hooks/useUsers";
+import { useSearch } from "@/hooks/useSearch";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { BiErrorCircle} from 'react-icons/bi'
 import { useState } from "react";
 
-const users = [
-  {
-    id: 1,
-    name: "Alice",
-    lastname: "Smith",
-    country: "USA",
-    rating: 4,
-    nativelanguage: "EN",
-    languagetolearn: "ES",
-  },
-  {
-    id: 2,
-    name: "Bob",
-    lastname: "Johnson",
-    country: "Canada",
-    rating: 3,
-    nativelanguage: "ES",
-    languagetolearn: "EN",
-  },
-  {
-    id: 3,
-    name: "Charlie",
-    lastname: "Brown",
-    country: "Mexico",
-    rating: 5,
-    nativelanguage: "PR",
-    languagetolearn: "EN",
-  },
-  {
-    id: 4,
-    name: "David",
-    lastname: "Lee",
-    country: "Spain",
-    rating: 2,
-    nativelanguage: "EN",
-    languagetolearn: "PR",
-  },
-  {
-    id: 5,
-    name: "Eva",
-    lastname: "Garcia",
-    country: "Brazil",
-    rating: 1,
-    nativelanguage: "PR",
-    languagetolearn: "ES",
-  },
-  {
-    id: 6,
-    name: "Frank",
-    lastname: "Martinez",
-    country: "Argentina",
-    rating: 4,
-    nativelanguage: "ES",
-    languagetolearn: "PR",
-  },
-  {
-    id: 7,
-    name: "Grace",
-    lastname: "Chen",
-    country: "Portugal",
-    rating: 5,
-    nativelanguage: "EN",
-    languagetolearn: "ES",
-  },
-  {
-    id: 8,
-    name: "Hector",
-    lastname: "Lopez",
-    country: "France",
-    rating: 3,
-    nativelanguage: "PR",
-    languagetolearn: "EN",
-  },
-  {
-    id: 9,
-    name: "Ivy",
-    lastname: "Wang",
-    country: "Germany",
-    rating: 2,
-    nativelanguage: "EN",
-    languagetolearn: "PR",
-  },
-  {
-    id: 10,
-    name: "Jack",
-    lastname: "Taylor",
-    country: "Italy",
-    rating: 4,
-    nativelanguage: "ES",
-    languagetolearn: "EN",
-  },
-];
-
 export const UserPageComponent = () => {
-  const [filterType, setFilterType] = useState("general");
+  const [sort, setSort] = useState(false)
+  const { saveUsers, setSaveUsers, error } = useSearch();
+  const { users, getUsers, isLoading, isError } = useUsers({ saveUsers, sort });
+ 
 
-  console.log(filterType);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getUsers({ saveUsers});
+  };
+
+  const handleChange = (e) => {
+    setSaveUsers(e.target.value);
+  };
+
+  const handleSort = () => {
+    setSort(!sort)
+  }
 
   return (
     <>
-      <UserFilterBar setFilterType={setFilterType} />
+      <UserFilterBar sort={sort} handleSort={handleSort}/>
       <main className="mainContainer gap-2">
-        <UserCard
-          users={users}
-          filterType={filterType}
-        />
+        <form onSubmit={handleSubmit} className="flex flex-row items-center ">
+          <input
+            name="search"
+            onChange={handleChange}
+            value={saveUsers}
+            placeholder="Buscar..."
+            className={`${
+              error ? "border-pink-700" : "border-green-500"
+            } w-72 border-2 border-gray-950 rounded-md`}
+          />
+          <button type="submit">
+            <MdPersonSearch className="w-10 h-8 overflow-hidden transform hover:scale-90 transition-transform" />
+          </button>
+        </form>
+        {error && <p className="text-pink-700 font-bold">{error}</p>}
+        {isLoading ? (
+          <AiOutlineLoading3Quarters className="w-10 h-10 animate-spin" />
+        ) : (
+          <UserCard users={users} />
+        )}
+        {isError && <BiErrorCircle  className="w-10 h-10  text-pink-700" />}
       </main>
     </>
   );
