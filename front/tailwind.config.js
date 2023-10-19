@@ -10,10 +10,22 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: "#6785B4",
+<<<<<<< HEAD
+=======
+          50: '#545454',
+          100: '#757575'
+>>>>>>> 17ab650 (fix: custom colors for the tailwind)
         },
         secondary: {
           DEFAULT: "#563189",
         },
+<<<<<<< HEAD
+=======
+        danger: {
+          DEFAULT: '#D9D9D9',
+          50: '#D9D9D9'
+        },
+>>>>>>> 17ab650 (fix: custom colors for the tailwind)
         accent: {
           DEFAULT: "#E94675",
         },
