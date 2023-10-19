@@ -1,36 +1,18 @@
 "use client";
-import { useState } from "react";
 
-export const RatingForm = ({ rating }) => {
-  const [formValues, setFormValues] = useState({
-    rating,
-    comprension: false,
-    nivel: false,
-    recursos: false,
-    duracion: false,
-    temario: false,
-    /* otro: "", */
-  });
-
+export const RatingAppForm = ({ formValues, setFormValues }) => {
   const handleChange = (e) => {
     const { name, checked, value } = e.target;
     setFormValues((prevFormValues) => ({
       ...prevFormValues,
       [name]: checked,
-      /* otro: value, */
+      otroValue: value,
     }));
     console.log(formValues);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("submit", formValues);
-  };
-
   return (
-    <form
-      className="mt-4 w-full flex flex-col gap-2"
-      onSubmit={handleSubmit}>
+    <div className="mt-4 w-full flex flex-col gap-2">
       <h3 className="text-center font-medium mb-4">Selecciona los motivos</h3>
       <div className="checkboxRating">
         <input
@@ -39,7 +21,11 @@ export const RatingForm = ({ rating }) => {
           checked={formValues.comprension}
           onChange={handleChange}
         />
-        <label htmlFor="comprension">Fácil de comprender</label>
+        <label htmlFor="comprension">
+          {formValues.rating > 3
+            ? "Fácil de comprender"
+            : "No es fácil de comprender"}
+        </label>
       </div>
       <div className="checkboxRating">
         <input
@@ -48,7 +34,11 @@ export const RatingForm = ({ rating }) => {
           checked={formValues.nivel}
           onChange={handleChange}
         />
-        <label htmlFor="nivel">Acorde al nivel de idioma</label>
+        <label htmlFor="nivel">
+          {formValues.rating > 3
+            ? "Acorde al nivel de idioma"
+            : "No está acorde al nivel de idioma"}
+        </label>
       </div>
       <div className="checkboxRating">
         <input
@@ -75,26 +65,31 @@ export const RatingForm = ({ rating }) => {
           checked={formValues.temario}
           onChange={handleChange}
         />
-        <label htmlFor="temario">Temario actualizado y relevante</label>
+        <label htmlFor="temario">
+          {formValues.rating > 3
+            ? "Temario actualizado y relevante"
+            : "Temario desactualizado"}
+        </label>
       </div>
-      {/*  <div className="checkboxRating">
+      <div className="checkboxRating">
         <input
           type="checkbox"
-          name="otro"
-          checked={formValues.otro}
+          name="otroCheck"
+          checked={formValues.otroCheck}
           onChange={handleChange}
         />
         <input
           type="text"
           placeholder="Otro"
           className="w-full border border-solid border-gray-400 px-2"
-          disabled={formValues.otro === ""}></input>
-      </div> */}
+          onChange={handleChange}
+          disabled={formValues.otroValue === ""}></input>
+      </div>
       <button
         type="submit"
         className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-primary disabled:bg-gray-300 self-center mt-4">
         Continuar
       </button>
-    </form>
+    </div>
   );
 };
