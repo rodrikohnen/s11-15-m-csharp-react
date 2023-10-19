@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import {
@@ -9,11 +9,11 @@ import {
   Usuarios,
   Tutor,
   Ajustes,
-  CerrarSesion
+  CerrarSesion,
 } from "./svg/Svgs";
 import { useState } from "react";
 import { useAuthStore } from "@/context/authUser";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 
 export default function NavBarRegister() {
   const logout = useAuthStore((state) => state.isLogout);
@@ -36,11 +36,16 @@ export default function NavBarRegister() {
   };
 
   // Opciones del menú de usuario, incluyendo "Cerrar sesión"
-  const userMenuOptions = ["Mi perfil", "Notificaciones", "Ayuda", "Cerrar sesión"];
+  const userMenuOptions = [
+    "Mi perfil",
+    "Notificaciones",
+    "Ayuda",
+    "Cerrar sesión",
+  ];
 
   const handleUserMenuClick = (userOption) => {
     if (userOption === "Mi perfil") {
-      // Agrega la lógica para ir a la página de perfil
+      router.push("/miperfil");
     } else if (userOption === "Notificaciones") {
       // Agrega la lógica para ir a la página de notificaciones
     } else if (userOption === "Ayuda") {
@@ -57,54 +62,59 @@ export default function NavBarRegister() {
     router.push("/");
   };
 
+  // Función para redirigir a las rutas correspondientes al hacer clic en una opción del menú
+  const handleMenuOptionClick = (option) => {
+    if (option === "Salas") {
+      router.push("/rooms");
+    } else if (option === "Usuarios") {
+      router.push("/user");
+    } else if (option === "Mis Salas") {
+      router.push("/home");
+    } else if (option === "Quiero ser Tutor") {
+      router.push("/tutor");
+    } else if (option === "Ajustes") {
+      router.push("/ajustes");
+    }
+
+    setMenuOpen(false); // Cierra el menú después de seleccionar una opción
+  };
+
   // Definición de las opciones del menú
-  const menuOptions = ["Salas", "Mis Salas", "Usuarios", "Quiero ser Tutor", "Ajustes"];
+  const menuOptions = [
+    "Salas",
+    "Mis Salas",
+    "Usuarios",
+    "Quiero ser Tutor",
+    "Ajustes",
+  ];
 
   return (
     // Renderizado de la barra de navegación
     <header className="flex flex-row mt-4 justify-around border-black border-b-[1.5px] pb-3 w-full">
-
-    {/* MENU HAMBURGUESA */}
+      {/* MENU HAMBURGUESA */}
       <span>
         <div className="relative">
           <button onClick={toggleMenu}>
             <MenuRegister /> {/* Renderizar el icono del menú */}
           </button>
           {menuOpen && (
-            <ul className="absolute w-[222px] left-0  mt-2 bg-white border border-gray-300 rounded shadow z-10">
+            <ul className="absolute w-[222px] left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
               {menuOptions.map((option, index) => (
                 <li
                   key={index}
                   className="px-5 py-2 cursor-pointer flex items-left hover:bg-gray-400"
-                
-                  onClick={() => selectOption(option)}
+                  onClick={() => handleMenuOptionClick(option)}
                 >
-                  {option === "Salas" && (
-                    <Link href="/rooms">
-                      <Salas />
-                    </Link>
-                  )}
+                  {option === "Salas" && <Salas />}
 
-                  {option === "Usuarios" && (
-                    <Link href="/user">
-                    <Usuarios />
-                  </Link>
-                  )}
+                  {option === "Usuarios" && <Usuarios />}
 
-                  {option === "Mis Salas" && (
-                    <Link href="/rooms">
-                      <MisSalas />
-                    </Link>
-                  )}
+                  {option === "Mis Salas" && <MisSalas />}
 
-                  {option === "Quiero ser Tutor" && (
-                    <Link href="/tutor">
-                      <Tutor />
-                    </Link>
-                  )}
+                  {option === "Quiero ser Tutor" && <Tutor />}
 
                   {option === "Ajustes" && <Ajustes />}
-                  
+
                   <span className="ml-4">{option}</span>
                 </li>
               ))}
@@ -113,20 +123,20 @@ export default function NavBarRegister() {
         </div>
       </span>
 
-       {/* LOGO*/}
-        <h2 className="p-2">LOGO</h2>
+      {/* LOGO*/}
+      <h2 className="p-2">LOGO</h2>
 
       {/* MENI DE PERFIL */}
-      <div className="flex flex-col justify-around relative]">
+      <div className="flex flex-col justify-around relative">
         <button onClick={() => setUserMenuOpen(!userMenuOpen)}>
           <UserRegister />
         </button>
         {userMenuOpen && (
-          <ul className="absolute right-0  mt-60 bg-white border border-gray-300 rounded shadow z-10">
+          <ul className="absolute right-0 mt-60 bg-white border border-gray-300 rounded shadow z-10">
             {userMenuOptions.map((userOption, index) => (
               <li
                 key={index}
-                className={`px-10 py-2 cursor-pointer flex items-center hover:bg-gray-400`}
+                className="px-10 py-2 cursor-pointer flex items-center hover:bg-gray-400"
                 onClick={() => handleUserMenuClick(userOption)}
               >
                 <span className="ml-4">{userOption}</span>
@@ -137,4 +147,8 @@ export default function NavBarRegister() {
       </div>
     </header>
   );
+
 }
+
+
+
