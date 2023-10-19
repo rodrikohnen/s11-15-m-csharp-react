@@ -2,10 +2,10 @@ import { PerfilDefault, UsusariosSala } from "./svg/Svgs"
 import { Medalla } from "./svg/Svgs"
 import { LenguajeSala } from "./svg/Svgs"
 
-export default function CardEnVivo() {
+export default function CardGrupos() {
   return (
     <span
-      className="max-w-xs w-[18rem] h-[6.5rem] text-sm border border-black rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer"
+      className="max-w-xs w-[18rem] h-[6.5rem] text-sm "
       href="#"
     >
       <div className="">
