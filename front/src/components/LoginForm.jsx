@@ -1,8 +1,9 @@
 "use client";
-
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
+import { useAuthStore } from "@/context/authUser";
+import { useRouter } from "next/navigation";
 
 const LoginSchema = object({
   correo: string("Debes ingresar caracteres validos.", [
@@ -17,14 +18,19 @@ const LoginSchema = object({
 });
 
 export default function LoginForm() {
+  const router = useRouter();
+  const login = useAuthStore((state) => state.isLogin);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: valibotResolver(LoginSchema)});
+  } = useForm({ resolver: valibotResolver(LoginSchema) });
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    /*  e.preventDefault(); */
+    login();
+    router.push("/user");
     console.log("Formulario enviado:", e);
   };
 
@@ -32,12 +38,11 @@ export default function LoginForm() {
     <span className="flex flex-col items-center justify-center ">
       <form
         className="flex flex-col items-center max-full mb-20 "
-        onSubmit={handleSubmit(onSubmit)}
-      >
+        onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="Correo elctronico"
           type="email"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
           {...register("correo")}
         />
         {errors.correo && (
@@ -46,7 +51,7 @@ export default function LoginForm() {
         <input
           placeholder="Contraseña"
           type="password"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
           {...register("contraseña")}
         />
         {errors.contraseña && (
@@ -55,8 +60,7 @@ export default function LoginForm() {
         <a className="text-sm text-sky-500">¿Olvidaste tu contraseña?</a>
         <button
           type="submit"
-          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]"
-        >
+          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]">
           Iniciar sesión
         </button>
       </form>
