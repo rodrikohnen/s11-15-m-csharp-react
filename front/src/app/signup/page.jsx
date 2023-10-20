@@ -8,7 +8,7 @@ const initialRegisterUser = {
   lastname: "",
   email: "",
   password: "",
-  confirmpasword: "",
+  confirmPassword: "",
   country: "",
   nativelanguage: "",
   languagetolearn: "",
