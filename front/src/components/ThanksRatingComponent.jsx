@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Mountain } from "./svg/Svgs";
+import Thanks from "../assets/pictures/ThanksIllustration.svg";
+import Image from "next/image";
 
 export const ThanksRatingComponent = () => {
   const router = useRouter();
@@ -12,7 +13,10 @@ export const ThanksRatingComponent = () => {
   return (
     <>
       <div className=" bg-gray-300 rounded-full w-40 h-40 flex items-center justify-center mt-12">
-        <Mountain />
+        <Image
+          src={Thanks}
+          alt="Thank You"
+        />
       </div>
       <div className=" mt-8 w-full">
         <h3 className="text-center font-semibold text-xl mt-12">
@@ -24,7 +28,7 @@ export const ThanksRatingComponent = () => {
       </div>
       <button
         onClick={handleClick}
-        className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-primary">
+        className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-secondary">
         Continuar
       </button>
     </>
