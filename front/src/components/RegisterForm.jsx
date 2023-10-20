@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
   const {
@@ -9,27 +9,27 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (user) => {
     setUser({
-      ...data,
-      name: data.name,
-      lastname: data.lastname,
-      email: data.email,
-      password: data.password,
-      confirmPassword: data.confirmPassword,
+      ...user,
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      password: user.password,
+      confirmPassword: user.confirmPassword,
     });
     setFormView(formView + 1);
   };
 
   return (
     <>
-      <aside className="flex flex-col justify-start  w-full mb-4">
+      <aside className="flex flex-col justify-start w-full mb-4">
         <h1 className="text-xl text-black font-semibold text-left mb-2">
           Creá una cuenta
         </h1>
         <span className="text-sm text-black flex gap-4 font-semibold">
-          <h2 className="text-gray-400 font-light">¿Ya tenés cuenta?</h2>Inicia
-          sesión
+          <h2 className="text-gray-400 font-light">¿Ya tenés cuenta?</h2>
+          <Link href={"/login"}>Inicia sesión</Link>
         </span>
       </aside>
       {formView === 1 && (

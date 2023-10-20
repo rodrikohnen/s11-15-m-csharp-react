@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import Image from "next/image";
-import backArrow from "../assets/icons/back-arrow.png";
 import avatar from "../assets/icons/avatar.png";
 
 export const EditProfile = ({ user, setUser, setFormView, formView }) => {
@@ -23,22 +22,10 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
   };
 
   console.log(user);
-  const handleClick = () => {
-    setFormView(formView - 1);
-  };
 
   return (
     <>
       <section className="w-full">
-        <header className="flex items-center justify-start gap-4 py-4 px-0 mx-0 w-full">
-          <Image
-            src={backArrow}
-            alt="go back"
-            className="object-contain"
-            onClick={handleClick}
-          />
-          <h2 className="text-black-400 text-xl">Completá tu perfil</h2>
-        </header>
         <article className="my-4 flex flex-col items-center">
           <p className="text-center mb-4">
             Completa tu información para una mejor experiencia en la plataforma
@@ -76,11 +63,31 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
             {...register("country")}
             name="country"
             className="select">
-            <option value="">Yo soy de</option>
-            <option value="argentina">Argentina</option>
-            <option value="colombia">Colombia</option>
-            <option value="venezuela">Venezuela</option>
-            <option value="chile">Chile</option>
+            <option
+              className="option"
+              value="">
+              Yo soy de
+            </option>
+            <option
+              className="option"
+              value="argentina">
+              Argentina
+            </option>
+            <option
+              className="option"
+              value="colombia">
+              Colombia
+            </option>
+            <option
+              className="option"
+              value="venezuela">
+              Venezuela
+            </option>
+            <option
+              className="option"
+              value="chile">
+              Chile
+            </option>
           </select>
           {errors.country && (
             <p className="errormsj">{errors.country.message}</p>
