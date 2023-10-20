@@ -11,19 +11,31 @@
     @apply w-full border-solid border-2 border-slate-500 h-11 rounded p-4 focus:border-slate-800 outline-none;
   }
 
+  .input:focus {
+    @apply border-secondary;
+  }
+
   .errormsj {
     @apply text-slate-400 text-xs;
   }
 
   .select {
     @apply w-full px-3 py-1 border-solid border-2 border-slate-500 h-11 rounded focus:border-slate-800 outline-none bg-[url("../../src//assets/icons/select-arrow.png")] bg-no-repeat bg-[95%_center] block;
+    appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     --tw-border-opacity: 1;
   }
 
+  .option {
+    @apply w-[280px];
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
   .registerBtn {
-    @apply w-full rounded-full bg-slate-500 text-white py-2 px-4 cursor-pointer;
+    @apply w-full rounded-full bg-secondary text-white py-2 px-4 cursor-pointer;
   }
 
   .registerBtn:disabled {
