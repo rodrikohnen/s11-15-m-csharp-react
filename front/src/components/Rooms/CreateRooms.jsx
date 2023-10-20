@@ -1,5 +1,9 @@
 "use client";
+<<<<<<< HEAD
 //sofi
+=======
+
+>>>>>>> 49d8884 (add: dev-front + search branches)
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";

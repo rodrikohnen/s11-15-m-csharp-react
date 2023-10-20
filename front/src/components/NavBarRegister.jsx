@@ -12,7 +12,10 @@ import {
   Tutor,
   Ajustes,
   CerrarSesion,
+<<<<<<< HEAD
 >>>>>>> 6fbab3f (add: changes rooms)
+=======
+>>>>>>> 49d8884 (add: dev-front + search branches)
 } from "./svg/Svgs";
 import { useState } from "react";
 import { useAuthStore } from "@/context/authUser";
@@ -102,13 +105,17 @@ export default function NavBarRegister() {
     // Renderizado de la barra de navegación
     <header className="flex flex-row mt-4 justify-around border-black border-b-[1.5px] pb-3 w-full">
       {/* MENU HAMBURGUESA */}
+<<<<<<< HEAD
 >>>>>>> 6fbab3f (add: changes rooms)
+=======
+>>>>>>> 49d8884 (add: dev-front + search branches)
       <span>
         <div className="relative">
           <button onClick={toggleMenu}>
             <MenuRegister /> {/* Renderizar el icono del menú */}
           </button>
           {menuOpen && (
+<<<<<<< HEAD
 <<<<<<< HEAD
             // Renderizar el menú desplegable si menuOpen es true
             <ul className="absolute left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
@@ -134,6 +141,18 @@ export default function NavBarRegister() {
                   {option === "Salas" && <Salas />}
 
                   {option === "Usuarios" && <Usuarios />}
+=======
+            <ul className="absolute w-[222px] left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
+              {menuOptions.map((option, index) => (
+                <li
+                  key={index}
+                  className="px-5 py-2 cursor-pointer flex items-left hover:bg-gray-400"
+                  onClick={() => handleMenuOptionClick(option)}
+                >
+                  {option === "Salas" && <Salas />}
+
+                  {option === "Usuarios" && <Usuarios />}
+>>>>>>> 49d8884 (add: dev-front + search branches)
 
                   {option === "Mis Salas" && <MisSalas />}
 
@@ -141,11 +160,15 @@ export default function NavBarRegister() {
 
                   {option === "Ajustes" && <Ajustes />}
 <<<<<<< HEAD
+<<<<<<< HEAD
                   
 >>>>>>> a2d0d73 (add:change rooms 1)
 =======
 
 >>>>>>> 6fbab3f (add: changes rooms)
+=======
+
+>>>>>>> 49d8884 (add: dev-front + search branches)
                   <span className="ml-4">{option}</span>
                   {/* Renderizar el nombre de la opción */}
                 </li>
@@ -196,4 +219,11 @@ export default function NavBarRegister() {
       </div>
     </header>
   );
+
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 49d8884 (add: dev-front + search branches)
