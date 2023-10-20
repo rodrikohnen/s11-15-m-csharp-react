@@ -81,9 +81,9 @@ export const RatingAppForm = ({ formValues, setFormValues }) => {
         <input
           type="text"
           placeholder="Otro"
-          className="w-full border border-solid border-gray-400 px-2"
+          className="w-full border border-solid border-gray-400 px-2 outline-none"
           onChange={handleChange}
-          disabled={formValues.otroValue === ""}></input>
+          disabled={formValues.otroCheck === false}></input>
       </div>
       <button
         type="submit"

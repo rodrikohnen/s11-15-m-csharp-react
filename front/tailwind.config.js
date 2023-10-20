@@ -12,9 +12,14 @@ module.exports = {
           DEFAULT: "#6785B4",
           50: '#545454',
           100: '#757575'
+   
         },
         secondary: {
           DEFAULT: "#563189",
+        },
+        danger: {
+          DEFAULT: "#D9D9D9",
+          50: "#D9D9D9",
         },
         danger: {
           DEFAULT: '#D9D9D9',
