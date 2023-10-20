@@ -1,35 +1,21 @@
 import { useForm } from "react-hook-form";
-import { valibotResolver } from "@hookform/resolvers/valibot";
-import { minLength, object, string, maxLength } from "valibot";
 import Image from "next/image";
 import backArrow from "../assets/icons/back-arrow.png";
 import avatar from "../assets/icons/avatar.png";
-import { selectArrow } from "./svg/Svgs";
-
-const profileSchema = object({
-  country: string([minLength(2, "Por favor ingresa tu ciudad")]),
-  nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-  languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
-  level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
-  username: string([
-    minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
-    maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
-  ]),
-});
 
 export const EditProfile = ({ user, setUser, setFormView, formView }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: valibotResolver(profileSchema) });
+  } = useForm();
 
   const onSubmit = (data) => {
     setUser({
       ...user,
       country: data.country,
-      nativelanguage: data.nativelanguage,
-      languagetolearn: data.languagetolearn,
+      nativeLanguage: data.nativeLanguage,
+      languageToLearn: data.languageToLearn,
       level: data.level,
       username: data.username,
     });
@@ -73,7 +59,12 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
             name="username"
             type="text"
             className="input"
-            {...register("username")}
+            {...register("username", {
+              required: {
+                value: true,
+                message: "Debes ingresar un username",
+              },
+            })}
           />
           {errors.username && (
             <p className="errormsj">{errors.username.message}</p>
@@ -98,29 +89,29 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
 
         <div className="w-full">
           <select
-            {...register("nativelanguage")}
-            name="nativelanguage"
+            {...register("nativeLanguage")}
+            name="nativeLanguage"
             className="select">
             <option value="">Idioma nativo</option>
             <option value="english">Inglés</option>
             <option value="spanish">Español</option>
           </select>
-          {errors.nativelanguage && (
-            <p className="errormsj">{errors.nativelanguage.message}</p>
+          {errors.nativeLanguage && (
+            <p className="errormsj">{errors.nativeLanguage.message}</p>
           )}
         </div>
 
         <div className="w-full">
           <select
-            {...register("languagetolearn")}
-            name="languagetolearn"
+            {...register("languageToLearn")}
+            name="languageToLearn"
             className="select">
             <option value="">Me interesa</option>
             <option value="english">Inglés</option>
             <option value="spanish">Español</option>
           </select>
-          {errors.languagetolearn && (
-            <p className="errormsj">{errors.languagetolearn.message}</p>
+          {errors.languageToLearn && (
+            <p className="errormsj">{errors.languageToLearn.message}</p>
           )}
         </div>
 
