@@ -31,11 +31,21 @@ export const CircleChoices = () => {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 160 160"
 <<<<<<< HEAD
+<<<<<<< HEAD
           fill="none"
         >
           <circle cx="80" cy="80" r="80" fill="#D9D9D9" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+          fill="none">
+          <circle
+            cx="80"
+            cy="80"
+            r="80"
+            fill="#D9D9D9"
+          />
+>>>>>>> a4e841a (Change: Register Form Styles)
         </svg>
       </div>
     </>
@@ -54,6 +64,7 @@ export const CircleTravel = () => {
           width="300"
           height="300"
           viewBox="0 0 160 160"
+<<<<<<< HEAD
           fill="none"
         >
           <circle cx="80" cy="80" r="80" fill="#FFF" />
@@ -62,14 +73,21 @@ export const CircleTravel = () => {
 =======
 >>>>>>> a6bd615 (changes tailwind config)
 =======
+=======
+>>>>>>> a4e841a (Change: Register Form Styles)
           fill="none">
           <circle
             cx="80"
             cy="80"
             r="80"
+<<<<<<< HEAD
             fill="#D9D9D9"
           />
 >>>>>>> f4abeac (Change: Solution to SVG Errors)
+=======
+            fill="#FFF"
+          />
+>>>>>>> a4e841a (Change: Register Form Styles)
         </svg>
       </div>
     </>

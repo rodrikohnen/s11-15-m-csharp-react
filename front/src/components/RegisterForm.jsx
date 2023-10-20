@@ -1,5 +1,5 @@
-import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 
 <<<<<<< HEAD
 import { email, minLength, object, string } from "valibot";
@@ -31,21 +31,29 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (user) => {
     setUser({
       ...user,
+<<<<<<< HEAD
       name: data.name,
       lastname: data.lastname,
       email: data.email,
       password: data.password,
       confirmPassword: data.confirmPassword,
+=======
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      password: user.password,
+      confirmPassword: user.confirmPassword,
+>>>>>>> a4e841a (Change: Register Form Styles)
     });
     setFormView(formView + 1);
   };
 
   return (
     <>
-      <aside className="flex flex-col justify-start  w-full mb-4">
+      <aside className="flex flex-col justify-start w-full mb-4">
         <h1 className="text-xl text-black font-semibold text-left mb-2">
           Creá una cuenta
         </h1>
