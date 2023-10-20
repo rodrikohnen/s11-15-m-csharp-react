@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { valibotResolver } from "@hookform/resolvers/valibot";
 
 import { email, minLength, object, string } from "valibot";
+import Link from "next/link";
 
 const RegisterSchema = object({
   name: string([
@@ -44,8 +45,8 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
           Creá una cuenta
         </h1>
         <span className="text-sm text-black flex gap-4 font-semibold">
-          <h2 className="text-gray-400 font-light">¿Ya tenés cuenta?</h2>Inicia
-          sesión
+          <h2 className="text-gray-400 font-light">¿Ya tenés cuenta?</h2>
+          <Link href={"/login"}>Inicia sesión</Link>
         </span>
       </aside>
       {formView === 1 && (
