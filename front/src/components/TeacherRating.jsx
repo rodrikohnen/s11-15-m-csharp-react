@@ -1,14 +1,13 @@
 "use client";
 import Image from "next/image";
-import starblack from "../assets/icons/starblack.png";
-import starwhite from "../assets/icons/starwhite.png";
+import blueStar from "../assets/pictures/blueStar.svg";
+import whiteStar from "../assets/pictures/whiteStar.svg";
 import { useState } from "react";
 import { RatingTeacherForm } from "./RatingTeacherForm";
 import { useRouter } from "next/navigation";
 
-export const TeacherRating = () => {
+export const TeacherRating = ({ view, setView }) => {
   const router = useRouter();
-  const [view, setView] = useState(1);
   const [ratingIsSet, setRatingIsSet] = useState(false);
   const [isRatingLocked, setIsRatingLocked] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -44,7 +43,7 @@ export const TeacherRating = () => {
               disabled={isRatingLocked}
             />
             <Image
-              src={starblack}
+              src={blueStar}
               alt="Black"
               width={28}
               height={28}
@@ -65,7 +64,7 @@ export const TeacherRating = () => {
               disabled={isRatingLocked}
             />
             <Image
-              src={starwhite}
+              src={whiteStar}
               alt="White"
               width={28}
               height={28}
@@ -114,7 +113,7 @@ export const TeacherRating = () => {
           <button
             onClick={handleRatingLock}
             disabled={formValues.rating > 0 ? false : true}
-            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-primary disabled:bg-gray-300">
+            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-secondary disabled:bg-gray-300">
             Continuar
           </button>
         )}

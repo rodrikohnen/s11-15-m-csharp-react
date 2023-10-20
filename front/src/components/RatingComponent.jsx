@@ -1,11 +1,15 @@
+import Image from "next/image";
 import { RoomRating } from "./RoomRating";
-import { Mountain } from "./svg/Svgs";
+import appRating from "../assets/pictures/appRatingIllustration.svg";
 
 export const RatingComponent = () => {
   return (
     <>
       <div className=" bg-gray-300 rounded-full w-40 h-40 flex items-center justify-center mt-12">
-        <Mountain />
+        <Image
+          src={appRating}
+          alt="Rating Illustration"
+        />
       </div>
       <div className=" px-12 mt-8">
         <p className="text-center font-normal text-base">

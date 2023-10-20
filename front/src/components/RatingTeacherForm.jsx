@@ -103,7 +103,7 @@ export const RatingTeacherForm = ({
           </div>
           <button
             onClick={handleView}
-            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-primary disabled:bg-gray-300 self-center mt-4">
+            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-secondary disabled:bg-gray-300 self-center mt-4">
             Continuar
           </button>
         </div>
@@ -116,11 +116,11 @@ export const RatingTeacherForm = ({
           <textarea
             onChange={handleChange}
             name="comentario"
-            className="w-full h-28 overflow-x-auto border border-solid border-gray-400 outline-none p-2 resize-none mb-8"
+            className="w-[282px] rounded-md h-28 overflow-x-auto border border-solid border-gray-400 outline-none p-2 resize-none mb-8"
             placeholder="Tu comentario"></textarea>
           <button
             type="submit"
-            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-primary disabled:bg-gray-300 self-center mt-4">
+            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-secondary disabled:bg-gray-300 self-center mt-4">
             Continuar
           </button>
         </div>
