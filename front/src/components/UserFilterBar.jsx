@@ -1,4 +1,4 @@
-export const UserFilterBar = ({ sort, handleSort }) => {
+export const UserFilterBar = () => {
   return (
     <section className="h-12 bg-gray-400 w-full m-0 mt-4">
       <form className="flex items-center h-12">
@@ -11,8 +11,6 @@ export const UserFilterBar = ({ sort, handleSort }) => {
               name="filterBtn"
               value="general"
               className="filterRadioBtn"
-              checked={sort}
-              onChange={handleSort}
             />
           </label>
         </div>
