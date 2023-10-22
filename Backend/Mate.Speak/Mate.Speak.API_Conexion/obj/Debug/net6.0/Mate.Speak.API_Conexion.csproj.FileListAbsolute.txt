@@ -1,0 +1,15 @@
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\bin\Debug\net6.0\Mate.Speak.API_Conexion.deps.json
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\bin\Debug\net6.0\Mate.Speak.API_Conexion.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\bin\Debug\net6.0\Mate.Speak.API_Conexion.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\bin\Debug\net6.0\Mate.Speak.Models.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\bin\Debug\net6.0\Mate.Speak.Models.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.csproj.AssemblyReference.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.AssemblyInfoInputs.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.AssemblyInfo.cs
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.csproj.CoreCompileInputs.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.csproj.CopyComplete
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\refint\Mate.Speak.API_Conexion.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\Mate.Speak.API_Conexion.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Conexion\obj\Debug\net6.0\ref\Mate.Speak.API_Conexion.dll

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "D49PwO+eBfYxN6vPwYf+iO5U/YPMJoUsGvy9uvoMk/yh3yobLVdc6fHzO4XrfhYapn0CRtQMH+DCc3XyTUlKHQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Indatech\\Documents\\GitHub\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.API_Conexion\\Mate.Speak.API_Conexion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Indatech\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
