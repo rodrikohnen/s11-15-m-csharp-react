@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import Image from "next/image";
+import Logo from '@/assets/logos/LogoMateSpeakColor.png'
 import {
   MenuRegister,
   UserRegister,
@@ -124,7 +125,7 @@ export default function NavBarRegister() {
       </span>
 
       {/* LOGO*/}
-      <h2 className="p-2">LOGO</h2>
+      <Image className="w-20 h-14" src={Logo} alt="Logo MateSpeak" />
 
       {/* MENI DE PERFIL */}
       <div className="flex flex-col justify-around relative">
