@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import Image from "next/image";
 import avatar from "../assets/icons/avatar.png";
 
-export const EditProfile = ({ user, setUser, setFormView, formView }) => {
+export const EditProfile = ({ user, setUser }) => {
   const {
     register,
     handleSubmit,
@@ -26,20 +26,23 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
   return (
     <>
       <section className="w-full">
-        <article className="my-4 flex flex-col items-center">
-          <p className="text-center mb-4">
+        <article className="my-4 flex flex-col items-center lg:items-start">
+          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
+            Completá tu perfil
+          </h1>
+          <p className="text-center mb-4 lg:w-[256px] lg:text-left text-sm text-[#545454] font-light">
             Completa tu información para una mejor experiencia en la plataforma
           </p>
-          <Image
-            className="object-contain"
-            src={avatar}
-            alt="avatar img"
-          />
         </article>
       </section>
       <form
-        className="flex flex-col w-full justify-start items-start gap-6"
+        className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
         onSubmit={handleSubmit(onSubmit)}>
+        <Image
+          className="object-contain self-center"
+          src={avatar}
+          alt="avatar img"
+        />
         <div className="w-full">
           <input
             placeholder="username"
