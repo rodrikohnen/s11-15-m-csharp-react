@@ -6,7 +6,7 @@ export default function NavBar() {
   return (
     <header className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-3 w-full">
       <Link href="/">
-        <Image className="w-20 h-14" src={Logo} />
+        <Image className="w-20 h-14" src={Logo} alt="Logo MateSpeak"/>
       </Link>
       <div className="flex flex-row justify-around items-center">
         <Link
