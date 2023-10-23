@@ -54,7 +54,7 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
   return (
     <>
       <aside className="flex flex-col justify-start w-full mb-4">
-        <h1 className="text-xl text-black font-semibold text-left mb-2">
+        <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
           Creá una cuenta
         </h1>
         <span className="text-sm text-black flex gap-4 font-semibold">
@@ -64,7 +64,7 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
       </aside>
       {formView === 1 && (
         <form
-          className="flex flex-col w-full justify-start items-start gap-6"
+          className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
           onSubmit={handleSubmit(onSubmit)}>
           <div className="w-full">
             <input
