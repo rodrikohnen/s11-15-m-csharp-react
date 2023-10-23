@@ -13,7 +13,10 @@ export function useAllUsers({ filteredUsers }) {
       setIsLoading(true);
       setIsError(null);
       previousSearch.current = filteredUsers;
-      const response = await fetch(`${API_URL}${GRUPO_URL}`);
+      const response = await fetch(`${API_URL}${GRUPO_URL}`, {
+        method: "GET",
+        mode: "cors",
+      });
       const data = await response.json();
       setUsers(data);
 
