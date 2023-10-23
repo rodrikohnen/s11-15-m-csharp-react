@@ -4,6 +4,7 @@ import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
 import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoginSchema = object({
   correo: string("Debes ingresar caracteres validos.", [
@@ -35,35 +36,43 @@ export default function LoginForm() {
   };
 
   return (
-    <span className="flex flex-col items-center justify-center ">
+    <div className="w-full flex justify-center items-center">
       <form
-        className="flex flex-col items-center max-full mb-20 "
+        className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
         onSubmit={handleSubmit(onSubmit)}>
         <input
-          placeholder="Correo elctronico"
+          placeholder="Correo electrónico"
           type="email"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
+          className="input"
           {...register("correo")}
         />
-        {errors.correo && (
-          <p className="text-pink-700">{errors.correo?.message}</p>
-        )}
+        {errors.correo && <p className="errormsj">{errors.correo?.message}</p>}
         <input
           placeholder="Contraseña"
           type="password"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md outline-none px-2"
+          className="input"
           {...register("contraseña")}
         />
         {errors.contraseña && (
-          <p className="text-pink-700">{errors.contraseña?.message}</p>
+          <p className="errormsj">{errors.contraseña?.message}</p>
         )}
-        <a className="text-sm text-sky-500">¿Olvidaste tu contraseña?</a>
+        <aside className="flex flex-col justify-start w-full mb-4">
+          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
+            Inicia Sesión
+          </h1>
+          <span className="text-sm text-black flex gap-4 font-semibold">
+            <h2 className="text-gray-400 font-light">
+              ¿Has olvidado tu contraseña?
+            </h2>
+            <Link href={"/"}>Recuperala</Link>
+          </span>
+        </aside>
         <button
           type="submit"
-          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]">
+          className="registerBtn">
           Iniciar sesión
         </button>
       </form>
-    </span>
+    </div>
   );
 }

@@ -51,7 +51,14 @@ export const UserPageComponent = () => {
 
   return (
     <>
+<<<<<<< HEAD
       <UserFilterBar />
+=======
+      <UserFilterBar
+        setFilterType={setFilterType}
+        filterType={filterType}
+      />
+>>>>>>> 30dce80 (Change: Login and User styles with Desktop view)
       <main className="mainContainer gap-2">
         <div>
           <form onSubmit={handleSubmit} className="flex flex-row items-center ">
