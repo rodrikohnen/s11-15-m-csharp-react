@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { RegisterForm } from "@/components/RegisterForm";
 import { EditProfile } from "@/components/EditProfile";
 import Image from "next/image";
-import LogoWhite from "../../assets/logos/LogoMateSpeakWhite.png";
-import whiteArrowBack from "../../assets/icons/backwhite-arrow.png";
+import { WhiteArrowBack } from "@/components/WhiteArrowBack";
+import { MateSpeakHeader } from "@/components/MateSpeakHeader";
 
 const initialRegisterUser = {
   name: "",
@@ -49,19 +49,10 @@ const SignupPage = () => {
             : "justify-start items-center px-4"
         }`}>
         {formView === 1 || windowWidth >= 1024 ? (
-          <Image
-            src={LogoWhite}
-            alt="Logo Mate Speak"
-            width={77}
-          />
+          <MateSpeakHeader />
         ) : (
           <>
-            <Image
-              src={whiteArrowBack}
-              alt="go back"
-              className="object-contain"
-              onClick={handleClick}
-            />
+            <WhiteArrowBack onClick={handleClick} />
             <h2 className="text-lg text-white font-medium">
               Completá tu perfil
             </h2>
