@@ -1,22 +1,25 @@
-import { CircleChoices } from "../svg/Svgs";
+import Image from "next/image";
+import Perfil1 from '@/assets/pictures/Perfil-fem-1.jpg'
+import Perfil2 from '@/assets/pictures/Perfil-masc-1.jpg'
+import Perfil3 from '@/assets/pictures/Perfil-fem-2.jpg'
 import ChoiceInfo from "./ChoiceInfo";
 
 const cardChoices = [
   {
     id: 1,
-    logo: <CircleChoices />,
+    logo: <Image src={Perfil1} className="rounded-full" alt="Perfil femenino"  />,
     title: "Reuniones",
     description: "Únete a las salas para hablar y aprender con otras personas.",
   },
   {
     id: 2,
-    logo: <CircleChoices />,
+    logo: <Image src={Perfil2} className="rounded-full" alt="Perfil masculino"/>,
     title: "Profesores",
     description: "Clases con profesores expertos según tu nivel",
   },
   {
     id: 3,
-    logo: <CircleChoices />,
+    logo: <Image src={Perfil3} className="rounded-full" alt="Perfil femenino" />,
     title: "Mentores",
     description: "Sé mentor o recibe ayuda de otros.",
   },
