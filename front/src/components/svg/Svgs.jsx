@@ -92,8 +92,8 @@ export const MedallaWhite = () => {
   return (
     <>
       <svg
-        width="34"
-        height="34"
+        width="64"
+        height="64"
         viewBox="0 0 34 34"
         fill="white"
         xmlns="http://www.w3.org/2000/svg">
