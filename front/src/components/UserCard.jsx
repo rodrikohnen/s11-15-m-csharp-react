@@ -17,7 +17,7 @@ export const UserCard = ({ users, filterType }) => {
       {filteredUsers.map((user) => (
         <article
           key={user.id}
-          className="w-full bg-gray-200 flex gap-4 rounded-md p-4">
+          className="w-full bg-gray-200 flex gap-8 rounded-md p-4 lg:w-[326px]">
           <aside className="bg-white rounded-full flex items-center p-4">
             <Image
               src={avatarwhite}

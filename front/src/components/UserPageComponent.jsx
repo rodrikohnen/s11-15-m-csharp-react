@@ -104,7 +104,10 @@ export const UserPageComponent = () => {
 
   return (
     <>
-      <UserFilterBar setFilterType={setFilterType} />
+      <UserFilterBar
+        setFilterType={setFilterType}
+        filterType={filterType}
+      />
       <main className="mainContainer gap-2">
         <UserCard
           users={users}
