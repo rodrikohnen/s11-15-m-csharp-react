@@ -1,11 +1,11 @@
 import React from "react";
-import { RxAvatar } from "react-icons/rx";
 import { BiSolidQuoteAltLeft, BiSolidQuoteAltRight } from "react-icons/bi";
 import { RiStarSLine } from "react-icons/ri";
 import styled from "@/app/Home.module.css";
 
 export default function AboutInfo({
   feedbackName,
+  feedbackAvatar,
   feedbackAbout,
   feedbackRating,
 }) {
@@ -13,8 +13,8 @@ export default function AboutInfo({
     <>
       <div className={`${styled.aboutName}`}>
         <div className={`${styled.aboutSubName}`}>
-          <RxAvatar className="w-20 h-20" />
-          <h1>{feedbackName}</h1>
+          <span className="flex w-32 h-24 ">{feedbackAvatar}</span>
+          <h1 className="text-center">{feedbackName}</h1>
         </div>
         
         <BiSolidQuoteAltLeft className="relative right-2" />
