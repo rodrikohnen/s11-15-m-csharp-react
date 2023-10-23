@@ -1,5 +1,6 @@
 import React from "react";
 
+<<<<<<< HEAD
 export const CircleHome = () => {
   return (
     <>
@@ -40,6 +41,9 @@ export const CircleChoices = () => {
     </>
   );
 };
+=======
+
+>>>>>>> 64ec49e (delete: Quit svgs)
 
 export const CircleTravel = () => {
   return (
