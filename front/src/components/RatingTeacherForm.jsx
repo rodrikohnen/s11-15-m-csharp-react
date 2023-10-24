@@ -109,8 +109,8 @@ export const RatingTeacherForm = ({
         </div>
       )}
       {view === 2 && (
-        <div className="flex flex-col justify-center mt-8">
-          <h3 className="text-sm font-medium mb-4">
+        <div className="flex flex-col justify-center mt-8 items-center">
+          <h3 className="text-sm font-medium mb-4 lg:text-xl lg:w-[282px]">
             Deja un comentario en el perfil del tutor
           </h3>
           <textarea
