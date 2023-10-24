@@ -57,6 +57,6 @@
   }
 
   .checkboxRating {
-    @apply flex gap-3 text-sm;
+    @apply flex gap-3 text-sm lg:w-[252px];
   }
 }

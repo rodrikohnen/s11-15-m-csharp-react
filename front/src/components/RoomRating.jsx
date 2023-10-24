@@ -1,33 +1,14 @@
-"use client";
 import Image from "next/image";
 import whiteStar from "../assets/pictures/whiteStar.svg";
 import blueStar from "../assets/pictures/blueStar.svg";
-import { useState } from "react";
-import { RatingAppForm } from "./RatingAppForm";
-import { useRouter } from "next/navigation";
 
-export const RoomRating = () => {
-  const router = useRouter();
-
-  const [ratingIsSet, setRatingIsSet] = useState(false);
-  const [isRatingLocked, setIsRatingLocked] = useState(false);
-  const [formValues, setFormValues] = useState({
-    rating: 0,
-    comprension: false,
-    nivel: false,
-    recursos: false,
-    duracion: false,
-    temario: false,
-    otroCheck: false,
-    otroValue: "",
-  });
-
-  const handleChange = (index) => {
-    if (!isRatingLocked) {
-      setFormValues({ ...formValues, rating: index + 1 });
-    }
-  };
-
+export const RoomRating = ({
+  formValues,
+  handleChange,
+  isRatingLocked,
+  ratingIsSet,
+  handleRatingLock,
+}) => {
   const renderImages = () => {
     let images = [];
     for (let i = 0; i < 5; i++) {
@@ -78,43 +59,21 @@ export const RoomRating = () => {
     return images;
   };
 
-  const handleRatingLock = (e) => {
-    e.preventDefault();
-    setRatingIsSet(true);
-    setIsRatingLocked(true);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("submit", formValues);
-    router.push("/teacherratings");
-  };
-
   return (
     <>
-      <form
-        className="flex mt-4 justify-center flex-col items-center"
-        onSubmit={handleSubmit}>
+      <div className="flex mt-4 justify-center flex-col items-center">
         <aside className="flex gap-8 mt-4 justify-center">
           {renderImages()}
         </aside>
-        <article>
-          {ratingIsSet && (
-            <RatingAppForm
-              formValues={formValues}
-              setFormValues={setFormValues}
-            />
-          )}
-        </article>
         {ratingIsSet === false && (
           <button
             onClick={handleRatingLock}
             disabled={formValues.rating > 0 ? false : true}
-            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-secondary disabled:bg-gray-300">
+            className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white absolute top-[600px] bg-secondary disabled:bg-gray-300 lg:static lg:mt-8">
             Continuar
           </button>
         )}
-      </form>
+      </div>
     </>
   );
 };
