@@ -1,5 +1,5 @@
 /***************** URL BASE *****************************/
-export const API_URL = "http://www.matespeakapi.somee.com";
+export const API_URL = "https://www.matespeakapi.somee.com";
 
 /***************** ENDPOINT DATOS ***************/
 export const DATOS_URL = "/api/Datos";
@@ -14,6 +14,7 @@ export const GRUPO_URL = "/api/Grupo";
 export const ROL_URL = "/api/Rol";
 
 /***************** ENDPOINT USUARIOS ***********/
+<<<<<<< HEAD
 export const USUARIOS_URL = "/api/Usuarios";
 
 /***************** ENDPOINT IDIOMAS ***********/
@@ -24,3 +25,6 @@ export const PAIS_URL = "/api/Pais";
 
 /***************** ENDPOINT NIVELES ***********/
 export const NIVEL_URL = "/api/Nivel";
+=======
+export const USUARIOS_URL = "/api/Usuarios"
+>>>>>>> 33d9b1e (Update routes.js)
