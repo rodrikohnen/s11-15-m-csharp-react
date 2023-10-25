@@ -1,0 +1,17 @@
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.DAL.deps.json
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.DAL.runtimeconfig.json
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.DAL.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.DAL.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.Models.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\bin\Release\net6.0\Mate.Speak.Models.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.csproj.AssemblyReference.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.AssemblyInfoInputs.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.AssemblyInfo.cs
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.csproj.CopyComplete
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\refint\Mate.Speak.DAL.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\Mate.Speak.DAL.genruntimeconfig.cache
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.DAL\obj\Release\net6.0\ref\Mate.Speak.DAL.dll

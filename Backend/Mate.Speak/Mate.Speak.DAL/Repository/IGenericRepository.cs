@@ -14,7 +14,7 @@ namespace Mate.Speak.DAL.Repository
 
         Task<bool> Eliminar(int id);
 
-        Task<TEntityModel> Obtener(int id);
+        Task<TEntityModel>Obtener(int id);
 
         Task<IQueryable<TEntityModel>> ObtenerTodos();
     }

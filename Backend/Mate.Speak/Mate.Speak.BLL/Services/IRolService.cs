@@ -17,7 +17,7 @@ namespace Mate.Speak.BLL.Services
 
         Task<Role> Obtener(int id);
 
-        Task<Role> Obtener(string nombre);
+        Task<Role> Obtenerpornombre(string nombre);
 
         Task<IQueryable<Role>> ObtenerTodos();
     }

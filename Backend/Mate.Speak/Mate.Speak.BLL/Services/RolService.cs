@@ -1,17 +1,19 @@
 ﻿using Mate.Speak.Models;
+using Mate.Speak.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mate.Speak.DAL.Repository;
 
 namespace Mate.Speak.BLL.Services
 {
     public class RolService : IRolService
     {
-        private readonly IRolService _RolRepo;
+        private readonly IGenericRepository<Role> _RolRepo;
 
-        public RolService(IRolService RolRepo)
+        public RolService(IGenericRepository<Role> RolRepo)
         {
             _RolRepo = RolRepo;
         }
@@ -35,7 +37,7 @@ namespace Mate.Speak.BLL.Services
             return await _RolRepo.Obtener(id);
         }
 
-        public async Task<Role> Obtener(string nombre)
+        public async Task<Role> Obtenerpornombre(string nombre)
         {
             IQueryable<Role> querySQL = await _RolRepo.ObtenerTodos();
             Role roles = querySQL.Where(c => c.Roles == nombre).FirstOrDefault();

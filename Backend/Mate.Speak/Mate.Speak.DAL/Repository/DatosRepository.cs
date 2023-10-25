@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.DAL.Repository
 {
-    internal class DatosRepository : IGenericRepository<Dato>
+    public class DatosRepository : IGenericRepository<Dato>
     {
         private readonly mateContext _dbcontext;
         

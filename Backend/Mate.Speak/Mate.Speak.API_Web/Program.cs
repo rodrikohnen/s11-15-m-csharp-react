@@ -1,8 +1,11 @@
-using Mate.Speak.BLL.Services;
-using Mate.Speak.DAL.DataContext;
-using Mate.Speak.DAL.Repository;
-using Mate.Speak.Models;
 using Microsoft.EntityFrameworkCore;
+using Mate.Speak.DAL.DataContext;
+using Mate.Speak.Models;
+using Mate.Speak.DAL.Repository;
+using Mate.Speak.BLL.Services;
+
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,19 +35,40 @@ builder.Services.AddCors(opt =>
 });
 
 //Inyeccion de Dependencias
+//Roles
 builder.Services.AddScoped<IGenericRepository<Role>, RolRepository>();
 builder.Services.AddScoped<IRolService, RolService>();
+//Usuarios
+builder.Services.AddScoped<IGenericRepository<Usuario>, UsuarioRepository>();
+builder.Services.AddScoped<IUsuarioService, UsuarioService>();
+//Pais
+builder.Services.AddScoped<IGenericRepository<Pai>, PaisRepository>();
+builder.Services.AddScoped<IPaisService, PaisService>();
+//Intereses
+builder.Services.AddScoped<IGenericRepository<Interese>, InteresesRepository>();
+builder.Services.AddScoped<IInteresesService, InteresesService>();
+//Idioma
+builder.Services.AddScoped<IGenericRepository<Idioma>, IdiomaRepository>();
+builder.Services.AddScoped<IIdiomaService, IdiomaService>();
+//Datos
+builder.Services.AddScoped<IGenericRepository<Dato>, DatosRepository>();
+builder.Services.AddScoped<IDatosService, DatosService>();
+
 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+/*
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+*/
 
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseCors(MisReglasCors); 
 app.UseHttpsRedirection();
