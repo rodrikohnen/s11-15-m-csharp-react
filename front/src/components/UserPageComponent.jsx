@@ -1,81 +1,117 @@
 "use client";
-
+import { UserCard } from "@/components/UserCard";
 import { UserFilterBar } from "@/components/UserFilterBar";
-import { MdPersonSearch } from "react-icons/md";
-import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import { BiErrorCircle } from "react-icons/bi";
-import { useState, useEffect, useRef } from "react";
-import { useAllUsers } from "@/hooks/useAllUsers";
-import { UserCard } from "./UserCard";
+import { useState } from "react";
+
+const users = [
+  {
+    id: 1,
+    name: "Alice",
+    lastname: "Smith",
+    country: "USA",
+    rating: 4,
+    nativelanguage: "EN",
+    languagetolearn: "ES",
+  },
+  {
+    id: 2,
+    name: "Bob",
+    lastname: "Johnson",
+    country: "Canada",
+    rating: 3,
+    nativelanguage: "ES",
+    languagetolearn: "EN",
+  },
+  {
+    id: 3,
+    name: "Charlie",
+    lastname: "Brown",
+    country: "Mexico",
+    rating: 5,
+    nativelanguage: "PR",
+    languagetolearn: "EN",
+  },
+  {
+    id: 4,
+    name: "David",
+    lastname: "Lee",
+    country: "Spain",
+    rating: 2,
+    nativelanguage: "EN",
+    languagetolearn: "PR",
+  },
+  {
+    id: 5,
+    name: "Eva",
+    lastname: "Garcia",
+    country: "Brazil",
+    rating: 1,
+    nativelanguage: "PR",
+    languagetolearn: "ES",
+  },
+  {
+    id: 6,
+    name: "Frank",
+    lastname: "Martinez",
+    country: "Argentina",
+    rating: 4,
+    nativelanguage: "ES",
+    languagetolearn: "PR",
+  },
+  {
+    id: 7,
+    name: "Grace",
+    lastname: "Chen",
+    country: "Portugal",
+    rating: 5,
+    nativelanguage: "EN",
+    languagetolearn: "ES",
+  },
+  {
+    id: 8,
+    name: "Hector",
+    lastname: "Lopez",
+    country: "France",
+    rating: 3,
+    nativelanguage: "PR",
+    languagetolearn: "EN",
+  },
+  {
+    id: 9,
+    name: "Ivy",
+    lastname: "Wang",
+    country: "Germany",
+    rating: 2,
+    nativelanguage: "EN",
+    languagetolearn: "PR",
+  },
+  {
+    id: 10,
+    name: "Jack",
+    lastname: "Taylor",
+    country: "Italy",
+    rating: 4,
+    nativelanguage: "ES",
+    languagetolearn: "EN",
+  },
+];
 
 export const UserPageComponent = () => {
-  const [filteredUsers, setFilteredUsers] = useState("");
-  const [error, setError] = useState(null);
-  const inputSearch = useRef(true);
-  const { listUsers, isLoading, isError, getUsers } = useAllUsers({
-    filteredUsers,
-  });
+  const [filterType, setFilterType] = useState("general");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    getUsers({ filteredUsers });
-  };
-
-  const handleChange = (e) => {
-    const newFilter = e.target.value
-    setFilteredUsers(newFilter);
-
-    if (inputSearch.current) {
-      inputSearch.current = filteredUsers === "";
-      return;
-    }
-
-    if (filteredUsers === "") {
-      setError("No se puede buscar un usuario vacio");
-      return;
-    }
-
-    if (filteredUsers.length < 3) {
-      setError("Debe ingresar al menos 3 caracteres");
-      return;
-    }
-
-    if (filteredUsers.match(/^\d+$/)) {
-      setError("No se puede buscar un usuario con numeros");
-      return
-    }
-
-   
-    setError(null);
-  };
+  console.log(filterType);
 
   return (
     <>
-      <UserFilterBar />
+      <UserFilterBar
+        setFilterType={setFilterType}
+        filterType={filterType}
+      />
       <main className="mainContainer gap-2">
-        <div>
-          <form onSubmit={handleSubmit} className="flex flex-row items-center ">
-            <input
-              name="search"
-              id="search"
-              placeholder="Buscar..."
-              onChange={handleChange}
-              className={`
-              } w-72 border-2 border-gray-950 rounded-md`}
-            />
-            <button type="submit">
-              <MdPersonSearch className="w-10 h-8 overflow-hidden transform hover:scale-90 transition-transform" />
-            </button>
-          </form>
-          {error && <p className="text-pink-700 font-bold">{error}</p>}
-        </div>
-
-        {isLoading ? (
-          <AiOutlineLoading3Quarters className="w-10 h-10 animate-spin" />
-        ) : (
-          <UserCard listUsers={listUsers} filteredUsers={filteredUsers} />
-        )}
-       {/*  {isError && <BiErrorCircle className="w-10 h-10  text-pink-700" />} */}
+        <UserCard
+          users={users}
+          filterType={filterType}
+        />
       </main>
     </>
   );
