@@ -3,10 +3,20 @@
 //sofi
 =======
 
+<<<<<<< HEAD
 >>>>>>> 49d8884 (add: dev-front + search branches)
+=======
+import { useCreateRoom } from "@/hooks/useCreateRoom";
+>>>>>>> bc4e456 (fix: Improve logic for show the room)
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import {
+  AiOutlineCloseCircle,
+  AiOutlineLoading3Quarters,
+} from "react-icons/ai";
+import Logo from "@/assets/logos/LogoMateSpeakColor.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function CreateRooms() {
   const {
@@ -16,7 +26,7 @@ export default function CreateRooms() {
     setValue,
   } = useForm();
   const [showModal, setShowModal] = useState(false);
-  const router = useRouter();
+  const { isLoading, isError, listRooms, createRoom } = useCreateRoom();
 
   useEffect(() => {
     register("categoria", {
@@ -32,18 +42,12 @@ export default function CreateRooms() {
   }, [register]);
 
   const openModal = () => {
-    setShowModal(true);
-
-    // Redirigir automáticamente después de 3 segundos (ajusta el tiempo según tus preferencias)
-    setTimeout(() => {
-      setShowModal(false);
-      router.push("/home");
-    }, 3000);
+    setShowModal(!showModal);
   };
 
-  const onSubmit = (data) => {
-    console.log("Sala creada", data);
+  const onSubmit = (e) => {
     openModal();
+    createRoom();
   };
 
   return (
@@ -143,14 +147,45 @@ export default function CreateRooms() {
         {/* Modal de felicitaciones */}
         <div
           className={`fixed inset-0 flex items-center justify-center z-50 ${
-            showModal ? "" : "hidden"
+            showModal ? "block" : "hidden"
           }`}
         >
           <div className="absolute inset-0 bg-gray-600 opacity-50"></div>
-          <div className="bg-white p-4 rounded-md z-10">
-            <p>Felicitaciones! tu sala fue creada con éxito</p>
-          </div>
+
+          {isLoading ? (
+            <AiOutlineLoading3Quarters className="w-10 h-10 animate-spin" />
+          ) : (
+            <div className="flex flex-col  bg-white p-4 rounded-md z-10">
+              <div className="flex flex-row  items-center justify-between">
+                <Image src={Logo} className="w-16 h-16" alt="Logo MateSpeak" />
+                {showModal && (
+                  <AiOutlineCloseCircle
+                    onClick={openModal}
+                    className=" w-10 h-10 text-red-700 hover:cursor-pointer"
+                  />
+                )}
+              </div>
+
+              <div>
+                <p className="font-bold text-emerald-500 text-center p-5 text-lg">
+                  Felicitaciones! tu sala fue creada con éxito
+                </p>
+                <p className="font-bold">Informacion de tu sala:</p>
+                <p>Creador: {listRooms.user?.name}</p>
+                <p className="font-bold">Link principal:</p>
+                <Link legacyBehavior href={`${listRooms.links?.gui}`}>
+                  <a className="underline">Con este link puedes manipular tu sala</a>
+                </Link>
+
+                <p className="font-bold">Link invitacion:</p>
+                <Link legacyBehavior href={`${listRooms.links?.guest_join}`}>
+                  <a className="underline">Con este link puede invitar a quien desees</a>
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
+        {/* {isError && <BiErrorCircle className="w-10 h-10  text-pink-700" />}  */}
       </form>
     </>
   );
