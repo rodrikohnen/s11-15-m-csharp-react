@@ -4,7 +4,6 @@ import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
 import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const LoginSchema = object({
   correo: string("Debes ingresar caracteres validos.", [
@@ -13,7 +12,7 @@ const LoginSchema = object({
   ]),
   contraseña: string("Debes ingresar caracteres validos.", [
     minLength(1, "Ingresa tu contraseña"),
-    minLength(8, "Tu contraseña debe contener 8 caracteres."),
+    minLength(6, "Tu contraseña debe contener 6 caracteres."),
     maxLength(15, "Tu contraseña no puede contener mas de 15 caracteres."),
   ]),
 });
@@ -31,7 +30,7 @@ export default function LoginForm() {
   const onSubmit = (e) => {
     /*  e.preventDefault(); */
     login();
-    router.push("/user");
+    router.push("/home");
     console.log("Formulario enviado:", e);
   };
 
@@ -56,17 +55,7 @@ export default function LoginForm() {
         {errors.contraseña && (
           <p className="errormsj">{errors.contraseña?.message}</p>
         )}
-        <aside className="flex flex-col justify-start w-full mb-4">
-          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
-            Inicia Sesión
-          </h1>
-          <span className="text-sm text-black flex gap-4 font-semibold">
-            <h2 className="text-gray-400 font-light">
-              ¿Has olvidado tu contraseña?
-            </h2>
-            <Link href={"/"}>Recuperala</Link>
-          </span>
-        </aside>
+
         <button
           type="submit"
           className="registerBtn">

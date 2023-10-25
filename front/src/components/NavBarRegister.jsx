@@ -1,7 +1,5 @@
 "use client";
-
-import Image from "next/image";
-import Logo from '@/assets/logos/LogoMateSpeakColor.png'
+import Logo from "@/assets/logos/LogoMateSpeakColor.png";
 import {
   MenuRegister,
   UserRegister,
@@ -12,9 +10,12 @@ import {
   Ajustes,
   CerrarSesion,
 } from "./svg/Svgs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
+import LogoWhite from "../assets/logos/LogoMateSpeakWhite.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function NavBarRegister() {
   const logout = useAuthStore((state) => state.isLogout);
@@ -24,6 +25,23 @@ export default function NavBarRegister() {
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar la apertura/cierre del menú
   const [userMenuOpen, setUserMenuOpen] = useState(false); // Estado para controlar el menú de usuario
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
+  const [showHamburgerMenu, setShowHamburgerMenu] = useState(true); // Estado para determinar si mostrar el menú hamburguesa
+
+  const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      setShowHamburgerMenu(false); // Establece el menú de escritorio si el ancho es mayor o igual a 768px
+    } else {
+      setShowHamburgerMenu(true);
+    }
+  };
+
+  useEffect(() => {
+    handleResize(); // Llama a la función en el montaje inicial
+    window.addEventListener("resize", handleResize); // Agrega un evento de cambio de tamaño de ventana
+    return () => {
+      window.removeEventListener("resize", handleResize); // Limpia el evento en el desmontaje
+    };
+  }, []);
 
   // Función para alternar la visibilidad del menú
   const toggleMenu = () => {
@@ -37,20 +55,11 @@ export default function NavBarRegister() {
   };
 
   // Opciones del menú de usuario, incluyendo "Cerrar sesión"
-  const userMenuOptions = [
-    "Mi perfil",
-    "Notificaciones",
-    "Ayuda",
-    "Cerrar sesión",
-  ];
+  const userMenuOptions = ["Mi perfil", "Cerrar sesión"];
 
   const handleUserMenuClick = (userOption) => {
     if (userOption === "Mi perfil") {
       router.push("/miperfil");
-    } else if (userOption === "Notificaciones") {
-      // Agrega la lógica para ir a la página de notificaciones
-    } else if (userOption === "Ayuda") {
-      // Agrega la lógica para ir a la página de ayuda
     } else if (userOption === "Cerrar sesión") {
       handleLogout(); // Llama a la función handleLogout para cerrar la sesión
     }
@@ -73,73 +82,83 @@ export default function NavBarRegister() {
       router.push("/home");
     } else if (option === "Quiero ser Tutor") {
       router.push("/tutor");
-    } else if (option === "Ajustes") {
-      router.push("/ajustes");
     }
 
     setMenuOpen(false); // Cierra el menú después de seleccionar una opción
   };
 
   // Definición de las opciones del menú
-  const menuOptions = [
-    "Salas",
-    "Mis Salas",
-    "Usuarios",
-    "Quiero ser Tutor",
-    "Ajustes",
-  ];
+  const menuOptions = ["Salas", "Mis Salas", "Usuarios", "Quiero ser Tutor"];
 
   return (
-    // Renderizado de la barra de navegación
-    <header className="flex flex-row mt-4 justify-around border-black border-b-[1.5px] pb-3 w-full">
-      {/* MENU HAMBURGUESA */}
-      <span>
-        <div className="relative">
-          <button onClick={toggleMenu}>
-            <MenuRegister /> {/* Renderizar el icono del menú */}
-          </button>
-          {menuOpen && (
-            <ul className="absolute w-[222px] left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
-              {menuOptions.map((option, index) => (
-                <li
-                  key={index}
-                  className="px-5 py-2 cursor-pointer flex items-left hover:bg-gray-400"
-                  onClick={() => handleMenuOptionClick(option)}
-                >
-                  {option === "Salas" && <Salas />}
-
-                  {option === "Usuarios" && <Usuarios />}
-
-                  {option === "Mis Salas" && <MisSalas />}
-
-                  {option === "Quiero ser Tutor" && <Tutor />}
-
-                  {option === "Ajustes" && <Ajustes />}
-
-                  <span className="ml-4">{option}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </span>
-
-      {/* LOGO*/}
-      <Image className="w-20 h-14" src={Logo} alt="Logo MateSpeak" />
-
-      {/* MENI DE PERFIL */}
-      <div className="flex flex-col justify-around relative">
+    <header className="flex flex-row justify-center bg-primary border-b-[1.5px] w-full">
+      {showHamburgerMenu ? (
+        // MENÚ HAMBURGUESA A LA IZQUIERDA EN VERSIÓN MÓVIL
+        <span>
+          <div className="relative mt-4">
+            <button onClick={toggleMenu}>
+              <MenuRegister className="bg-white" />{" "}
+            </button>
+            {menuOpen && (
+              <ul className="absolute w-[222px] left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
+                {menuOptions.map((option, index) => (
+                  <li
+                    key={index}
+                    className="px-5 py-2 cursor-pointer flex items-left hover-bg-gray-400"
+                    onClick={() => handleMenuOptionClick(option)}>
+                    {showHamburgerMenu ? (
+                      <>
+                        {option === "Salas" && <Salas />}
+                        {option === "Usuarios" && <Usuarios />}
+                        {option === "Mis Salas" && <MisSalas />}
+                        {option === "Quiero ser Tutor" && <Tutor />}
+                      </>
+                    ) : (
+                      option
+                    )}
+                    <span className="ml-4">{option}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </span>
+      ) : null}
+      {/* LOGO EN EL CENTRO EN VERSIÓN MÓVIL */}
+      <div className={`mt-6  ${showHamburgerMenu ? "mx-auto" : "ml-10"}`}>
+        <Link href={"/home"}>
+          <Image
+            src={LogoWhite}
+            alt="Logo Mate Speak"
+            width={77}
+          />
+        </Link>
+      </div>
+      {showHamburgerMenu ? null : (
+        // MENÚ DE ESCRITORIO (sin menú hamburguesa)
+        <ul className="flex space-x-6 text-white text-lg justify-center w-full mt-8 ">
+          {menuOptions.map((option, index) => (
+            <li
+              key={index}
+              className="cursor-pointer hover-bg-gray-400"
+              onClick={() => handleMenuOptionClick(option)}>
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+      {/* MENÚ DE PERFIL */}
+      <div className="flex flex-col justify-around mr-6 mt-4 mb-4 ">
         <button onClick={() => setUserMenuOpen(!userMenuOpen)}>
           <UserRegister />
         </button>
         {userMenuOpen && (
-          <ul className="absolute right-0 mt-60 bg-white border border-gray-300 rounded shadow z-10">
+          <ul className="absolute right-0 mt-40 bg-white border border-gray-300 rounded shadow z-10">
             {userMenuOptions.map((userOption, index) => (
               <li
                 key={index}
-                className="px-10 py-2 cursor-pointer flex items-center hover:bg-gray-400"
-                onClick={() => handleUserMenuClick(userOption)}
-              >
+                className="px-10 py-2 text-secondary cursor-pointer flex items-center hover-bg-gray-400"
+                onClick={() => handleUserMenuClick(userOption)}>
                 <span className="ml-4">{userOption}</span>
               </li>
             ))}
@@ -148,8 +167,4 @@ export default function NavBarRegister() {
       </div>
     </header>
   );
-
 }
-
-
-

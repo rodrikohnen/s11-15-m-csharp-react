@@ -1,4 +1,5 @@
 import CardEnVivo from "@/components/CardEnVIvo";
+import CardGrupos from "@/components/CardGrupo";
 import SwiperHome from "@/components/Swiper.jsx";
 import Link from "next/link";
 
@@ -18,23 +19,32 @@ export default function HomeUser() {
   }
 
   return (
-    <main className="flex-col">
-      <div className="text-3xl flex justify-start flex-col mt-12  ml-2">
-        <h1 className="mb-4">{greeting}</h1>
-          <span className="flex flex-row justify-start items-start text-sm">
-            <input type="text" placeholder="Search" className="border border-zinc-400 mb-8 w-[17rem] h-[2rem] rounded-sm" />
-          </span>
-        <h1>Mis grupos</h1>
-        <span className="flex justify-center items-center mt-4">
-          <SwiperHome/>
-        </span>
-        <h1>En vivo</h1>
-        <span className="flex flex-col mt-4 gap-4 justify-center items-center">
-          {cardsData.map((item, index) => (
-            <CardEnVivo key={index} />
-          ))}
+    <main className="p-4 sm:p-20">
+      {/* Reduzco el espacio en dispositivos pequeños */}
+      <div className="flex flex-col mt-4 sm:flex-row sm:mt-12 space-y-4 sm:space-y-0 sm:space-x-8">
+        <h1 className="text-negromate text-3xl font-bold">{greeting}</h1>
+        <span className="text-sm sm:flex items-center mt-4 sm-mt-0">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border border-zinc-400  mb-4 sm:w-72 sm:h-8 rounded-sm"
+          />
         </span>
       </div>
+      <h1 className="mt-20 sm:mt-4 text-negromate text-xl font-bold">
+        Mis grupos
+      </h1>
+      <span className="flex mt-4 sm:mt-10">
+        <SwiperHome />
+      </span>
+      <h1 className="mt-20 sm:mt-10 text-negromate text-xl font-bold">
+        En vivo
+      </h1>
+      <span className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start">
+        {cardsData.map((item, index) => (
+          <CardEnVivo key={index} />
+        ))}
+      </span>
     </main>
   );
 }

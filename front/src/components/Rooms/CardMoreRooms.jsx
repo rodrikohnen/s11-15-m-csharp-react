@@ -6,7 +6,7 @@ export default function CardMoreRooms() {
   return (
     <div className="component m-1 p-12 w-[324px] h-[108px] border rounded-lg shadow-md flex items-center">
       <div className="flex space-x-8 items-center">
-        <div className="text-wrapper mb-2 text-primary-50 font-light">
+        <div className="text-wrapper mb-2 text-negromate font-light">
           Agregá una nueva sala
         </div>
 
@@ -17,7 +17,7 @@ export default function CardMoreRooms() {
                 router.push("/rooms/createrooms");
               }}
             >
-              <BsPlusCircleFill className="text-4xl sm:text-4xl" />
+              <BsPlusCircleFill className=" text-secondary text-4xl sm:text-4xl" />
             </button>
           </div>
         </section>
