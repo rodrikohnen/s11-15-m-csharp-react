@@ -56,7 +56,7 @@ export const RatingComponentTeacher = () => {
               </>
             )}
           </div>
-          <div className=" px-12 mt-8 lg:hidden">
+          <div className=" px-12 mt-8 ">
             <p className="text-center font-normal text-base">
               ¿Cómo fue tu experiencia con el
               <span className="font-medium"> Profesor</span>?
