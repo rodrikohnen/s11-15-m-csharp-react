@@ -75,7 +75,7 @@ export const UserPageComponent = () => {
         ) : (
           <UserCard listUsers={listUsers} filteredUsers={filteredUsers} />
         )}
-        {isError && <BiErrorCircle className="w-10 h-10  text-pink-700" />}
+       {/*  {isError && <BiErrorCircle className="w-10 h-10  text-pink-700" />} */}
       </main>
     </>
   );
