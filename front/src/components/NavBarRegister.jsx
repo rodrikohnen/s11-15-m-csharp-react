@@ -89,11 +89,11 @@ export default function NavBarRegister() {
   // Función para redirigir a las rutas correspondientes al hacer clic en una opción del menú
   const handleMenuOptionClick = (option) => {
     if (option === "Salas") {
-      router.push("/rooms");
+      router.push("/home");
     } else if (option === "Usuarios") {
       router.push("/user");
     } else if (option === "Mis Salas") {
-      router.push("/home");
+      router.push("/rooms");
     } else if (option === "Quiero ser Tutor") {
       router.push("/tutor");
     }
