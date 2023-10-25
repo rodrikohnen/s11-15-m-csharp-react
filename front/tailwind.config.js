@@ -10,8 +10,9 @@ module.exports = {
       colors: {
         primary: {
           DEFAULT: "#6785B4",
-          50: "#545454",
-          100: "#757575",
+          50: '#545454',
+          100: '#757575'
+   
         },
         secondary: {
           DEFAULT: "#563189",
@@ -19,6 +20,10 @@ module.exports = {
         danger: {
           DEFAULT: "#D9D9D9",
           50: "#D9D9D9",
+        },
+        danger: {
+          DEFAULT: '#D9D9D9',
+          50: '#D9D9D9'
         },
         accent: {
           DEFAULT: "#E94675",

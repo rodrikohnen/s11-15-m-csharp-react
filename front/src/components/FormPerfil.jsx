@@ -32,8 +32,10 @@ export default function FormPerfil() {
           <input type="password" className="border-b-2 border-black w-[17rem]" placeholder="Password"/>
           <input type="number" className="border-b-2 border-black w-[17rem]" placeholder="Telefono"/>
           <input type="text" className="border-b-2 border-black w-[17rem]" placeholder="Pais"/>
-          <button className="bg-primary-50 w-[8rem] rounded-full text-white">Editar Perfil</button>
-          <button className="border border-primary-100 w-[8rem] rounded-full text-primary-50">Guardar Perfil</button>
+          <div className="flex flex-col gap-5 pt-10">
+          <button className="bg-secondary px-16 py-1  rounded-full text-white">Editar perfil</button>
+          <button className="border-2 border-secondary hover:bg-gray-300 rounded-full text-secondary">Guardar cambios</button>
+          </div>
         </form>
     </>
   )
