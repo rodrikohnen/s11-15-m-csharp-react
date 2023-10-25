@@ -1,4 +1,4 @@
-import { API_URL, GRUPO_URL } from "@/libs/routes";
+import { API_URL, USUARIOS_URL } from "@/libs/routes";
 import { useCallback, useRef, useState } from "react";
 
 export function useAllUsers({ filteredUsers }) {
@@ -13,7 +13,7 @@ export function useAllUsers({ filteredUsers }) {
       setIsLoading(true);
       setIsError(null);
       previousSearch.current = filteredUsers;
-      const response = await fetch(`${API_URL}${GRUPO_URL}`, {
+      const response = await fetch(`${API_URL}${USUARIOS_URL}`, {
         method: "GET",
         mode: "cors",
       });
@@ -24,8 +24,8 @@ export function useAllUsers({ filteredUsers }) {
 
       //Controlando el contrato del endpoint
       return listUsers?.map((user) => ({
-        idGrupo: user.idGrupo,
-        grupo: user.grupo,
+        firstname: user.nombre,
+        secondname: user.apellido,
       }));
     } catch (error) {
       setIsError(error);
