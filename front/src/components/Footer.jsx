@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="realtive bottom-0 w-full pt-4">
-      <p className="text-center border-black  border-t-[1.5px]">
+    <footer className="w-full px-[14px] h-10 lg:h-12 flex justify-center items-center border-t-[1px] border-t-darkzinc">
+      <p className="text-center text-[10px] lg:text-sm text-negromate">
         MateSpeak | Copyright © 2023. Todos los derechos reservados
       </p>
     </footer>

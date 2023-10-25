@@ -1,35 +1,20 @@
 import { useForm } from "react-hook-form";
-import { valibotResolver } from "@hookform/resolvers/valibot";
-import { minLength, object, string, maxLength } from "valibot";
 import Image from "next/image";
-import backArrow from "../assets/icons/back-arrow.png";
 import avatar from "../assets/icons/avatar.png";
-import { selectArrow } from "./svg/Svgs";
 
-const profileSchema = object({
-  country: string([minLength(2, "Por favor ingresa tu ciudad")]),
-  nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-  languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
-  level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
-  username: string([
-    minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
-    maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
-  ]),
-});
-
-export const EditProfile = ({ user, setUser, setFormView, formView }) => {
+export const EditProfile = ({ user, setUser }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: valibotResolver(profileSchema) });
+  } = useForm();
 
   const onSubmit = (data) => {
     setUser({
       ...user,
       country: data.country,
-      nativelanguage: data.nativelanguage,
-      languagetolearn: data.languagetolearn,
+      nativeLanguage: data.nativeLanguage,
+      languageToLearn: data.languageToLearn,
       level: data.level,
       username: data.username,
     });
@@ -37,43 +22,39 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
   };
 
   console.log(user);
-  const handleClick = () => {
-    setFormView(formView - 1);
-  };
 
   return (
     <>
       <section className="w-full">
-        <header className="flex items-center justify-start gap-4 py-4 px-0 mx-0 w-full">
-          <Image
-            src={backArrow}
-            alt="go back"
-            className="object-contain"
-            onClick={handleClick}
-          />
-          <h2 className="text-black-400 text-xl">Completá tu perfil</h2>
-        </header>
-        <article className="my-4 flex flex-col items-center">
-          <p className="text-center mb-4">
+        <article className="my-4 flex flex-col items-center lg:items-start">
+          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
+            Completá tu perfil
+          </h1>
+          <p className="text-center mb-4 lg:w-[256px] lg:text-left text-sm text-[#545454] font-light">
             Completa tu información para una mejor experiencia en la plataforma
           </p>
-          <Image
-            className="object-contain"
-            src={avatar}
-            alt="avatar img"
-          />
         </article>
       </section>
       <form
-        className="flex flex-col w-full justify-start items-start gap-6"
+        className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
         onSubmit={handleSubmit(onSubmit)}>
+        <Image
+          className="object-contain self-center"
+          src={avatar}
+          alt="avatar img"
+        />
         <div className="w-full">
           <input
             placeholder="username"
             name="username"
             type="text"
             className="input"
-            {...register("username")}
+            {...register("username", {
+              required: {
+                value: true,
+                message: "Debes ingresar un username",
+              },
+            })}
           />
           {errors.username && (
             <p className="errormsj">{errors.username.message}</p>
@@ -85,11 +66,31 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
             {...register("country")}
             name="country"
             className="select">
-            <option value="">Yo soy de</option>
-            <option value="argentina">Argentina</option>
-            <option value="colombia">Colombia</option>
-            <option value="venezuela">Venezuela</option>
-            <option value="chile">Chile</option>
+            <option
+              className="option"
+              value="">
+              Yo soy de
+            </option>
+            <option
+              className="option"
+              value="argentina">
+              Argentina
+            </option>
+            <option
+              className="option"
+              value="colombia">
+              Colombia
+            </option>
+            <option
+              className="option"
+              value="venezuela">
+              Venezuela
+            </option>
+            <option
+              className="option"
+              value="chile">
+              Chile
+            </option>
           </select>
           {errors.country && (
             <p className="errormsj">{errors.country.message}</p>
@@ -98,29 +99,29 @@ export const EditProfile = ({ user, setUser, setFormView, formView }) => {
 
         <div className="w-full">
           <select
-            {...register("nativelanguage")}
-            name="nativelanguage"
+            {...register("nativeLanguage")}
+            name="nativeLanguage"
             className="select">
             <option value="">Idioma nativo</option>
             <option value="english">Inglés</option>
             <option value="spanish">Español</option>
           </select>
-          {errors.nativelanguage && (
-            <p className="errormsj">{errors.nativelanguage.message}</p>
+          {errors.nativeLanguage && (
+            <p className="errormsj">{errors.nativeLanguage.message}</p>
           )}
         </div>
 
         <div className="w-full">
           <select
-            {...register("languagetolearn")}
-            name="languagetolearn"
+            {...register("languageToLearn")}
+            name="languageToLearn"
             className="select">
             <option value="">Me interesa</option>
             <option value="english">Inglés</option>
             <option value="spanish">Español</option>
           </select>
-          {errors.languagetolearn && (
-            <p className="errormsj">{errors.languagetolearn.message}</p>
+          {errors.languageToLearn && (
+            <p className="errormsj">{errors.languageToLearn.message}</p>
           )}
         </div>
 

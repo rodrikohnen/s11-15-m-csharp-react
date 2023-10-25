@@ -1,5 +1,3 @@
-"use client";
-
 export const RatingAppForm = ({ formValues, setFormValues }) => {
   const handleChange = (e) => {
     const { name, checked, value } = e.target;
@@ -12,8 +10,10 @@ export const RatingAppForm = ({ formValues, setFormValues }) => {
   };
 
   return (
-    <div className="mt-4 w-full flex flex-col gap-2">
-      <h3 className="text-center font-medium mb-4">Selecciona los motivos</h3>
+    <div className="mt-4 w-full flex flex-col gap-2 ">
+      <h3 className="text-center font-medium mb-4 lg:text-[24px] lg:text-left lg:ml-4">
+        Selecciona los motivos
+      </h3>
       <div className="checkboxRating">
         <input
           type="checkbox"
@@ -71,7 +71,7 @@ export const RatingAppForm = ({ formValues, setFormValues }) => {
             : "Temario desactualizado"}
         </label>
       </div>
-      <div className="checkboxRating">
+      <div className="checkboxRating ">
         <input
           type="checkbox"
           name="otroCheck"
@@ -85,11 +85,13 @@ export const RatingAppForm = ({ formValues, setFormValues }) => {
           onChange={handleChange}
           disabled={formValues.otroCheck === false}></input>
       </div>
-      <button
-        type="submit"
-        className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-primary disabled:bg-gray-300 self-center mt-4">
-        Continuar
-      </button>
+      <div className="lg:w-[252px] mx-auto">
+        <button
+          type="submit"
+          className="pt-1.5 pb-[5px] px-8 rounded-2xl text-white  bg-secondary disabled:bg-gray-300 self-center mt-4">
+          Continuar
+        </button>
+      </div>
     </div>
   );
 };

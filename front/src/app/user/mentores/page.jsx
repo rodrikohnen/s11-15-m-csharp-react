@@ -4,7 +4,9 @@ import { UserPageComponent } from "@/components/UserPageComponent";
 const UserPageMentor = () => {
   return (
     <>
-      <ProfessorBackArrow />
+      <header className="w-full h-[60px] lg:h-20 bg-primary flex items-center">
+        <ProfessorBackArrow />
+      </header>
       <h1 className="text-lg font-normal self-start p-4">Mentores</h1>
       <UserPageComponent />
     </>
