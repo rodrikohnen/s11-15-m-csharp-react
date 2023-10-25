@@ -1,7 +1,6 @@
 "use client";
 import { UserCard } from "@/components/UserCard";
 import { UserFilterBar } from "@/components/UserFilterBar";
-import { UserType } from "@/components/UserType";
 import { useState } from "react";
 
 const users = [
