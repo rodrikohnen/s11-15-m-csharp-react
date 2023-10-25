@@ -1,10 +1,20 @@
 import Image from "next/image";
 import avatarwhite from "../assets/icons/avatarwhite.png";
-import { Fragment } from "react";
+import { ArrowLeft } from "./svg/Svgs";
+import { UserRating } from "./UserRating";
 
-export const UserCard = ({ listUsers, filteredUsers }) => {
+export const UserCard = ({ users, filterType }) => {
+  let filteredUsers = users;
+
+  if (filterType === "populares") {
+    filteredUsers = users.filter((user) => user.rating >= 4);
+    filteredUsers.sort((a, b) => b.rating - a.rating);
+  } else if (filterType === "cerca") {
+    filteredUsers = users.filter((user) => user.country === "Argentina");
+  }
   return (
     <>
+<<<<<<< HEAD
 <<<<<<< HEAD
       {listUsers ? (
         <>
@@ -42,6 +52,8 @@ export const UserCard = ({ listUsers, filteredUsers }) => {
         </p>
       )}
 =======
+=======
+>>>>>>> 66c5d27 (Change: User Page Reverse)
       {filteredUsers.map((user) => (
         <article
           key={user.id}
@@ -68,21 +80,10 @@ export const UserCard = ({ listUsers, filteredUsers }) => {
           </div>
         </article>
       ))}
+<<<<<<< HEAD
 >>>>>>> 30dce80 (Change: Login and User styles with Desktop view)
+=======
+>>>>>>> 66c5d27 (Change: User Page Reverse)
     </>
   );
-};
-
-function NoUsersResults() {
-  return (
-    <p className="text-pink-700 font-bold text-center">
-      No se encontraron usuarios para esta búsqueda
-    </p>
-  );
-}
-
-export const Users = ({ listUsers }) => {
-  const hasUser = listUsers.length > 0;
-
-  return hasUser ? <UserCard listUsers={listUsers} /> : <NoUsersResults />;
 };
