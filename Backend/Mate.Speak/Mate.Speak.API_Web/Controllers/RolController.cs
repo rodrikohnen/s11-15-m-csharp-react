@@ -14,10 +14,12 @@ namespace Mate.Speak.API_Web.Controllers
     public class RolController : ControllerBase
     {
         private readonly IRolService _RolService;
+
         public RolController(IRolService RolService)
         {
             _RolService = RolService;
         }
+
         [HttpGet]
         public async Task<IActionResult> Listar() 
         {
@@ -55,9 +57,11 @@ namespace Mate.Speak.API_Web.Controllers
         public async Task<IActionResult> Actualizar([FromBody] VMRol modelo)
         {
             IQueryable<Role> queryRoleSQL = await _RolService.ObtenerTodos();
-
+             
             Role NuevoModelo = new Role
             {
+                IdRol = modelo.IdRol,
+
                 Roles = modelo.Roles
             };
 

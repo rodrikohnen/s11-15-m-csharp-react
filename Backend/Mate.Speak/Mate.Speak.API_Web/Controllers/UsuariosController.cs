@@ -84,6 +84,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             Usuario NuevoModelo = new Usuario
             {
+                IdUsuario = modelo.IdUsuario,
+
                 IdRol = modelo.IdRol,
 
                 Nombre = modelo.Nombre,

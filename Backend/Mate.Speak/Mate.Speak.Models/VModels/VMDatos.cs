@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.Models.VModels
 {
-    internal class VMDatos
+    public class VMDatos
     {
         public int IdDatos { get; set; }
         
