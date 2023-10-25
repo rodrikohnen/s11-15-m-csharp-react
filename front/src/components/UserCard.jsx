@@ -11,16 +11,14 @@ export const UserCard = ({ listUsers, filteredUsers }) => {
             .filter((user) => {
               return filteredUsers === ""
                 ? user
-                : user.grupo
+                : user.nombre
                     .toLowerCase()
                     .includes(filteredUsers.toLowerCase());
             })
             .map((user) => (
-              <Fragment key={user.idGrupo}>
+              <Fragment key={user.id}>
                 <article className="w-full bg-gray-200 flex gap-4 rounded-md p-4">
-                  <span className="text-lg font-bold">
-                    Grupo # {user.idGrupo}
-                  </span>
+                  <span className="text-lg font-bold">#1 {user.id}</span>
                   <aside className="bg-white rounded-full flex items-center p-4">
                     <Image
                       src={avatarwhite}
@@ -30,7 +28,7 @@ export const UserCard = ({ listUsers, filteredUsers }) => {
                   </aside>
                   <div className="flex flex-col gap-1 items-start">
                     <p className="text-sm font-medium text-black">
-                      {user.grupo}
+                      {user.nombre} {user.apellido}
                     </p>
                   </div>
                 </article>
