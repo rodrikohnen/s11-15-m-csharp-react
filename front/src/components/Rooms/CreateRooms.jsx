@@ -17,6 +17,7 @@ import {
 import Logo from "@/assets/logos/LogoMateSpeakColor.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function CreateRooms() {
   const {
@@ -27,6 +28,7 @@ export default function CreateRooms() {
   } = useForm();
   const [showModal, setShowModal] = useState(false);
   const { isLoading, isError, listRooms, createRoom } = useCreateRoom();
+  const router = useRouter();
 
   useEffect(() => {
     register("categoria", {
@@ -190,7 +192,9 @@ export default function CreateRooms() {
                 <Image src={Logo} className="w-16 h-16" alt="Logo MateSpeak" />
                 {showModal && (
                   <AiOutlineCloseCircle
-                    onClick={openModal}
+                    onClick={() => {
+                      openModal, router.push("/rooms");
+                    }}
                     className=" w-10 h-10 text-red-700 hover:cursor-pointer"
                   />
                 )}
@@ -204,12 +208,16 @@ export default function CreateRooms() {
                 <p>Creador: {listRooms.user?.name}</p>
                 <p className="font-bold">Link principal:</p>
                 <Link legacyBehavior href={`${listRooms.links?.gui}`}>
-                  <a className="underline">Con este link puedes manipular tu sala</a>
+                  <a className="underline">
+                    Con este link puedes manipular tu sala
+                  </a>
                 </Link>
 
                 <p className="font-bold">Link invitacion:</p>
                 <Link legacyBehavior href={`${listRooms.links?.guest_join}`}>
-                  <a className="underline">Con este link puede invitar a quien desees</a>
+                  <a className="underline">
+                    Con este link puede invitar a quien desees
+                  </a>
                 </Link>
               </div>
             </div>
