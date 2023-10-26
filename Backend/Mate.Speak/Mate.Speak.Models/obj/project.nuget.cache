@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ok4uezU92LTvLOm8XVFi9GXRtUuYDbtmiwpKZ0vFJQ6Jl+BcteTf5s+xglKjb9KzU5pX+VLV5BTIyMi3wAkoig==",
+  "dgSpecHash": "7GEEqAokic2RMCCIr/BUreSOrfByFTZRA7cqK6w7E/4abbXehO0hsyJFKx/YCyE+oW7vJCy/5UIzjYN5mRVJmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Indatech\\Documents\\GitHub\\s11-15-m-csharp-react\\Backend\\Mate.Speak\\Mate.Speak.Models\\Mate.Speak.Models.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/hesher/s11-15-m-csharp-react/Backend/Mate.Speak/Mate.Speak.Models/Mate.Speak.Models.csproj",
+  "expectedPackageFiles": [
+    "/home/hesher/.nuget/packages/microsoft.netcore.app.ref/6.0.23/microsoft.netcore.app.ref.6.0.23.nupkg.sha512",
+    "/home/hesher/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.23/microsoft.aspnetcore.app.ref.6.0.23.nupkg.sha512"
+  ],
   "logs": []
 }
