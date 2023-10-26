@@ -1,15 +1,47 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import CardMoreRooms from "@/components/Rooms/CardMoreRooms";
 import NavBarRooms from "@/components/Rooms/NavBarRooms";
 import GroupVideo from "../../assets/pictures/Group-video-pana1.jpg";
 import Image from "next/image";
+import { ROOM_API_URL } from "@/hooks/useCreateRoom";
+import { GrStatusGood, GrStatusWarning } from "react-icons/gr";
 
 export default function Rooms() {
   const [isMobile, setIsMobile] = useState(false);
+  const [showRooms, setShowRooms] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(null);
+
+  const getRooms = async () => {
+    try {
+      setIsLoading(true);
+      setIsError(null);
+      const response = await fetch(`https://api.eyeson.team/rooms`, {
+        method: "GET",
+        headers: {
+          Authorization: `${ROOM_API_URL}`,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+      const data = await response.json();
+      setShowRooms(data);
+      const allRooms = data;
+      return allRooms?.map((room) => ({
+        Name: room.name,
+        Ready: room.ready,
+        Started: room.started_at,
+      }));
+    } catch (error) {
+      setIsError(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
+    getRooms();
     // Detect the screen width and set isMobile accordingly
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768); // Ajusta el punto de quiebre según tus necesidades
@@ -53,6 +85,32 @@ export default function Rooms() {
             Mis Salas
           </h2>
           <CardMoreRooms />
+          <div className=" pt-5">
+          {showRooms ? (
+            <>
+              {showRooms.map((room) => (
+                <Fragment key={room.id}>
+                  <div className="border-2 rounded-lg max-w-xs p-5 shadow-2xl">
+                    <h1>Nombre de la sala: {room.name}</h1>
+                    <p className=" flex flex-row items-center gap-1">
+                      Estado de la sala:
+                      {room.ready ? (
+                        <p className="text-green-500 font-bold">Encendida</p>
+                      ) : (
+                        <p className="text-pink-700 font-bold">Apagada</p>
+                      )}
+                    </p>
+                    <p className="font-bold">
+                      Fecha de creacion: {room.started_at}
+                    </p>
+                  </div>
+                </Fragment>
+              ))}
+            </>
+          ) : (
+            <p>No hay salas creadas</p>
+          )}
+          </div>
         </section>
       </div>
     </>
