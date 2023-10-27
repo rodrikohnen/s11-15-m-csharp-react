@@ -1,27 +1,94 @@
 import { useForm } from "react-hook-form";
 import Image from "next/image";
 import avatar from "../assets/icons/avatar.png";
+import { HttpRequest } from "@/helpers/httpRequest";
+import {
+  API_URL,
+  IDIOMA_URL,
+  PAIS_URL,
+  DATOS_URL,
+  NIVEL_URL,
+} from "@/libs/routes";
+import { useState, useEffect } from "react";
+import { useRegisterStore } from "@/context/registerStore";
 
-export const EditProfile = ({ user, setUser }) => {
+export const EditProfile = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const user = useRegisterStore((state) => state.user);
+  const [languages, setLanguages] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [nivel, setNivel] = useState([]);
+
+  const req = HttpRequest();
+  const urlIdiomas = `${API_URL}${IDIOMA_URL}`;
+  const urlCountries = `${API_URL}${PAIS_URL}`;
+  const urlNivel = `${API_URL}${NIVEL_URL}`;
+  const urlDatos = `${API_URL}${DATOS_URL}`;
+
+  useEffect(() => {
+    req.get(urlIdiomas).then((res) => {
+      if (!res.err) {
+        setLanguages(res);
+      } else {
+        setLanguages(null);
+      }
+    });
+
+    req.get(urlCountries).then((res) => {
+      if (!res.err) {
+        setCountries(res);
+      } else {
+        setCountries(null);
+      }
+    });
+
+    req.get(urlNivel).then((res) => {
+      if (!res.err) {
+        setNivel(res);
+      } else {
+        setNivel(null);
+      }
+    });
+
+    req.get(urlCountries).then((res) => {
+      if (!res.err) {
+        setCountries(res);
+      } else {
+        setCountries(null);
+      }
+    });
+
+    console.log(user);
+  }, [urlIdiomas]);
 
   const onSubmit = (data) => {
-    setUser({
-      ...user,
-      country: data.country,
-      nativeLanguage: data.nativeLanguage,
-      languageToLearn: data.languageToLearn,
-      level: data.level,
-      username: data.username,
-    });
-    console.log(user);
-  };
+    const { nativeLanguage, country, level, languageToLearn } = data;
 
-  console.log(user);
+    console.log(data, user.idUsuario);
+
+    const options = {
+      headers: { "content-type": "application/json" },
+      body: {
+        nativo: nativeLanguage,
+        idPais: country,
+        idCalificacion: level,
+        idInteres: languageToLearn,
+        idUsuario: user.idUsuario,
+        telefono: null,
+        avatarRoot: null,
+        nombreAvatar: null,
+        idCalificacion: 1,
+        urlcertificado: null,
+        nombrecertificado: null,
+        certificado: null,
+      },
+    };
+    req.post(urlDatos, options).then((response) => console.log(response));
+  };
 
   return (
     <>
@@ -44,67 +111,44 @@ export const EditProfile = ({ user, setUser }) => {
           alt="avatar img"
         />
         <div className="w-full">
-          <input
-            placeholder="username"
-            name="username"
-            type="text"
-            className="input"
-            {...register("username", {
-              required: {
-                value: true,
-                message: "Debes ingresar un username",
-              },
-            })}
-          />
-          {errors.username && (
-            <p className="errormsj">{errors.username.message}</p>
-          )}
-        </div>
-
-        <div className="w-full">
           <select
             {...register("country")}
             name="country"
             className="select">
-            <option
-              className="option"
-              value="">
-              Yo soy de
-            </option>
-            <option
-              className="option"
-              value="argentina">
-              Argentina
-            </option>
-            <option
-              className="option"
-              value="colombia">
-              Colombia
-            </option>
-            <option
-              className="option"
-              value="venezuela">
-              Venezuela
-            </option>
-            <option
-              className="option"
-              value="chile">
-              Chile
-            </option>
+            {countries && (
+              <>
+                <option value="">Yo soy de</option>
+                {countries.map((country) => (
+                  <option
+                    value={Number(country.idPais)}
+                    key={country.idPais}>
+                    {country.pais}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
           {errors.country && (
             <p className="errormsj">{errors.country.message}</p>
           )}
         </div>
-
         <div className="w-full">
           <select
             {...register("nativeLanguage")}
             name="nativeLanguage"
             className="select">
-            <option value="">Idioma nativo</option>
-            <option value="english">Inglés</option>
-            <option value="spanish">Español</option>
+            {languages && (
+              <>
+                <option value="">Idioma Nativo</option>
+                {languages.map((language) => (
+                  <option
+                    value={Number(language.idIdioma)}
+                    key={language.idIdioma}>
+                    {language.idiomas}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
           {errors.nativeLanguage && (
             <p className="errormsj">{errors.nativeLanguage.message}</p>
@@ -116,25 +160,42 @@ export const EditProfile = ({ user, setUser }) => {
             {...register("languageToLearn")}
             name="languageToLearn"
             className="select">
-            <option value="">Me interesa</option>
-            <option value="english">Inglés</option>
-            <option value="spanish">Español</option>
+            {languages && (
+              <>
+                <option value="">Me interesa</option>
+                {languages.map((language) => (
+                  <option
+                    value={Number(language.idIdioma)}
+                    key={language.idIdioma}>
+                    {language.idiomas}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
           {errors.languageToLearn && (
             <p className="errormsj">{errors.languageToLearn.message}</p>
           )}
         </div>
-
         <div className="w-full">
           <select
             {...register("level")}
             name="level"
             className="select">
-            <option value="-">Nivel</option>
-            <option value="begginer">Principiante</option>
-            <option value="intermediate">Intermedio</option>
-            <option value="advanced">Avanzado</option>
+            {nivel && (
+              <>
+                <option value="-">Nivel</option>
+                {nivel.map((level) => (
+                  <option
+                    value={Number(level.idNivel)}
+                    key={level.idNivel}>
+                    {level.nivel}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
+
           {errors.level && <p className="errormsj">{errors.level.message}</p>}
         </div>
 
