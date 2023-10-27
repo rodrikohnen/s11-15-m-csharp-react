@@ -1,62 +1,39 @@
 "use client";
 
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CardMoreRooms from "@/components/Rooms/CardMoreRooms";
 import NavBarRooms from "@/components/Rooms/NavBarRooms";
 import GroupVideo from "../../assets/pictures/Group-video-pana1.jpg";
 import Image from "next/image";
-import { ROOM_API_URL } from "@/hooks/useCreateRoom";
+import Link from "next/link";
 import { GrStatusGood, GrStatusWarning } from "react-icons/gr";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { Medalla, PerfilDefault } from "@/components/svg/Svgs";
+import { CreateRoomContext } from "@/context/createRoom";
+import { useGetRooms } from "@/hooks/useGetRooms";
 
 export default function Rooms() {
+  const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
+  const { showRooms, getRooms, setShowRooms } = useGetRooms();
   const [isMobile, setIsMobile] = useState(false);
-  const [showRooms, setShowRooms] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(null);
-
-  const getRooms = async () => {
-    try {
-      setIsLoading(true);
-      setIsError(null);
-      const response = await fetch(`https://api.eyeson.team/rooms`, {
-        method: "GET",
-        headers: {
-          Authorization: `${ROOM_API_URL}`,
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
-      const data = await response.json();
-      setShowRooms(data);
-      const allRooms = data;
-      return allRooms?.map((room) => ({
-        Name: room.name,
-        Ready: room.ready,
-        Started: room.started_at,
-      }));
-    } catch (error) {
-      setIsError(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   useEffect(() => {
+    const storedRooms = JSON.parse(localStorage.getItem("listrooms"));
+    if (storedRooms && showRooms.ready === true) {
+      setShowRooms(storedRooms);
+    } else if (storedRooms && showRooms.ready === false) {
+      setShowRooms(localStorage.removeItem("listrooms"));
+    }
     getRooms();
-    // Detect the screen width and set isMobile accordingly
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Ajusta el punto de quiebre según tus necesidades
-    };
+  }, []);
 
-    // Comprobación inicial
-    handleResize();
-
-    // Escucha los eventos de redimensionamiento de la ventana
-    window.addEventListener("resize", handleResize);
-
-    // Limpieza del event listener
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+  useEffect(() => {
+    const createRoom = JSON.parse(localStorage.getItem("rooms"));
+    if (createRoom) {
+      setRooms(createRoom);
+    } else {
+      setRooms(localStorage.removeItem("rooms"));
+    }
   }, []);
 
   return (
@@ -77,6 +54,7 @@ export default function Rooms() {
           />
         </section>
         <section className={`sm:text-left text-center`}>
+          <CardMoreRooms />
           <h2
             className={`sm:text-xl text-xl family text-negromate mt-20 mb-10  ${
               isMobile ? "mx-auto" : ""
@@ -84,33 +62,61 @@ export default function Rooms() {
           >
             Mis Salas
           </h2>
-          <CardMoreRooms />
-          <div className=" pt-5">
-          {showRooms ? (
-            <>
-              {showRooms.map((room) => (
-                <Fragment key={room.id}>
-                  <div className="border-2 rounded-lg max-w-xs p-5 shadow-2xl">
-                    <h1>Nombre de la sala: {room.name}</h1>
-                    <p className=" flex flex-row items-center gap-1">
-                      Estado de la sala:
-                      {room.ready ? (
-                        <p className="text-green-500 font-bold">Encendida</p>
-                      ) : (
-                        <p className="text-pink-700 font-bold">Apagada</p>
-                      )}
-                    </p>
-                    <p className="font-bold">
-                      Fecha de creacion: {room.started_at}
-                    </p>
-                  </div>
-                </Fragment>
-              ))}
-            </>
+
+          {isLoading ? (
+            <div className=" flex items-center justify-center">
+              <AiOutlineLoading3Quarters className=" w-10 h-10 animate-spin " />
+            </div>
           ) : (
-            <p>No hay salas creadas</p>
+            <div className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start ">
+              {showRooms ? (
+                <>
+                  {[...showRooms].map((room) => (
+                    <Link legacyBehavior href={`${listRooms.links?.gui}`}>
+                      <span
+                        className=" p-[1rem] text-sm border shadow-xl rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer"
+                        href="#"
+                      >
+                        <div className="p-1 ">
+                          <div className="flex justify-between">
+                            <h1 className="mb-2 font-medium text-secondary">
+                              {room.name}
+                            </h1>
+                            <div className="flex flex-row">
+                              <Medalla />
+                            </div>
+                          </div>
+                          <div className="flex flex-row justify-between py-1">
+                            <PerfilDefault />
+                            <div className="flex flex-col ml-3">
+                              <div className="flex flex-col">
+                                <div className="flex flex-row space-x-2">
+                                  {/* Ratings */}
+                                </div>
+                              </div>
+                              {room.ready ? (
+                                <GrStatusGood className="w-10 h-10 " />
+                              ) : (
+                                <GrStatusWarning className="w-10 h-10 text-orange-400" />
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex font-bold py-1 text-negromate">
+                            <div className="flex flex-row">
+                              {room.started_at}
+                            </div>
+                            <div className="flex flex-row"></div>
+                          </div>
+                        </div>
+                      </span>
+                    </Link>
+                  ))}
+                </>
+              ) : (
+                <p>No hay salas</p>
+              )}
+            </div>
           )}
-          </div>
         </section>
       </div>
     </>
