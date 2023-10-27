@@ -4,11 +4,15 @@
 =======
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 49d8884 (add: dev-front + search branches)
 =======
 import { useCreateRoom } from "@/hooks/useCreateRoom";
 >>>>>>> bc4e456 (fix: Improve logic for show the room)
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState, useEffect, useContext } from "react";
+>>>>>>> 21b2f58 (fix: custom context)
 import { useForm } from "react-hook-form";
 import {
   AiOutlineCloseCircle,
@@ -18,6 +22,7 @@ import Logo from "@/assets/logos/LogoMateSpeakColor.png";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { CreateRoomContext } from "@/context/createRoom";
 
 export default function CreateRooms() {
   const {
@@ -27,7 +32,8 @@ export default function CreateRooms() {
     setValue,
   } = useForm();
   const [showModal, setShowModal] = useState(false);
-  const { isLoading, isError, listRooms, createRoom } = useCreateRoom();
+  const { isLoading, isError, listRooms, createRoom } =
+    useContext(CreateRoomContext);
   const router = useRouter();
 
   useEffect(() => {
@@ -201,24 +207,18 @@ export default function CreateRooms() {
               </div>
 
               <div>
-                <p className="font-bold text-emerald-500 text-center p-5 text-lg">
-                  Felicitaciones! tu sala fue creada con éxito
-                </p>
-                <p className="font-bold">Informacion de tu sala:</p>
-                <p>Creador: {listRooms.user?.name}</p>
-                <p className="font-bold">Link principal:</p>
-                <Link legacyBehavior href={`${listRooms.links?.gui}`}>
-                  <a className="underline">
-                    Con este link puedes manipular tu sala
-                  </a>
-                </Link>
-
-                <p className="font-bold">Link invitacion:</p>
-                <Link legacyBehavior href={`${listRooms.links?.guest_join}`}>
-                  <a className="underline">
-                    Con este link puede invitar a quien desees
-                  </a>
-                </Link>
+                {listRooms ? (
+                  <>
+                    {[listRooms].map((room) => (
+                      <p className="font-bold text-emerald-500 text-center p-5 text-lg">
+                        Felicitaciones {room.user?.name}! tu sala fue creada con
+                        éxito
+                      </p>
+                    ))}
+                  </>
+                ) : (
+                  <p>No se pudo crear la sala</p>
+                )}
               </div>
             </div>
           )}
