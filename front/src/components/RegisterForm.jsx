@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { API_URL, USUARIOS_URL } from "@/libs/routes";
+import { HttpRequest } from "@/helpers/httpRequest";
+import { useEffect } from "react";
+import { useRegisterStore } from "@/context/registerStore";
 
-export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
+export const RegisterForm = ({ setFormView, formView }) => {
   const {
     register,
     handleSubmit,
@@ -9,16 +13,42 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (user) => {
-    setUser({
-      ...user,
-      name: user.name,
-      lastname: user.lastname,
-      email: user.email,
-      password: user.password,
-      confirmPassword: user.confirmPassword,
+  const user = useRegisterStore((state) => state.user);
+  const { setUser } = useRegisterStore();
+
+  const onSubmit = (data) => {
+    const req = HttpRequest();
+
+    const url = `${API_URL}${USUARIOS_URL}`;
+    const options = {
+      headers: { "content-type": "application/json" },
+      body: {
+        ...user,
+        nombre: data.nombre,
+        apellido: data.apellido,
+        correo: data.correo,
+        password: data.password,
+        usuario1: data.usuario1,
+      },
+    };
+    req.post(url, options).then((res) => {
+      console.log(res);
+      if (res.usuario) {
+        // Actualizar el estado solo si la solicitud se completa con éxito
+        setUser({
+          ...user,
+          idUsuario: res.usuario,
+          nombre: data.nombre,
+          apellido: data.apellido,
+          correo: data.correo,
+          password: data.password,
+          usuario1: data.usuario1,
+        });
+        setFormView(formView + 1);
+
+        console.log(user);
+      }
     });
-    setFormView(formView + 1);
   };
 
   return (
@@ -39,10 +69,10 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
           <div className="w-full">
             <input
               placeholder="Nombres"
-              name="name"
+              name="nombre"
               type="text"
               className="input"
-              {...register("name", {
+              {...register("nombre", {
                 required: {
                   value: true,
                   message: "Tu apellido debe tener un mínimo de dos caracteres",
@@ -53,32 +83,34 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
                 },
               })}
             />
-            {errors.name && <p className="errormsj">{errors.name.message}</p>}
+            {errors.nombre && (
+              <p className="errormsj">{errors.nombre.message}</p>
+            )}
           </div>
           <div className="w-full">
             <input
               placeholder="Apellido"
-              name="lastname"
+              name="apellido"
               type="text"
               className="input"
-              {...register("lastname", {
+              {...register("apellido", {
                 required: {
                   value: true,
                   message: "Tu apellido debe tener un mínimo de dos caracteres",
                 },
               })}
             />
-            {errors.lastname && (
-              <p className="errormsj">{errors.lastname.message}</p>
+            {errors.apellido && (
+              <p className="errormsj">{errors.apellido.message}</p>
             )}
           </div>
           <div className="w-full">
             <input
               placeholder="Correo electrónico"
-              name="email"
+              name="correo"
               type="email"
               className="input"
-              {...register("email", {
+              {...register("correo", {
                 required: {
                   value: true,
                   message: "El e-mail es requerido",
@@ -89,9 +121,27 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
                 },
               })}
             />
-            {errors.email && <p className="errormsj">{errors.email.message}</p>}
+            {errors.correo && (
+              <p className="errormsj">{errors.correo.message}</p>
+            )}
           </div>
-
+          <div className="w-full">
+            <input
+              placeholder="username"
+              name="usuario1"
+              type="text"
+              className="input"
+              {...register("usuario1", {
+                required: {
+                  value: true,
+                  message: "Debes ingresar un username",
+                },
+              })}
+            />
+            {errors.usuario1 && (
+              <p className="errormsj">{errors.usuario1.message}</p>
+            )}
+          </div>
           <div className="w-full">
             <input
               placeholder="Contraseña"
@@ -144,7 +194,6 @@ export const RegisterForm = ({ setFormView, formView, user, setUser }) => {
               <p className="errormsj">{errors.confirmPassword.message}</p>
             )}
           </div>
-
           <input
             className="registerBtn"
             type="submit"
