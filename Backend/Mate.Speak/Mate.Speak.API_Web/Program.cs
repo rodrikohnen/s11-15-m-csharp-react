@@ -53,8 +53,18 @@ builder.Services.AddScoped<IIdiomaService, IdiomaService>();
 //Datos
 builder.Services.AddScoped<IGenericRepository<Dato>, DatosRepository>();
 builder.Services.AddScoped<IDatosService, DatosService>();
-
-
+//Nivel
+builder.Services.AddScoped<IGenericRepository<Nivele>, NivelRepository>();
+builder.Services.AddScoped<INivelService, NivelService>();
+//Estudio
+builder.Services.AddScoped<IGenericRepository<Estudio>, EstudioRepository>();
+builder.Services.AddScoped<IEstudioService, EstudioService>();
+//Sala
+builder.Services.AddScoped<IGenericRepository<Sala>, SalaRepository>();
+builder.Services.AddScoped<ISalaService, SalaService>();
+//AdminSala
+builder.Services.AddScoped<IGenericRepository<AdminSala>, AdminSalaRepository>();
+builder.Services.AddScoped<IAdminSalaService, AdminSalaService>();
 
 var app = builder.Build();
 

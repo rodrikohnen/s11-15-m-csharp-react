@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Mate.Speak.BLL
-build_property.ProjectDir = /home/hesher/s11-15-m-csharp-react/Backend/Mate.Speak/Mate.Speak.BLL/
+build_property.ProjectDir = C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.BLL\

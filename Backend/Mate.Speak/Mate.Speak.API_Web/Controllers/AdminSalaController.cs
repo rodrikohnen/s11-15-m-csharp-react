@@ -1,10 +1,12 @@
 using Mate.Speak.BLL.Services;
 using Mate.Speak.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mate.Speak.API.Controllers
 {
+    [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
     [ApiController]
     public class AdminSalaController : ControllerBase

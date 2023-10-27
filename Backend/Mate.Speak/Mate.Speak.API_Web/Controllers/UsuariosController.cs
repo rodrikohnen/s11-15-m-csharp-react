@@ -74,7 +74,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             bool respuesta = await _UsuariosService.Insertar(NuevoModelo);
 
-            return StatusCode(StatusCodes.Status200OK, new { valor = respuesta });
+            return StatusCode(StatusCodes.Status200OK, new { usuario = NuevoModelo.IdUsuario, valor = respuesta});
+            
         }
 
         [HttpPut]
