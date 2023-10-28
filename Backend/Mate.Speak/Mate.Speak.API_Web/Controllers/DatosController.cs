@@ -62,11 +62,9 @@ namespace Mate.Speak.API_Web.Controllers
         {
             IQueryable<Dato> queryDatosSQL = await _DatosService.ObtenerTodos();
 
-            Dato NuevoModelo = new Dato
+            Dato NuevoModelo = new Dato()
             {
-                //IdDatos = c.IdDatos,
-
-                IdUsuario = modelo.IdDatos,
+                IdUsuario = modelo.IdUsuario,
 
                 Nativo = modelo.Nativo,
 
@@ -95,15 +93,13 @@ namespace Mate.Speak.API_Web.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Actulizar([FromBody] VMDatos modelo)
+        public async Task<IActionResult> Actualizar([FromBody] VMDatos modelo)
         {
             IQueryable<Dato> queryDatosSQL = await _DatosService.ObtenerTodos();
 
-            Dato NuevoModelo = new Dato
+            Dato NuevoModelo = new Dato()
             {
-                IdDatos = modelo.IdDatos,
-
-                IdUsuario = modelo.IdDatos,
+                IdUsuario = modelo.IdUsuario,
 
                 Nativo = modelo.Nativo,
 

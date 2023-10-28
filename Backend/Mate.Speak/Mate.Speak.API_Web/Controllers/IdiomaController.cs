@@ -59,6 +59,7 @@ namespace Mate.Speak.API_Web.Controllers
 
             Idioma NuevoModelo = new Idioma
             {
+                IdIdioma = modelo.IdIdioma,
                 Idiomas = modelo.Idiomas
             };
 

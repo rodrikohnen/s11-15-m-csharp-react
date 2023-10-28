@@ -18,7 +18,7 @@ namespace Mate.Speak.DAL.Repository
         }
         public async Task<bool> Actualizar(Dato modelo)
         {
-            _dbcontext.Datos.Update(modelo);
+           _dbcontext.Datos.Update(modelo);
             await _dbcontext.SaveChangesAsync();
             return true;
         }
@@ -33,9 +33,11 @@ namespace Mate.Speak.DAL.Repository
 
         public async Task<bool> Insertar(Dato modelo)
         {
+
             _dbcontext.Datos.Add(modelo);
             await _dbcontext.SaveChangesAsync();
             return true;
+            
         }
 
         public async Task<Dato> Obtener(int id)

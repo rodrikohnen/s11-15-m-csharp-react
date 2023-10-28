@@ -43,7 +43,7 @@ namespace Mate.Speak.API_Web.Controllers
         {
             IQueryable<Role> queryRoleSQL = await _RolService.ObtenerTodos();
 
-            Role NuevoModelo = new Role
+            Role NuevoModelo = new Role()
             {
                 Roles = modelo.Roles
             };
@@ -58,7 +58,7 @@ namespace Mate.Speak.API_Web.Controllers
         {
             IQueryable<Role> queryRoleSQL = await _RolService.ObtenerTodos();
              
-            Role NuevoModelo = new Role
+            Role NuevoModelo = new Role()
             {
                 IdRol = modelo.IdRol,
 
