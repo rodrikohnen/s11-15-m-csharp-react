@@ -6,7 +6,6 @@ const useLogin = () => {
     navigate("/home");
   };
 
-  const login = useAuthStore((state) => state.isLogin);
   const handleLogin = async (data) => {
     console.log("data");
     const req = await HttpRequest();
@@ -21,10 +20,6 @@ const useLogin = () => {
     };
     req.post(url, options).then((res) => {
       console.log(res, "respuesta");
-      if (res.usuario) {
-        console.log(user);
-        login();
-      }
     });
   };
 
