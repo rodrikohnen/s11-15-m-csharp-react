@@ -41,7 +41,7 @@ namespace Mate.Speak.API_Web.Controllers
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     Subject = claims,
-                    Expires = DateTime.UtcNow.AddMinutes(5),
+                    Expires = DateTime.UtcNow.AddMinutes(350),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(ketBytes), SecurityAlgorithms.HmacSha256Signature)
                 };
 
