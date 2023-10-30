@@ -68,6 +68,7 @@ builder.Services.AddCors(opt =>
     });
 });
 
+
 //Inyeccion de Dependencias
 //Roles
 builder.Services.AddScoped<IGenericRepository<Role>, RolRepository>();
@@ -103,6 +104,8 @@ builder.Services.AddScoped<IAdminSalaService, AdminSalaService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+
 /*
 if (app.Environment.IsDevelopment())
 {
@@ -114,7 +117,14 @@ if (app.Environment.IsDevelopment())
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.UseCors(MisReglasCors); 
+app.UseCors(MisReglasCors);
+
+app.UseCors(option => {
+    option.WithOrigins("https://s11-15-m-csharp-react.vercel.app/");
+    option.AllowAnyMethod();
+    option.AllowAnyOrigin();
+
+});
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
