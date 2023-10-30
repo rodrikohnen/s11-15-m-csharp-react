@@ -25,6 +25,12 @@ export const PAIS_URL = "/api/Pais";
 
 /***************** ENDPOINT NIVELES ***********/
 export const NIVEL_URL = "/api/Nivel";
+<<<<<<< HEAD
 =======
 export const USUARIOS_URL = "/api/Usuarios"
 >>>>>>> 33d9b1e (Update routes.js)
+=======
+
+/***************** ENDPOINT AUTENTICACION ***********/
+export const AUTENTICACION_URL = "/api/Autenticacion/validar";
+>>>>>>> 4222815 (add: cambios en el log in)

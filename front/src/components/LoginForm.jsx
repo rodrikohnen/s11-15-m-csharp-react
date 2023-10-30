@@ -18,7 +18,11 @@ const LoginSchema = object({
   ]),
   contraseña: string("Debes ingresar caracteres validos.", [
     minLength(1, "Ingresa tu contraseña"),
+<<<<<<< HEAD
     minLength(8, "Tu contraseña debe contener 8 caracteres."),
+=======
+    minLength(4, "Tu contraseña debe contener 4 caracteres."),
+>>>>>>> 4222815 (add: cambios en el log in)
     maxLength(15, "Tu contraseña no puede contener mas de 15 caracteres."),
   ]),
 });
@@ -61,7 +65,7 @@ export default function LoginForm() {
         {errors.correo && <p className="errormsj">{errors.correo?.message}</p>}
         <input
           placeholder="Contraseña"
-          type="password"
+          type="text"
           className="input"
           {...register("contraseña")}
         />
