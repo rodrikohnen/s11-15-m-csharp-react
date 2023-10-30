@@ -1,6 +1,7 @@
 ﻿using Mate.Speak.BLL.Services;
 using Mate.Speak.Models;
 using Mate.Speak.Models.VModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ namespace Mate.Speak.API_Web.Controllers
 {
     [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class RolController : ControllerBase
     {

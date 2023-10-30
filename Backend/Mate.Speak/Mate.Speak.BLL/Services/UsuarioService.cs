@@ -1,5 +1,6 @@
 ﻿using Mate.Speak.DAL.Repository;
 using Mate.Speak.Models;
+using Mate.Speak.Models.VModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,13 @@ namespace Mate.Speak.BLL.Services
         {
             IQueryable<Usuario> querySQL = await _UsuarioRepo.ObtenerTodos();
             Usuario usuario = querySQL.Where(c => c.Nombre == nombre).FirstOrDefault();
+            return usuario;
+        }
+
+        public async Task<Usuario> ObtenerCredenciales(string correo, string clave)
+        {
+            IQueryable<Usuario> querySQL = await _UsuarioRepo.ObtenerTodos();
+            Usuario usuario = querySQL.Where(c => c.Correo == correo && c.Password == clave).FirstOrDefault();
             return usuario;
         }
 
