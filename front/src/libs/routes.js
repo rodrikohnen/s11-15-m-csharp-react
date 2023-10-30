@@ -24,3 +24,6 @@ export const PAIS_URL = "/api/Pais";
 
 /***************** ENDPOINT NIVELES ***********/
 export const NIVEL_URL = "/api/Nivel";
+
+/***************** ENDPOINT AUTENTICACION ***********/
+export const AUTENTICACION_URL = "/api/Autenticacion/validar";

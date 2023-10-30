@@ -1,5 +1,5 @@
 import { HttpRequest } from "@/helpers/httpRequest";
-import { API_URL, USUARIOS_URL } from "@/libs/routes";
+import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
 import { useAuthStore } from "@/context/authUser";
 const useLogin = () => {
   const redirectLogin = (navigate) => {
@@ -7,15 +7,14 @@ const useLogin = () => {
   };
 
   const handleLogin = async (data) => {
-    console.log("data");
+    console.log("data", data);
     const req = await HttpRequest();
 
-    const url = `${API_URL}${USUARIOS_URL}`;
+    const url = `https://www.matespeakapi.somee.com/api/Autenticacion/validar`;
     const options = {
-      headers: { "content-type": "application/json" },
       body: {
         correo: data.correo,
-        contraseña: data.contraseña,
+        password: data.contraseña,
       },
     };
     req.post(url, options).then((res) => {
