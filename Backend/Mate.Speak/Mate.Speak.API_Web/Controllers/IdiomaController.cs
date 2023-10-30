@@ -10,7 +10,6 @@ namespace Mate.Speak.API_Web.Controllers
 {
     [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
-    [Authorize]
     [ApiController]
     public class IdiomaController : ControllerBase
     {
