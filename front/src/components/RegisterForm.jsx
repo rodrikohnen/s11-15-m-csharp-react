@@ -34,7 +34,6 @@ export const RegisterForm = ({ setFormView, formView }) => {
     req.post(url, options).then((res) => {
       console.log(res);
       if (res.usuario) {
-        // Actualizar el estado solo si la solicitud se completa con éxito
         setUser({
           ...user,
           idUsuario: res.usuario,
@@ -154,7 +153,7 @@ export const RegisterForm = ({ setFormView, formView }) => {
                   message: "La contraseña es requerida",
                 },
                 pattern: {
-                  value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{6,}$/,
+                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/,
                   message:
                     "*La contraseña debe contener al menos 1 número, una mayúscula y 6 caracteres",
                 },
