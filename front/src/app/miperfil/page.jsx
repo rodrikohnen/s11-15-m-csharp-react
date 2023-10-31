@@ -4,7 +4,6 @@ import Perfil from "@/assets/pictures/Perfil-fem-3.jpg";
 import { MedallaWhite } from "@/components/svg/Svgs";
 import FormPerfil from "@/components/FormPerfil";
 import DatosPerfil from "@/components/miPerfil/DatosPerfil";
-git;
 export default function MiPerfil() {
   return (
     <>
