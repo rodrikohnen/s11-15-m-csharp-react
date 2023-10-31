@@ -11,21 +11,28 @@ import {
 <<<<<<< HEAD
 =======
   Tutor,
+<<<<<<< HEAD
   Ajustes,
   CerrarSesion,
 <<<<<<< HEAD
 >>>>>>> 6fbab3f (add: changes rooms)
 =======
 >>>>>>> 49d8884 (add: dev-front + search branches)
+=======
+>>>>>>> 7c949e0 (fix: Improve logic for the render)
 } from "./svg/Svgs";
 import { useState, useEffect } from "react";
-import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
 import LogoWhite from "../assets/logos/LogoMateSpeakWhite.png";
 import Image from "next/image";
+<<<<<<< HEAD
+=======
+import Link from "next/link";
+import useLoginStore from "@/context/loginStore";
+>>>>>>> 7c949e0 (fix: Improve logic for the render)
 
-export default function NavBarRegister() {
-  const logout = useAuthStore((state) => state.isLogout);
+export default function NavBarRegister({ isAuthenticared}) {
+  const logout = useLoginStore((state) => state.logout);
   const router = useRouter();
 
   // Definición de estados iniciales utilizando el hook useState
@@ -33,13 +40,14 @@ export default function NavBarRegister() {
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(true); // Estado para determinar si mostrar el menú hamburguesa
 
-  const handleResize = () => {
-    if (window.innerWidth >= 768) {
-      setShowHamburgerMenu(false); // Establece el menú de escritorio si el ancho es mayor o igual a 768px
-    } else {
-      setShowHamburgerMenu(true);
-    }
-  };
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setShowHamburgerMenu(false); // Establece el menú de escritorio si el ancho es mayor o igual a 768px
+      } else {
+        setShowHamburgerMenu(true);
+      }
+    };
+ 
 
   useEffect(() => {
     handleResize(); // Llama a la función en el montaje inicial
@@ -152,6 +160,7 @@ export default function NavBarRegister() {
     <header className="flex flex-row justify-center bg-primary border-b-[1.5px] w-full">
       {showHamburgerMenu ? (
         // MENÚ HAMBURGUESA A LA IZQUIERDA EN VERSIÓN MÓVIL
+<<<<<<< HEAD
         <span>
           <div className="relative mt-4">
             <button onClick={toggleMenu}>
@@ -182,11 +191,48 @@ export default function NavBarRegister() {
             )}
           </div>
         </span>
+=======
+
+        <div className="relative mt-4">
+          <button onClick={toggleMenu}>
+            <MenuRegister className="bg-white" />{" "}
+          </button>
+          {menuOpen && (
+            <ul className="absolute w-[222px] left-0 mt-2 bg-white border border-gray-300 rounded shadow z-10">
+              {menuOptions.map((option, index) => (
+                <li
+                  key={index}
+                  className="px-5 py-2 cursor-pointer flex items-left hover-bg-gray-400"
+                  onClick={() => handleMenuOptionClick(option)}
+                >
+                  {showHamburgerMenu ? (
+                    <>
+                      {option === "Salas" && <Salas />}
+                      {option === "Usuarios" && <Usuarios />}
+                      {option === "Mis Salas" && <MisSalas />}
+                      {option === "Quiero ser Tutor" && <Tutor />}
+                    </>
+                  ) : (
+                    option
+                  )}
+                  <span className="ml-4">{option}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+>>>>>>> 7c949e0 (fix: Improve logic for the render)
       ) : null}
 
       {/* LOGO EN EL CENTRO EN VERSIÓN MÓVIL */}
       <div className={`mt-6  ${showHamburgerMenu ? "mx-auto" : "ml-10"}`}>
+<<<<<<< HEAD
         <Image src={LogoWhite} alt="Logo Mate Speak" width={77} />
+=======
+        <Link href={"/home"}>
+          <Image src={LogoWhite} alt="Logo Mate Speak" width={77} />
+        </Link>
+>>>>>>> 7c949e0 (fix: Improve logic for the render)
       </div>
 
       {showHamburgerMenu ? null : (
@@ -282,7 +328,11 @@ export default function NavBarRegister() {
             {userMenuOptions.map((userOption, index) => (
               <li
                 key={index}
+<<<<<<< HEAD
                 className="px-10 py-2 cursor-pointer flex items-center hover:bg-gray-400"
+=======
+                className="px-10 py-2 text-secondary cursor-pointer flex items-center hover-bg-gray-400"
+>>>>>>> 7c949e0 (fix: Improve logic for the render)
                 onClick={() => handleUserMenuClick(userOption)}
               >
                 <span className="ml-4">{userOption}</span>
