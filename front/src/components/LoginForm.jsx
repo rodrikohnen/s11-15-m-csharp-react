@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
 import { useAuthStore } from "@/context/authUser";
 import { HttpRequest } from "@/helpers/httpRequest";
+import useLoginStore from "@/context/loginStore";
 const LoginSchema = object({
   correo: string([
     minLength(1, "Ingresa tu email."),
@@ -20,8 +21,10 @@ const LoginSchema = object({
 
 export default function LoginForm() {
   const router = useRouter();
-  const { isLogin } = useAuthStore();
 
+  const { isLogin } = useAuthStore();
+  const loginState = useLoginStore();
+  const { setLoginInfo } = useLoginStore();
   const {
     register,
     handleSubmit,
@@ -44,9 +47,18 @@ export default function LoginForm() {
       },
     };
     req.post(url, options).then((res) => {
+      console.log(res, "respuesta");
       if (res.token) {
-        isLogin(res);
+        setLoginInfo({
+          token: res.token,
+          usuario: {
+            nombre: res.usuario?.nombre,
+            apellido: res.usuario?.apellido,
+          },
+        });
+        isLogin();
         router.push("/");
+        console.log(loginState, "despues");
       } else {
         console.log("error");
       }
