@@ -8,6 +8,7 @@ import Image from "next/image";
 <<<<<<< HEAD
 =======
 import Link from "next/link";
+import useLoginStore from "@/context/loginStore";
 import { GrStatusGood, GrStatusWarning } from "react-icons/gr";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Medalla, PerfilDefault } from "@/components/svg/Svgs";
@@ -77,6 +78,8 @@ export default function Rooms() {
 export const LiveCard = () => {
   const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
   const { showRooms, getRooms, setShowRooms } = useGetRooms();
+  const infoUser = useLoginStore(state => state.usuario)
+  
   const path = usePathname();
  
 
@@ -136,7 +139,7 @@ export const LiveCard = () => {
                         <div className="flex flex-col ml-3">
                           <div className="flex flex-col">
                             <div className="flex flex-row space-x-2">
-                              {/* Ratings */}
+                              Sala de: {infoUser && infoUser.nombre} {infoUser && infoUser.apellido} 
                             </div>
                           </div>
                           {room.ready ? (
