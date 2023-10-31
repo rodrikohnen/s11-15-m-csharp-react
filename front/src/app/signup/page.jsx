@@ -2,26 +2,11 @@
 import { useEffect, useState } from "react";
 import { RegisterForm } from "@/components/RegisterForm";
 import { EditProfile } from "@/components/EditProfile";
-import Image from "next/image";
 import { WhiteArrowBack } from "@/components/WhiteArrowBack";
 import { MateSpeakHeader } from "@/components/MateSpeakHeader";
 
-const initialRegisterUser = {
-  name: "",
-  lastname: "",
-  email: "",
-  password: "",
-  confirmPassword: "",
-  country: "",
-  nativelanguage: "",
-  languagetolearn: "",
-  level: "",
-  username: "",
-};
-
 const SignupPage = () => {
   const [formView, setFormView] = useState(1);
-  const [user, setUser] = useState(initialRegisterUser);
   const [windowWidth, setWindowWidth] = useState(undefined);
 
   const updateWindowWidth = () => {
@@ -64,16 +49,9 @@ const SignupPage = () => {
           <RegisterForm
             formView={formView}
             setFormView={setFormView}
-            user={user}
-            setUser={setUser}
           />
         )}
-        {formView === 2 && (
-          <EditProfile
-            user={user}
-            setUser={setUser}
-          />
-        )}
+        {formView === 2 && <EditProfile />}
       </main>
     </div>
   );
