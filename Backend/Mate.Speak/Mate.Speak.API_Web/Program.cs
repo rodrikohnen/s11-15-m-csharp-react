@@ -119,12 +119,7 @@ app.UseSwaggerUI();
 
 app.UseCors(MisReglasCors);
 
-app.UseCors(option => {
-    option.WithOrigins("https://s11-15-m-csharp-react.vercel.app/");
-    option.AllowAnyMethod();
-    option.AllowAnyOrigin();
 
-});
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Mate.Speak.BLL.Services;
 using System.Text;
+using Mate.Speak.Models;
 
 namespace Mate.Speak.API_Web.Controllers
 {
@@ -31,7 +32,28 @@ namespace Mate.Speak.API_Web.Controllers
         {
           var usuario =   await _usuarioService.ObtenerCredenciales(request.Correo, request.Password);
 
-            if(request.Correo == usuario.Correo.Trim() && request.Password == usuario.Password.Trim()) 
+            VMUsuarios NuevoModelo = new VMUsuarios
+            {
+                IdUsuario = usuario.IdUsuario,
+
+                IdRol = usuario.IdRol,
+
+                Nombre = usuario.Nombre,
+
+                Apellido = usuario.Apellido,
+
+                Correo = usuario.Correo,
+
+                Password = usuario.Password,
+
+                Token = usuario.Token,
+
+                Activo = usuario.Activo,
+
+                Usuario1 = usuario.Usuario1
+            };
+
+            if (request.Correo == NuevoModelo.Correo.Trim() && request.Password == NuevoModelo.Password.Trim()) 
             { 
                 var ketBytes = Encoding.UTF8.GetBytes(secretkey);
                 var claims = new ClaimsIdentity();
@@ -49,7 +71,7 @@ namespace Mate.Speak.API_Web.Controllers
                 var tokenConfig = tokenHandler.CreateToken(tokenDescriptor);
                 string tokencreado = tokenHandler.WriteToken(tokenConfig);
 
-                return StatusCode(StatusCodes.Status200OK, new {token = tokencreado});
+                return StatusCode(StatusCodes.Status200OK, new {token = tokencreado, Usuario = NuevoModelo});
 
             }
             else 

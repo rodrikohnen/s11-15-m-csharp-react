@@ -7,7 +7,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAHZ3LwdNhzUiE5qDoqwyemAAAAAACAAAAAAAQZgAAAAEAACAAAABcY61Aix3ZhL6KA+urgLyXWfVmtwzCHBwKtdCvF4OQmwAAAAAOgAAAAAIAACAAAADtQS/bf+3iELWxp+wvRcVqRJSkbOZVFPkSrFaQpy4m4iAAAABTVbV5l1XkquwS14AV3qyyPWt9L1os8Owt7a4JpnccMkAAAADR/Cmc12BlvtuQ1tOA3TxHPG6jR3n9fCMIo2lvgHtK2bwRFJK6+qd3Hg95TB/jfWAdQgkU7bpdVUud6sjgqc1A</EncryptedPassword>
     <_PublishTargetUrl>ftp://192.52.242.121/www.matespeakapi.somee.com</_PublishTargetUrl>
-    <History>True|2023-10-30T23:21:36.5585654Z;True|2023-10-30T19:12:44.5975013-04:00;True|2023-10-30T15:46:15.0922368-04:00;True|2023-10-30T10:55:53.6142261-04:00;False|2023-10-30T10:53:57.8703063-04:00;False|2023-10-30T10:53:21.4457371-04:00;True|2023-10-30T09:54:46.7654474-04:00;True|2023-10-27T21:58:44.0787451-04:00;True|2023-10-27T08:32:08.7741785-04:00;True|2023-10-26T22:58:22.1367139-04:00;False|2023-10-26T22:56:24.9409872-04:00;False|2023-10-26T22:55:56.1226978-04:00;True|2023-10-26T22:35:05.1959862-04:00;True|2023-10-26T08:06:41.0837060-04:00;True|2023-10-25T15:37:09.6431458-04:00;True|2023-10-24T23:05:34.0921038-04:00;</History>
+    <History>True|2023-10-31T13:36:33.4630113Z;True|2023-10-30T20:32:33.3106915-04:00;True|2023-10-30T20:00:29.1992013-04:00;True|2023-10-30T19:21:36.5585654-04:00;True|2023-10-30T19:12:44.5975013-04:00;True|2023-10-30T15:46:15.0922368-04:00;True|2023-10-30T10:55:53.6142261-04:00;False|2023-10-30T10:53:57.8703063-04:00;False|2023-10-30T10:53:21.4457371-04:00;True|2023-10-30T09:54:46.7654474-04:00;True|2023-10-27T21:58:44.0787451-04:00;True|2023-10-27T08:32:08.7741785-04:00;True|2023-10-26T22:58:22.1367139-04:00;False|2023-10-26T22:56:24.9409872-04:00;False|2023-10-26T22:55:56.1226978-04:00;True|2023-10-26T22:35:05.1959862-04:00;True|2023-10-26T08:06:41.0837060-04:00;True|2023-10-25T15:37:09.6431458-04:00;True|2023-10-24T23:05:34.0921038-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -18,43 +18,43 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/30/2023 10:52:07</publishTime>
     </File>
     <File Include="Mate.Speak.API_Conexion.dll">
-      <publishTime>10/30/2023 09:53:18</publishTime>
+      <publishTime>10/31/2023 09:35:03</publishTime>
     </File>
     <File Include="Mate.Speak.API_Conexion.pdb">
-      <publishTime>10/30/2023 09:53:18</publishTime>
+      <publishTime>10/31/2023 09:35:03</publishTime>
     </File>
     <File Include="Mate.Speak.API_Web.deps.json">
-      <publishTime>10/30/2023 19:20:17</publishTime>
+      <publishTime>10/31/2023 09:35:10</publishTime>
     </File>
     <File Include="Mate.Speak.API_Web.dll">
-      <publishTime>10/30/2023 19:20:16</publishTime>
+      <publishTime>10/31/2023 09:35:10</publishTime>
     </File>
     <File Include="Mate.Speak.API_Web.exe">
-      <publishTime>10/30/2023 19:20:16</publishTime>
+      <publishTime>10/31/2023 09:35:10</publishTime>
     </File>
     <File Include="Mate.Speak.API_Web.pdb">
-      <publishTime>10/30/2023 19:20:16</publishTime>
+      <publishTime>10/31/2023 09:35:10</publishTime>
     </File>
     <File Include="Mate.Speak.API_Web.runtimeconfig.json">
       <publishTime>10/30/2023 09:53:21</publishTime>
     </File>
     <File Include="Mate.Speak.BLL.dll">
-      <publishTime>10/30/2023 09:53:18</publishTime>
+      <publishTime>10/31/2023 09:35:02</publishTime>
     </File>
     <File Include="Mate.Speak.BLL.pdb">
-      <publishTime>10/30/2023 09:53:18</publishTime>
+      <publishTime>10/31/2023 09:35:02</publishTime>
     </File>
     <File Include="Mate.Speak.DAL.dll">
-      <publishTime>10/30/2023 09:53:17</publishTime>
+      <publishTime>10/31/2023 09:35:01</publishTime>
     </File>
     <File Include="Mate.Speak.DAL.pdb">
-      <publishTime>10/30/2023 09:53:17</publishTime>
+      <publishTime>10/31/2023 09:35:01</publishTime>
     </File>
     <File Include="Mate.Speak.Models.dll">
-      <publishTime>10/30/2023 09:53:16</publishTime>
+      <publishTime>10/31/2023 09:35:00</publishTime>
     </File>
     <File Include="Mate.Speak.Models.pdb">
-      <publishTime>10/30/2023 09:53:16</publishTime>
+      <publishTime>10/31/2023 09:35:00</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
       <publishTime>02/24/2022 04:58:36</publishTime>
@@ -171,7 +171,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/15/2019 04:56:52</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/30/2023 19:20:18</publishTime>
+      <publishTime>10/31/2023 09:35:11</publishTime>
     </File>
   </ItemGroup>
 </Project>
