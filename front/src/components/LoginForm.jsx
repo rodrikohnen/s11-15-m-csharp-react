@@ -13,7 +13,7 @@ import useLogin from "./../hooks/useLogin";
 const { handleLogin } = useLogin();
 =======
 import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
-import { useAuthStore } from "@/context/authUser";
+
 import { HttpRequest } from "@/helpers/httpRequest";
 <<<<<<< HEAD
 >>>>>>> 3876c4a (coneccion realizada)
@@ -39,7 +39,7 @@ const LoginSchema = object({
 export default function LoginForm() {
   const router = useRouter();
 
-  const { isLogin } = useAuthStore();
+
   const loginState = useLoginStore();
   const { setLoginInfo } = useLoginStore();
   const {
@@ -78,8 +78,8 @@ export default function LoginForm() {
             nombre: res.usuario?.nombre,
             apellido: res.usuario?.apellido,
           },
+          isAuth: true,
         });
-        isLogin();
         router.push("/");
         console.log(loginState, "despues");
       } else {
