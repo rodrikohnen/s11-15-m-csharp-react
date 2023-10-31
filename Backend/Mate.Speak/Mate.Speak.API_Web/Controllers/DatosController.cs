@@ -65,6 +65,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             Dato NuevoModelo = new Dato()
             {
+                
+
                 IdUsuario = modelo.IdUsuario,
 
                 Nativo = modelo.Nativo,
@@ -100,6 +102,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             Dato NuevoModelo = new Dato()
             {
+                IdDatos = modelo.IdDatos,
+
                 IdUsuario = modelo.IdUsuario,
 
                 Nativo = modelo.Nativo,

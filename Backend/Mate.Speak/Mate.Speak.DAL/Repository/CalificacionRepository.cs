@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.DAL.Repository
 {
-    internal class CalificacionRepository : IGenericRepository<Calificacion>
+    public class CalificacionRepository : IGenericRepository<Calificacion>
     {
         private readonly mateContext _dbcontext;
 
@@ -24,24 +24,31 @@ namespace Mate.Speak.DAL.Repository
 
         }
 
-        public Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            Calificacion modelo = _dbcontext.Calificacions.First(c => c.IdCalificacion == id);
+            _dbcontext.Calificacions.Remove(modelo);
+            await _dbcontext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> Insertar(Calificacion modelo)
+        public async Task<bool> Insertar(Calificacion modelo)
         {
-            throw new NotImplementedException();
+            _dbcontext.Calificacions.Add(modelo);
+            await _dbcontext.SaveChangesAsync();
+            return true;
+
         }
 
-        public Task<Calificacion> Obtener(int id)
+        public async Task<Calificacion> Obtener(int id)
         {
-            throw new NotImplementedException();
+            return await _dbcontext.Calificacions.FindAsync(id);
         }
 
-        public Task<IQueryable<Calificacion>> ObtenerTodos()
+        public async Task<IQueryable<Calificacion>> ObtenerTodos()
         {
-            throw new NotImplementedException();
+            IQueryable<Calificacion> queryCalificacionSQL = _dbcontext.Calificacions;
+            return queryCalificacionSQL;
         }
     }
 }

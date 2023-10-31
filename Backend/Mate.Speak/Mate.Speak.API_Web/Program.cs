@@ -100,7 +100,15 @@ builder.Services.AddScoped<ISalaService, SalaService>();
 //AdminSala
 builder.Services.AddScoped<IGenericRepository<AdminSala>, AdminSalaRepository>();
 builder.Services.AddScoped<IAdminSalaService, AdminSalaService>();
+//Categoria Sala
+builder.Services.AddScoped<IGenericRepository<CategoriaSala>, Categoria_SalaRepository>();
+builder.Services.AddScoped<ICategoria_SalaService, Categoria_SalaService>();
+//Calificacion
+builder.Services.AddScoped<IGenericRepository<Calificacion>, CalificacionRepository>();
+builder.Services.AddScoped<ICalificacionService, CalificacionService>();
 
+
+//
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

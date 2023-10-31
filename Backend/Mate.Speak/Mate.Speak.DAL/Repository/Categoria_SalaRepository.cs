@@ -1,5 +1,6 @@
 ﻿using Mate.Speak.DAL.DataContext;
 using Mate.Speak.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mate.Speak.DAL.Repository
 {
-    internal class Categoria_SalaRepository : IGenericRepository<CategoriaSala>
+    public class Categoria_SalaRepository : IGenericRepository<CategoriaSala>
     {
         private readonly mateContext _dbcontext;
 
@@ -17,29 +18,37 @@ namespace Mate.Speak.DAL.Repository
             _dbcontext = dbcontext;
         }
 
-        public Task<bool> Actualizar(CategoriaSala modelo)
+        public async Task<bool> Actualizar(CategoriaSala modelo)
         {
-            throw new NotImplementedException();
+           _dbcontext.CategoriaSalas.Update(modelo); 
+            await _dbcontext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            CategoriaSala modelo = _dbcontext.CategoriaSalas.First(c => c.IdCategoriasala == id);
+            _dbcontext.CategoriaSalas.Remove(modelo);
+            await _dbcontext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<bool> Insertar(CategoriaSala modelo)
+        public async Task<bool> Insertar(CategoriaSala modelo)
         {
-            throw new NotImplementedException();
+           _dbcontext.CategoriaSalas.Add(modelo);
+            await _dbcontext.SaveChangesAsync();
+            return true;
         }
 
-        public Task<CategoriaSala> Obtener(int id)
+        public async Task<CategoriaSala> Obtener(int id)
         {
-            throw new NotImplementedException();
+            return await _dbcontext.CategoriaSalas.FindAsync(id);
         }
 
-        public Task<IQueryable<CategoriaSala>> ObtenerTodos()
+        public async Task<IQueryable<CategoriaSala>> ObtenerTodos()
         {
-            throw new NotImplementedException();
+            IQueryable<CategoriaSala> queryCategoriaSalaSQL = _dbcontext.CategoriaSalas;
+            return queryCategoriaSalaSQL;
         }
     }
 }

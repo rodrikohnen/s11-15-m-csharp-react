@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Mate.Speak.Models
+namespace Mate.Speak.Models.VModels
 {
-    public partial class Calificacion
+    public  class VMCalificacion
     {
-        public Calificacion()
-        {
-            Datos = new HashSet<Dato>();
-            Salas = new HashSet<Sala>();
-        }
-
         public int IdCalificacion { get; set; }
         
         public string? Calificacion1 { get; set; }
@@ -43,7 +40,5 @@ namespace Mate.Speak.Models
         
         public string? Comentario { get; set; }
 
-        public virtual ICollection<Dato> Datos { get; set; }
-        public virtual ICollection<Sala> Salas { get; set; }
     }
 }
