@@ -1,5 +1,5 @@
 /***************** URL BASE *****************************/
-export const API_URL = "http://www.matespeakapi.somee.com";
+export const API_URL = "https://www.matespeakapi.somee.com";
 
 /***************** ENDPOINT DATOS ***************/
 export const DATOS_URL = "/api/Datos";
@@ -34,6 +34,9 @@ export const USUARIOS_URL = "/api/Usuarios"
 
 /***************** ENDPOINT AUTENTICACION ***********/
 export const AUTENTICACION_URL = "/api/Autenticacion/validar";
+<<<<<<< HEAD
 >>>>>>> 4222815 (add: cambios en el log in)
 =======
 >>>>>>> 5f48651 (Change: Routes changes)
+=======
+>>>>>>> b5b8867 (Update routes.js)
