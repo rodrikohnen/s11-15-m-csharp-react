@@ -11,30 +11,11 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Medalla, PerfilDefault } from "@/components/svg/Svgs";
 import { CreateRoomContext } from "@/context/createRoom";
 import { useGetRooms } from "@/hooks/useGetRooms";
+import { usePathname} from "next/navigation";
 
 export default function Rooms() {
-  const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
-  const { showRooms, getRooms, setShowRooms } = useGetRooms();
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const storedRooms = JSON.parse(localStorage.getItem("listrooms"));
-    if (storedRooms && showRooms.ready === true) {
-      setShowRooms(storedRooms);
-    } else if (storedRooms && showRooms.ready === false) {
-      setShowRooms(localStorage.removeItem("listrooms"));
-    }
-    getRooms();
-  }, []);
-
-  useEffect(() => {
-    const createRoom = JSON.parse(localStorage.getItem("rooms"));
-    if (createRoom) {
-      setRooms(createRoom);
-    } else {
-      setRooms(localStorage.removeItem("rooms"));
-    }
-  }, []);
 
   return (
     <>
@@ -62,63 +43,92 @@ export default function Rooms() {
           >
             Mis Salas
           </h2>
-
-          {isLoading ? (
-            <div className=" flex items-center justify-center">
-              <AiOutlineLoading3Quarters className=" w-10 h-10 animate-spin " />
-            </div>
-          ) : (
-            <div className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start ">
-              {showRooms ? (
-                <>
-                  {[...showRooms].map((room) => (
-                    <Link legacyBehavior href={`${listRooms.links?.gui}`}>
-                      <span
-                        className=" p-[1rem] text-sm border shadow-xl rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer"
-                        href="#"
-                      >
-                        <div className="p-1 ">
-                          <div className="flex justify-between">
-                            <h1 className="mb-2 font-medium text-secondary">
-                              {room.name}
-                            </h1>
-                            <div className="flex flex-row">
-                              <Medalla />
-                            </div>
-                          </div>
-                          <div className="flex flex-row justify-between py-1">
-                            <PerfilDefault />
-                            <div className="flex flex-col ml-3">
-                              <div className="flex flex-col">
-                                <div className="flex flex-row space-x-2">
-                                  {/* Ratings */}
-                                </div>
-                              </div>
-                              {room.ready ? (
-                                <GrStatusGood className="w-10 h-10 " />
-                              ) : (
-                                <GrStatusWarning className="w-10 h-10 text-orange-400" />
-                              )}
-                            </div>
-                          </div>
-                          <div className="flex font-bold py-1 text-negromate">
-                            <div className="flex flex-row">
-                              {room.started_at}
-                            </div>
-                            <div className="flex flex-row"></div>
-                          </div>
-                        </div>
-                      </span>
-                    </Link>
-                  ))}
-                </>
-              ) : (
-                <p>No hay salas</p>
-              )}
-            </div>
-          )}
         </section>
+        <LiveCard />
       </div>
     </>
   );
 }
+
+export const LiveCard = () => {
+  const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
+  const { showRooms, getRooms, setShowRooms } = useGetRooms();
+  const path = usePathname()
+  const goNext = path === '/rooms' ? listRooms.links?.gui : listRooms.links?.guest_join
+
+  useEffect(() => {
+    const storedRooms = JSON.parse(localStorage.getItem("listrooms"));
+    if (storedRooms && showRooms.ready === true) {
+      setShowRooms(storedRooms);
+    } else if (storedRooms && showRooms.ready === false) {
+      setShowRooms(localStorage.removeItem("listrooms"));
+    }
+    getRooms();
+  }, []);
+
+  useEffect(() => {
+    const createRoom = JSON.parse(localStorage.getItem("rooms"));
+    if (createRoom) {
+      setRooms(createRoom);
+    } else {
+      setRooms(localStorage.removeItem("rooms"));
+    }
+  }, []);
+
+  return (
+    <>
+      {isLoading ? (
+        <div className="flex items-center justify-center">
+          <AiOutlineLoading3Quarters className=" w-10 h-10 animate-spin " />
+        </div>
+      ) : (
+        <div className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start ">
+          {showRooms ? (
+            <>
+              {[...showRooms].map((room) => (
+                <Link legacyBehavior href={`${goNext}`}>
+                  <span
+                    className=" p-[1rem] text-sm border shadow-xl rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer"
+                    href="#"
+                  >
+                    <div className="p-1 ">
+                      <div className="flex justify-between">
+                        <h1 className="mb-2 font-medium text-secondary">
+                          {room.name}
+                        </h1>
+                        <div className="flex flex-row">
+                          <Medalla />
+                        </div>
+                      </div>
+                      <div className="flex flex-row justify-between py-1">
+                        <PerfilDefault />
+                        <div className="flex flex-col ml-3">
+                          <div className="flex flex-col">
+                            <div className="flex flex-row space-x-2">
+                              {/* Ratings */}
+                            </div>
+                          </div>
+                          {room.ready ? (
+                            <GrStatusGood className="w-10 h-10 " />
+                          ) : (
+                            <GrStatusWarning className="w-10 h-10 text-orange-400" />
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex font-bold py-1 text-negromate">
+                        <div className="flex flex-row">{room.started_at}</div>
+                        <div className="flex flex-row"></div>
+                      </div>
+                    </div>
+                  </span>
+                </Link>
+              ))}
+            </>
+          ) : (
+            <p>No hay salas</p>
+          )}
+        </div>
+      )}
+    </>
+  );
+};
