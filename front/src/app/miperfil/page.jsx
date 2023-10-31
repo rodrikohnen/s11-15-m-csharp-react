@@ -3,7 +3,7 @@ import Banner from "@/assets/pictures/portadaPerfil.jpg";
 import Perfil from "@/assets/pictures/Perfil-fem-3.jpg";
 import { MedallaWhite } from "@/components/svg/Svgs";
 import FormPerfil from "@/components/FormPerfil";
-
+import DatosPerfil from "@/components/miPerfil/DatosPerfil";
 export default function MiPerfil() {
   return (
     <>
@@ -13,12 +13,8 @@ export default function MiPerfil() {
           src={Perfil}
           className="sm:w-52 sm:h-52 w-32 h-32 rounded-full border-2  border-white"
         />
-        <div className="flex flex-col text-xl">
-          <h1>Nombre de usuario</h1>
-          <p>Chile</p>
-        </div>
-
-        <MedallaWhite  />
+        <DatosPerfil />
+        <MedallaWhite />
       </div>
 
       <span className="mt-[-10rem]">
