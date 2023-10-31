@@ -4,7 +4,7 @@ import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
-import { useAuthStore } from "@/context/authUser";
+
 import { HttpRequest } from "@/helpers/httpRequest";
 import useLoginStore from "@/context/loginStore";
 const LoginSchema = object({
@@ -22,7 +22,7 @@ const LoginSchema = object({
 export default function LoginForm() {
   const router = useRouter();
 
-  const { isLogin } = useAuthStore();
+
   const loginState = useLoginStore();
   const { setLoginInfo } = useLoginStore();
   const {
@@ -55,8 +55,8 @@ export default function LoginForm() {
             nombre: res.usuario?.nombre,
             apellido: res.usuario?.apellido,
           },
+          isAuth: true,
         });
-        isLogin();
         router.push("/");
         console.log(loginState, "despues");
       } else {
