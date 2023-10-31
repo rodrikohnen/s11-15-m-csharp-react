@@ -11,8 +11,10 @@ import {
 } from "@/libs/routes";
 import { useState, useEffect } from "react";
 import { useRegisterStore } from "@/context/registerStore";
+import { useRouter } from "next/navigation";
 
 export const EditProfile = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -87,7 +89,10 @@ export const EditProfile = () => {
         certificado: null,
       },
     };
-    req.post(urlDatos, options).then((response) => console.log(response));
+    req.post(urlDatos, options).then((response) => {
+      console.log(response);
+      router.push("/login");
+    });
   };
 
   return (
