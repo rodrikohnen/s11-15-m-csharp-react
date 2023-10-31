@@ -1,7 +1,8 @@
 import CardEnVivo from "@/components/CardEnVIvo";
 import CardGrupos from "@/components/CardGrupo";
 import SwiperHome from "@/components/Swiper.jsx";
-import Link from "next/link";
+
+import { LiveCard } from "../rooms/page";
 
 export default function HomeUser() {
   const cardsData = [1, 2, 3, 4];
@@ -41,9 +42,7 @@ export default function HomeUser() {
         En vivo
       </h1>
       <span className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start">
-        {cardsData.map((item, index) => (
-          <CardEnVivo key={index} />
-        ))}
+        <LiveCard />
       </span>
     </main>
   );
