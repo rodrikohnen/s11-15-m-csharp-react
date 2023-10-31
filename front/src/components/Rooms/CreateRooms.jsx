@@ -25,7 +25,12 @@ import {
 } from "react-icons/ai";
 import Logo from "@/assets/logos/LogoMateSpeakColor.png";
 import Image from "next/image";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+import { useRouter } from "next/navigation";
+import { CreateRoomContext } from "@/context/createRoom";
+>>>>>>> b6b0af8 (add: changes for components)
 
 export default function CreateRooms() {
   const {

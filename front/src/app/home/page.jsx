@@ -1,7 +1,12 @@
 import CardEnVivo from "@/components/CardEnVIvo";
 import CardGrupos from "@/components/CardGrupo";
 import SwiperHome from "@/components/Swiper.jsx";
+<<<<<<< HEAD
 import Link from "next/link";
+=======
+
+import { LiveCard } from "../rooms/page";
+>>>>>>> b6b0af8 (add: changes for components)
 
 export default function HomeUser() {
   const cardsData = [1, 2, 3, 4];
