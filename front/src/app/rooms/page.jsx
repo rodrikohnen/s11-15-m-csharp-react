@@ -11,11 +11,10 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Medalla, PerfilDefault } from "@/components/svg/Svgs";
 import { CreateRoomContext } from "@/context/createRoom";
 import { useGetRooms } from "@/hooks/useGetRooms";
-import { usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Rooms() {
   const [isMobile, setIsMobile] = useState(false);
-
 
   return (
     <>
@@ -53,8 +52,8 @@ export default function Rooms() {
 export const LiveCard = () => {
   const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
   const { showRooms, getRooms, setShowRooms } = useGetRooms();
-  const path = usePathname()
-  const goNext = path === '/rooms' ? listRooms.links?.gui : listRooms.links?.guest_join
+  const path = usePathname();
+ 
 
   useEffect(() => {
     const storedRooms = JSON.parse(localStorage.getItem("listrooms"));
@@ -83,10 +82,17 @@ export const LiveCard = () => {
         </div>
       ) : (
         <div className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start ">
-          {showRooms ? (
+          {showRooms && listRooms ? (
             <>
               {[...showRooms].map((room) => (
-                <Link legacyBehavior href={`${goNext}`}>
+                <Link
+                  legacyBehavior
+                  href={`${
+                    path === "/rooms"
+                      ? listRooms.links?.gui
+                      : listRooms.links?.guest_join
+                  }`}
+                >
                   <span
                     className=" p-[1rem] text-sm border shadow-xl rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer"
                     href="#"
