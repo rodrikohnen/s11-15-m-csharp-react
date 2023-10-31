@@ -1,7 +1,7 @@
 import CardEnVivo from "@/components/CardEnVIvo";
 import CardGrupos from "@/components/CardGrupo";
 import SwiperHome from "@/components/Swiper.jsx";
-import Link from "next/link";
+
 import { LiveCard } from "../rooms/page";
 
 export default function HomeUser() {

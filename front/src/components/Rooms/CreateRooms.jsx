@@ -8,7 +8,6 @@ import {
 } from "react-icons/ai";
 import Logo from "@/assets/logos/LogoMateSpeakColor.png";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { CreateRoomContext } from "@/context/createRoom";
 
