@@ -1,3 +1,4 @@
+import useLoginStore from "@/context/loginStore";
 import { useState } from "react";
 
 export const ROOM_API_URL = "2ywMtiDGjH9kj1KOtHe8s8RMj8HGOtL04wkacqMhfe";
@@ -7,12 +8,15 @@ export function useCreateRoom() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(null);
   const [countdown, setCountdow] = useState(60);
+  const infoUser = useLoginStore(state => state.usuario)
+  const fullName = `${infoUser?.nombre} ${infoUser?.apellido}`
+
   const createRoom = async () => {
     try {
       setIsLoading(true);
       setIsError(null);
       const response = await fetch(
-        `https://api.eyeson.team/rooms?user[name]=Santiago`,
+        `https://api.eyeson.team/rooms?user[name]=${fullName}`,
         {
           method: "POST",
           headers: {
