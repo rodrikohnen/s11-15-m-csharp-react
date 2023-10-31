@@ -2,8 +2,8 @@
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
-import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
+<<<<<<< HEAD
 <<<<<<< HEAD
 import Link from "next/link";
 =======
@@ -11,6 +11,11 @@ import useLogin from "./../hooks/useLogin";
 >>>>>>> 69f4169 (add:Clogin-connection)
 
 const { handleLogin } = useLogin();
+=======
+import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
+import { useAuthStore } from "@/context/authUser";
+import { HttpRequest } from "@/helpers/httpRequest";
+>>>>>>> 3876c4a (coneccion realizada)
 const LoginSchema = object({
   correo: string([
     minLength(1, "Ingresa tu email."),
@@ -29,6 +34,7 @@ const LoginSchema = object({
 
 export default function LoginForm() {
   const router = useRouter();
+  const { isLogin } = useAuthStore();
 
   const {
     register,
@@ -46,8 +52,25 @@ export default function LoginForm() {
 =======
 >>>>>>> 69f4169 (add:Clogin-connection)
     console.log("Formulario enviado:", e);
-    handleLogin(e);
-    // login();
+    const req = HttpRequest();
+
+    const url = `${API_URL}${AUTENTICACION_URL}`;
+    const options = {
+      headers: { "content-type": "application/json" },
+
+      body: {
+        correo: e.correo,
+        password: e.contraseña,
+      },
+    };
+    req.post(url, options).then((res) => {
+      if (res.token) {
+        isLogin(res);
+        router.push("/");
+      } else {
+        console.log("error");
+      }
+    });
   };
 
   return (
@@ -65,7 +88,7 @@ export default function LoginForm() {
         {errors.correo && <p className="errormsj">{errors.correo?.message}</p>}
         <input
           placeholder="Contraseña"
-          type="text"
+          type="password"
           className="input"
           {...register("contraseña")}
         />
