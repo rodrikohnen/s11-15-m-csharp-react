@@ -1,5 +1,5 @@
 /***************** URL BASE *****************************/
-export const API_URL = "https://www.matespeakapi.somee.com";
+export const API_URL = "http://www.matespeakapi.somee.com";
 
 /***************** ENDPOINT DATOS ***************/
 export const DATOS_URL = "/api/Datos";
