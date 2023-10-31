@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import NavBar from "@/components/NavBar";
 import { useAuthStore } from "@/context/authUser";
 import NavBarRegister from "@/components/NavBarRegister";
+import { CreateRoomProvider } from "@/context/createRoom";
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
 /* export const metadata = {
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={roboto.className}>
-        {isAuthenticated ? <NavBarRegister /> : <NavBar />}
-        {children}
-        <Footer />
+        <CreateRoomProvider>
+          {isAuthenticated ? <NavBarRegister /> : <NavBar />}
+          {children}
+          <Footer />
+        </CreateRoomProvider>
       </body>
     </html>
   );
