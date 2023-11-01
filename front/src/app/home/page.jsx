@@ -2,14 +2,19 @@ import CardEnVivo from "@/components/CardEnVIvo";
 import CardGrupos from "@/components/CardGrupo";
 import SwiperHome from "@/components/Swiper.jsx";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Link from "next/link";
 =======
 
 import { LiveCard } from "../rooms/page";
 >>>>>>> b6b0af8 (add: changes for components)
+=======
+import { LiveCard } from "../rooms/page";
+import { HomeGreeting } from "@/components/HomeGreeting";
+>>>>>>> a6024b4 (Change: Correcciones)
 
 export default function HomeUser() {
-  const cardsData = [1, 2, 3, 4];
+  /*   const cardsData = [1, 2, 3, 4];
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
 
@@ -21,13 +26,13 @@ export default function HomeUser() {
     greeting = "Buenas tardes 🌄";
   } else {
     greeting = "Buenas noches 🌙";
-  }
+  } */
 
   return (
     <main className="p-4 sm:p-20">
       {/* Reduzco el espacio en dispositivos pequeños */}
       <div className="flex flex-col mt-4 sm:flex-row sm:mt-12 space-y-4 sm:space-y-0 sm:space-x-8">
-        <h1 className="text-negromate text-3xl font-bold">{greeting}</h1>
+        <HomeGreeting />
         <span className="text-sm sm:flex items-center mt-4 sm-mt-0">
           <input
             type="text"

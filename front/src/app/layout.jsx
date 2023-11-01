@@ -11,14 +11,13 @@ import { CreateRoomProvider } from "@/context/createRoom";
 import useLoginStore from "@/context/loginStore";
 import dynamic from "next/dynamic";
 
-
 const CSRNavbarRegister = dynamic(() => import("@/components/NavBarRegister"), {
   ssr: false,
 });
 
 const CSRNavbar = dynamic(() => import("@/components/NavBar"), {
   ssr: false,
-})
+});
 
 >>>>>>> 26e1b37 (add: Improve logic for show the correct navbar)
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
@@ -33,12 +32,16 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
+<<<<<<< HEAD
       <body className={roboto.className}>
 <<<<<<< HEAD
         {isAuthenticated ? <NavBarRegister /> : <NavBar />}
         {children}
         <Footer />
 =======
+=======
+      <body className={`flex flex-col ${roboto.className}`}>
+>>>>>>> a6024b4 (Change: Correcciones)
         <CreateRoomProvider>
           {isAuthenticated ? <CSRNavbarRegister /> : <CSRNavbar />}
           {children}

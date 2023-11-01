@@ -22,14 +22,7 @@ export default function SwiperHome() {
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         }}
-        autoplay={{ delay: 2000 }}
-      >
-        <SwiperSlide className="ml-4 bg-secondary-20 w-[18rem] h-[6.5rem] shadow-xl  rounded-lg hover:scale-95 transition-transform cursor-pointer">
-          <CardGrupos />
-        </SwiperSlide>
-        <SwiperSlide>
-          <CardGrupos />
-        </SwiperSlide>
+        autoplay={{ delay: 2000 }}>
         <SwiperSlide className="ml-4 max-w-xs w-[18rem] h-[6.5rem] border border-black rounded-lg overflow-hidden transform hover:scale-95 transition-transform cursor-pointer">
           <CardGrupos />
         </SwiperSlide>

@@ -4,7 +4,7 @@
 
 @layer components {
   .mainContainer {
-    @apply flex flex-col justify-start items-center min-h-screen w-full p-4 lg:px-[100px] lg:py-12;
+    @apply flex flex-col justify-start items-center min-h-screen w-full p-4 lg:px-[100px] lg:py-12 flex-1;
   }
 
   .input {
