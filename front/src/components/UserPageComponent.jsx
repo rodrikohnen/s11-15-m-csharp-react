@@ -114,10 +114,14 @@ export const UserPageComponent = () => {
         filterType={filterType}
       />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 30dce80 (Change: Login and User styles with Desktop view)
 =======
 >>>>>>> 66c5d27 (Change: User Page Reverse)
       <main className="mainContainer gap-2">
+=======
+      <main className="mainContainer items-center gap-2">
+>>>>>>> a8ef1a2 (Add: Styles Corrections)
         <UserCard
           users={users}
           filterType={filterType}
