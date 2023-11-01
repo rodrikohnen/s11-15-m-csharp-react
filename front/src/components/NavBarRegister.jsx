@@ -21,7 +21,7 @@ import {
 =======
 >>>>>>> 7c949e0 (fix: Improve logic for the render)
 } from "./svg/Svgs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import LogoWhite from "../assets/logos/LogoMateSpeakWhite.png";
 import Image from "next/image";
@@ -31,7 +31,7 @@ import Link from "next/link";
 import useLoginStore from "@/context/loginStore";
 >>>>>>> 7c949e0 (fix: Improve logic for the render)
 
-export default function NavBarRegister({ isAuthenticared}) {
+export default function NavBarRegister({ isAuthenticared }) {
   const logout = useLoginStore((state) => state.logout);
   const router = useRouter();
 
@@ -39,15 +39,15 @@ export default function NavBarRegister({ isAuthenticared}) {
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar la apertura/cierre del menú
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(true); // Estado para determinar si mostrar el menú hamburguesa
-
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setShowHamburgerMenu(false); // Establece el menú de escritorio si el ancho es mayor o igual a 768px
-      } else {
-        setShowHamburgerMenu(true);
-      }
-    };
- 
+  const menuRef = useRef(null); // Ref para el menú hamburguesa
+  const userMenuRef = useRef(null); // Ref para el menú de usuario
+  const handleResize = () => {
+    if (window.innerWidth >= 768) {
+      setShowHamburgerMenu(false); // Establece el menú de escritorio si el ancho es mayor o igual a 768px
+    } else {
+      setShowHamburgerMenu(true);
+    }
+  };
 
   useEffect(() => {
     handleResize(); // Llama a la función en el montaje inicial
@@ -62,12 +62,17 @@ export default function NavBarRegister({ isAuthenticared}) {
     setMenuOpen(!menuOpen);
   };
 
+  const toggleUserMenu = () => {
+    setUserMenuOpen(!userMenuOpen);
+  };
+
   // Función para seleccionar una opción del menú
   const selectOption = (option) => {
     setSelectedOption(option);
     setMenuOpen(false); // Cerrar el menú después de seleccionar una opción
   };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   // Definición de las opciones del menú
   const menuOptions = ["Salas", "Mis Salas", "Usuarios"];
@@ -76,6 +81,28 @@ export default function NavBarRegister({ isAuthenticared}) {
     // Renderizado de la barra de navegación
     <header className="flex flex-row mt-4 justify-around border-black  border-b-[1.5px] pb-3 w-full">
 =======
+=======
+  // Manejador de clic en cualquier lugar de la pantalla
+  const handleDocumentClick = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setMenuOpen(false); // Cierra el menú hamburguesa si el clic fue fuera de él
+    }
+    if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+      setUserMenuOpen(false); // Cierra el menú de usuario si el clic fue fuera de él
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    document.addEventListener("click", handleDocumentClick); // Agrega el manejador de clic global
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("click", handleDocumentClick); // Limpia el manejador de clic global
+    };
+  }, []);
+
+>>>>>>> fb6c751 (changes home, travel, navBarRegister)
   // Opciones del menú de usuario, incluyendo "Cerrar sesión"
   const userMenuOptions = ["Mi perfil", "Cerrar sesión"];
 
@@ -193,7 +220,7 @@ export default function NavBarRegister({ isAuthenticared}) {
         </span>
 =======
 
-        <div className="relative mt-4">
+        <div className="relative mt-4" ref={menuRef}>
           <button onClick={toggleMenu}>
             <MenuRegister className="bg-white" />{" "}
           </button>
@@ -227,9 +254,13 @@ export default function NavBarRegister({ isAuthenticared}) {
       {/* LOGO EN EL CENTRO EN VERSIÓN MÓVIL */}
       <div className={`mt-6  ${showHamburgerMenu ? "mx-auto" : "ml-10"}`}>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Image src={LogoWhite} alt="Logo Mate Speak" width={77} />
 =======
         <Link href={"/home"}>
+=======
+        <Link href={"/"}>
+>>>>>>> fb6c751 (changes home, travel, navBarRegister)
           <Image src={LogoWhite} alt="Logo Mate Speak" width={77} />
         </Link>
 >>>>>>> 7c949e0 (fix: Improve logic for the render)
@@ -249,6 +280,7 @@ export default function NavBarRegister({ isAuthenticared}) {
           ))}
         </ul>
       )}
+<<<<<<< HEAD
 
       {
         /* MENÚ DE PERFIL */
@@ -321,6 +353,14 @@ export default function NavBarRegister({ isAuthenticared}) {
       {/* MENI DE PERFIL */}
       <div className="flex flex-col justify-around relative">
         <button onClick={() => setUserMenuOpen(!userMenuOpen)}>
+=======
+      {/* MENÚ DE PERFIL */}
+      <div
+        className="flex flex-col justify-around mr-6 mt-4 mb-4"
+        ref={userMenuRef}
+      >
+        <button onClick={toggleUserMenu}>
+>>>>>>> fb6c751 (changes home, travel, navBarRegister)
           <UserRegister />
         </button>
         {userMenuOpen && (
