@@ -20,7 +20,7 @@ export default function CardGrupos() {
         <div className="flex flex-row">
           <PerfilDefault />
           <p className="m-2">
-            {loginState.nombre} {loginState.apellido}
+            {loginState?.nombre} {loginState?.apellido}
           </p>
         </div>
         <div className="flex justify-end gap-4 text-accent">
