@@ -13,6 +13,7 @@ import useLogin from "./../hooks/useLogin";
 const { handleLogin } = useLogin();
 =======
 import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
+import { toast } from "react-toastify";
 
 import { HttpRequest } from "@/helpers/httpRequest";
 <<<<<<< HEAD
@@ -38,8 +39,6 @@ const LoginSchema = object({
 
 export default function LoginForm() {
   const router = useRouter();
-
-
   const loginState = useLoginStore();
   const { setLoginInfo } = useLoginStore();
   const {
@@ -80,8 +79,17 @@ export default function LoginForm() {
           },
           isAuth: true,
         });
+        toast(`Bienvenido ${res.usuario?.nombre}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         router.push("/");
-        console.log(loginState, "despues");
       } else {
         console.log("error");
       }
@@ -92,8 +100,7 @@ export default function LoginForm() {
     <div className="w-full flex justify-center items-center">
       <form
         className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+        onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="Correo electrónico"
           type="email"
@@ -127,8 +134,14 @@ export default function LoginForm() {
           className="registerBtn">
 =======
 
+<<<<<<< HEAD
         <button type="submit" className="registerBtn">
 >>>>>>> 69f4169 (add:Clogin-connection)
+=======
+        <button
+          type="submit"
+          className="registerBtn">
+>>>>>>> bc73c91 (Add: Toastify in Login and Tutor Form)
           Iniciar sesión
         </button>
       </form>

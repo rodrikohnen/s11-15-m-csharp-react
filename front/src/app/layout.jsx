@@ -10,6 +10,8 @@ import NavBarRegister from "@/components/NavBarRegister";
 import { CreateRoomProvider } from "@/context/createRoom";
 import useLoginStore from "@/context/loginStore";
 import dynamic from "next/dynamic";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CSRNavbarRegister = dynamic(() => import("@/components/NavBarRegister"), {
   ssr: false,
@@ -47,7 +49,11 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </CreateRoomProvider>
+<<<<<<< HEAD
 >>>>>>> 26e1b37 (add: Improve logic for show the correct navbar)
+=======
+        <ToastContainer />
+>>>>>>> bc73c91 (Add: Toastify in Login and Tutor Form)
       </body>
     </html>
   );
