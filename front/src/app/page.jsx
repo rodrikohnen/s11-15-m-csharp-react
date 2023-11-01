@@ -25,14 +25,14 @@ export default function Home() {
             <p className="sm:text-lg text-md text-primary-50">
               Comienza hablar el idioma que amas de manera efectiva.
             </p>
-            {!loginState && (
+            {/*} {!loginState && (
               <button
                 className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full"
                 onClick={() => toRegister()}
               >
                 Registrarse
               </button>
-            )}
+           )} */}
           </div>
 
           <Image src={bgHome} />
