@@ -1,10 +1,14 @@
+"use client";
 import CardChoices from "@/components/CardsHome/CardChoices";
 import TravelInfo from "@/components/SectionTravel/Travelnfo";
 import About from "@/components/CardsHome/CardAbout";
-import Image from 'next/image'
-import bgHome from '@/assets/logos/bgHome.webp'
+import Image from "next/image";
+import bgHome from "@/assets/logos/bgHome.webp";
+import useLoginStore from "@/context/loginStore";
 
 export default function Home() {
+  const loginState = useLoginStore((state) => state.isAuth);
+  const loginUser = useLoginStore((state) => state.loginInfo.usuario);
   return (
     <>
       <main className="space-y-[5rem]">
@@ -16,12 +20,14 @@ export default function Home() {
             <p className="sm:text-lg text-md text-primary-50">
               Comienza hablar el idioma que amas de manera efectiva.
             </p>
-            <div className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full">
-              Registrarse
-            </div>
+            {!loginState && (
+              <div className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full">
+                Registrarse
+              </div>
+            )}
           </div>
 
-          <Image src={bgHome}/>
+          <Image src={bgHome} />
         </section>
         <section className="space-y-5">
           <h1 className="text-center text-2xl font-bold">
