@@ -6,14 +6,13 @@ import { CreateRoomProvider } from "@/context/createRoom";
 import useLoginStore from "@/context/loginStore";
 import dynamic from "next/dynamic";
 
-
 const CSRNavbarRegister = dynamic(() => import("@/components/NavBarRegister"), {
   ssr: false,
 });
 
 const CSRNavbar = dynamic(() => import("@/components/NavBar"), {
   ssr: false,
-})
+});
 
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
@@ -27,7 +26,7 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`flex flex-col ${roboto.className}`}>
         <CreateRoomProvider>
           {isAuthenticated ? <CSRNavbarRegister /> : <CSRNavbar />}
           {children}

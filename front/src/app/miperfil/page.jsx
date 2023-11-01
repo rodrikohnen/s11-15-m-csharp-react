@@ -1,25 +1,31 @@
 import Image from "next/image";
 import Banner from "@/assets/pictures/portadaPerfil.jpg";
-import Perfil from "@/assets/pictures/Perfil-fem-3.jpg";
 import { MedallaWhite } from "@/components/svg/Svgs";
 import FormPerfil from "@/components/FormPerfil";
 import DatosPerfil from "@/components/miPerfil/DatosPerfil";
+import avatar from "../../assets/icons/avatar.png";
 export default function MiPerfil() {
   return (
-    <>
-      <Image src={Banner} className="h-52" />
-      <div className="flex flex-row relative bottom-44 pl-5  font-bold justify-start items-center gap-[1rem]  text-black ">
-        <Image
-          src={Perfil}
-          className="sm:w-52 sm:h-52 w-32 h-32 rounded-full border-2  border-white"
-        />
+    <main className="mainContainer p-0 m-0">
+      <Image
+        src={Banner}
+        className="lg:h-52 h-[106px]"
+        alt="banner"
+      />
+      <div className="flex flex-row relative bottom-24 pl-5 font-bold justify-start items-center gap-[1rem]  text-black ">
+        <div className="lg:w-[120px] lg:h-[120px] w-[90px] h-[90px]">
+          <Image
+            src={avatar}
+            alt="avatar"
+            className="w-full h-full object-contain rounded-full border-2  border-white"
+          />
+        </div>
         <DatosPerfil />
         <MedallaWhite />
       </div>
-
-      <span className="mt-[-10rem]">
+      <article>
         <FormPerfil />
-      </span>
-    </>
+      </article>
+    </main>
   );
 }
