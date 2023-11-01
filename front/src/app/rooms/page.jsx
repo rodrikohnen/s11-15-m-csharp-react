@@ -76,7 +76,7 @@ export const LiveCard = () => {
       setRooms(localStorage.removeItem("rooms"));
     }
   }, []);
-
+  console.log(showRooms)
   return (
     <>
       {isLoading ? (
@@ -93,7 +93,7 @@ export const LiveCard = () => {
                   href={`${
                     path === "/rooms"
                       ? listRooms.links?.gui
-                      : listRooms.links?.guest_join
+                      : `https://app.eyeson.team/?guest=${showRooms[0].guest_token}`
                   }`}
                 >
                   <span
