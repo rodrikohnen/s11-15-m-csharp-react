@@ -79,8 +79,8 @@ export const EditProfile = () => {
         idPais: country,
         idCalificacion: level,
         idInteres: languageToLearn,
-        idUsuario: user.idUsuario,
-        telefono: null,
+        /* idUsuario: user.idUsuario, */
+        telefono: "2131",
         avatarRoot: null,
         nombreAvatar: null,
         idCalificacion: 1,
