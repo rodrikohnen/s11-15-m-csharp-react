@@ -1,5 +1,6 @@
 "use client";
 import CardChoices from "@/components/CardsHome/CardChoices";
+import { useRouter } from "next/navigation";
 import TravelInfo from "@/components/SectionTravel/Travelnfo";
 import About from "@/components/CardsHome/CardAbout";
 import Image from "next/image";
@@ -7,6 +8,10 @@ import bgHome from "@/assets/logos/bgHome.webp";
 import useLoginStore from "@/context/loginStore";
 
 export default function Home() {
+  const router = useRouter();
+  const toRegister = () => {
+    router.push("/signup");
+  };
   const loginState = useLoginStore((state) => state.isAuth);
   const loginUser = useLoginStore((state) => state.loginInfo.usuario);
   return (
@@ -21,9 +26,12 @@ export default function Home() {
               Comienza hablar el idioma que amas de manera efectiva.
             </p>
             {!loginState && (
-              <div className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full">
+              <button
+                className="flex items-center justify-center shadow-xl text-white w-36 h-10 bg-secondary rounded-full"
+                onClick={() => toRegister()}
+              >
                 Registrarse
-              </div>
+              </button>
             )}
           </div>
 
