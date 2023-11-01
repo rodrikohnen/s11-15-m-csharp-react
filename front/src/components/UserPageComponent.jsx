@@ -107,7 +107,7 @@ export const UserPageComponent = () => {
         setFilterType={setFilterType}
         filterType={filterType}
       />
-      <main className="mainContainer gap-2">
+      <main className="mainContainer items-center gap-2">
         <UserCard
           users={users}
           filterType={filterType}

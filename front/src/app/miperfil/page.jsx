@@ -6,7 +6,7 @@ import DatosPerfil from "@/components/miPerfil/DatosPerfil";
 import avatar from "../../assets/icons/avatar.png";
 export default function MiPerfil() {
   return (
-    <main className="mainContainer p-0 m-0">
+    <main className="mainContainer p-0 m-0 items-center">
       <Image
         src={Banner}
         className="lg:h-52 h-[106px]"
