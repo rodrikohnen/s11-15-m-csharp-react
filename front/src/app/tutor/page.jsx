@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Login() {
   return (
-    <main className="mainContainer ">
+    <main className="mainContainer items-center ">
       <div className="text-2xl flex justify-start flex-col mt-12 mb-12 ml-4">
         <h1>Bienvenido al perfil de tutor</h1>
         <Link
