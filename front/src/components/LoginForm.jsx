@@ -4,6 +4,7 @@ import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
+import { toast } from "react-toastify";
 
 import { HttpRequest } from "@/helpers/httpRequest";
 import useLoginStore from "@/context/loginStore";
@@ -21,8 +22,6 @@ const LoginSchema = object({
 
 export default function LoginForm() {
   const router = useRouter();
-
-
   const loginState = useLoginStore();
   const { setLoginInfo } = useLoginStore();
   const {
@@ -57,8 +56,17 @@ export default function LoginForm() {
           },
           isAuth: true,
         });
+        toast(`Bienvenido ${res.usuario?.nombre}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         router.push("/");
-        console.log(loginState, "despues");
       } else {
         console.log("error");
       }
@@ -69,8 +77,7 @@ export default function LoginForm() {
     <div className="w-full flex justify-center items-center">
       <form
         className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
-        onSubmit={handleSubmit(onSubmit)}
-      >
+        onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="Correo electrónico"
           type="email"
@@ -88,7 +95,9 @@ export default function LoginForm() {
           <p className="errormsj">{errors.contraseña?.message}</p>
         )}
 
-        <button type="submit" className="registerBtn">
+        <button
+          type="submit"
+          className="registerBtn">
           Iniciar sesión
         </button>
       </form>

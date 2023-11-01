@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { CreateRoomProvider } from "@/context/createRoom";
 import useLoginStore from "@/context/loginStore";
 import dynamic from "next/dynamic";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CSRNavbarRegister = dynamic(() => import("@/components/NavBarRegister"), {
   ssr: false,
@@ -32,6 +34,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </CreateRoomProvider>
+        <ToastContainer />
       </body>
     </html>
   );
