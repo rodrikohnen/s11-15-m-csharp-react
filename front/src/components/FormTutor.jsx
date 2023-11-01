@@ -22,7 +22,7 @@ export default function FormTutor() {
 
   const onSubmit = (e) => {
     toast(
-      `Tu certificado fue enviado con éxito. Tu petición será evaluada por nuestro equipo y recibirás una respuesta en las próximas 48hs.`,
+      `Tu certificado fue enviado con éxito. Tu petición será evaluada por nuestro equipo y recibirás una respuesta en las próximas 72hs.`,
       {
         position: "top-right",
         autoClose: 3000,
