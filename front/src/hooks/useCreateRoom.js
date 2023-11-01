@@ -36,6 +36,7 @@ export function useCreateRoom() {
         username: room.user.name,
         link: room.links.gui,
         guest: room.links.guest_join,
+        token: room.links.guest_token
       }));
     } catch (error) {
       setIsError(error);
