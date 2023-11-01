@@ -6,7 +6,7 @@ export default function Login() {
     <main className="mainContainer items-center ">
       <div className="text-2xl flex justify-start flex-col mt-12 mb-12 ml-4 self-start">
         <h1 className="text-normal lg:text-2xl mb-4 text-xl ">
-          Bienvenido al perfil de tutor
+          Bienvenido al perfil de Mentor
         </h1>
         <p className="lg:w-7/12 lg:text-lg text-[#545454] text-sm">
           Completa tu información para habilitar tu perfil como Mentor y

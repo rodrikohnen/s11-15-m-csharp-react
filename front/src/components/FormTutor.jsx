@@ -1,5 +1,4 @@
 "use client";
-
 import { useForm } from "react-hook-form";
 import { SubirArchivo } from "./svg/Svgs";
 import { useState } from "react";
@@ -38,7 +37,7 @@ export default function FormTutor() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="rounded-2xl bg-zinc-400 w-[20rem] border">
+      <div className="rounded-2xl bg-zinc-400 w-[20rem] border py-4">
         <div className="flex flex-col justify-center items-center mb-4">
           <select
             {...register("idioma")}
@@ -68,7 +67,7 @@ export default function FormTutor() {
           )}
         </div>
 
-        <div className="flex justify-center items-center mb-4">
+        <div className="flex justify-center items-center mb-2">
           <input
             {...register("certificado", {
               required: "Este campo es obligatorio",
@@ -92,8 +91,8 @@ export default function FormTutor() {
       <div className="flex justify-center items-center mt-16 mb-16">
         <button
           type="submit"
-          className="bg-primary text-base text-white py-2 px-4 rounded-full w-[16rem] hover:bg-primary-100">
-          Cargar mi perfil de Tutor
+          className="registerBtn">
+          Cargar mi perfil de Mentor
         </button>
       </div>
     </form>
