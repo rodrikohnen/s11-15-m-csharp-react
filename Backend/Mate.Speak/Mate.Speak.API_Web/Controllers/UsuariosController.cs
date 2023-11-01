@@ -1,6 +1,7 @@
 ﻿using Mate.Speak.BLL.Services;
 using Mate.Speak.Models;
 using Mate.Speak.Models.VModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -74,7 +75,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             bool respuesta = await _UsuariosService.Insertar(NuevoModelo);
 
-            return StatusCode(StatusCodes.Status200OK, new { valor = respuesta });
+            return StatusCode(StatusCodes.Status200OK, new { usuario = NuevoModelo.IdUsuario, valor = respuesta});
+            
         }
 
         [HttpPut]
@@ -84,6 +86,8 @@ namespace Mate.Speak.API_Web.Controllers
 
             Usuario NuevoModelo = new Usuario
             {
+                IdUsuario = modelo.IdUsuario,
+
                 IdRol = modelo.IdRol,
 
                 Nombre = modelo.Nombre,

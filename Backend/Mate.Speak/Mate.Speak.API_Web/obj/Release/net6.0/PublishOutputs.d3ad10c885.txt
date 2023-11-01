@@ -5,6 +5,7 @@ C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Mate.Speak.API_Web.deps.json
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Mate.Speak.API_Web.runtimeconfig.json
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Mate.Speak.API_Web.pdb
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.Data.SqlClient.dll
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll

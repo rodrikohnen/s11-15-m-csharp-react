@@ -17,7 +17,7 @@ namespace Mate.Speak.BLL.Services
 
         Task<Dato> Obtener(int id);
 
-        Task<Dato> Obtener(string nombre);
+        Task<Dato> Obtenerxnombre (string nombre);
 
         Task<Dato> ObtenerContacto();
 

@@ -17,6 +17,8 @@ namespace Mate.Speak.BLL.Services
 
         Task<Usuario> Obtener(int id);
 
+        Task<Usuario> ObtenerCredenciales(string correo, string clave);
+
         Task<Usuario> Obtenerxrol(int idrol);
 
         Task<Usuario> Obtener(string nombre);

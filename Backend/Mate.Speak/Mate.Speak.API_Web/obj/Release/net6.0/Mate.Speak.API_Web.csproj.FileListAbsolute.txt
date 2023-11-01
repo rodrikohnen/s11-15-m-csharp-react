@@ -71,3 +71,4 @@ C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\Mate.Speak.API_Web.pdb
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\Mate.Speak.API_Web.genruntimeconfig.cache
 C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\obj\Release\net6.0\ref\Mate.Speak.API_Web.dll
+C:\Users\Indatech\Documents\GitHub\s11-15-m-csharp-react\Backend\Mate.Speak\Mate.Speak.API_Web\bin\Release\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

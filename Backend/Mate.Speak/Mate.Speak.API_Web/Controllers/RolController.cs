@@ -1,6 +1,7 @@
 ﻿using Mate.Speak.BLL.Services;
 using Mate.Speak.Models;
 using Mate.Speak.Models.VModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,14 +11,17 @@ namespace Mate.Speak.API_Web.Controllers
 {
     [EnableCors("ReglasCors")]
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class RolController : ControllerBase
     {
         private readonly IRolService _RolService;
+
         public RolController(IRolService RolService)
         {
             _RolService = RolService;
         }
+
         [HttpGet]
         public async Task<IActionResult> Listar() 
         {
@@ -41,7 +45,7 @@ namespace Mate.Speak.API_Web.Controllers
         {
             IQueryable<Role> queryRoleSQL = await _RolService.ObtenerTodos();
 
-            Role NuevoModelo = new Role
+            Role NuevoModelo = new Role()
             {
                 Roles = modelo.Roles
             };
@@ -55,9 +59,11 @@ namespace Mate.Speak.API_Web.Controllers
         public async Task<IActionResult> Actualizar([FromBody] VMRol modelo)
         {
             IQueryable<Role> queryRoleSQL = await _RolService.ObtenerTodos();
-
-            Role NuevoModelo = new Role
+             
+            Role NuevoModelo = new Role()
             {
+                IdRol = modelo.IdRol,
+
                 Roles = modelo.Roles
             };
 

@@ -12,13 +12,9 @@ namespace Mate.Speak.BLL.Services
     {
         private readonly IGenericRepository<Dato> _DatosRepo;
 
-        private readonly IGenericRepository<Usuario> _UsuarioRepo;
-
-        public DatosService(IGenericRepository<Dato> DatosRepo, IGenericRepository<Usuario> UsuarioRepo)
+        public DatosService(IGenericRepository<Dato> DatosRepo)
         {
             _DatosRepo = DatosRepo;
-
-            _UsuarioRepo = UsuarioRepo;
         }
 
         public async Task<bool> Actualizar(Dato modelo)
@@ -41,10 +37,7 @@ namespace Mate.Speak.BLL.Services
             return await _DatosRepo.Obtener(id); 
         }
 
-        public async Task<Dato> ObtenerxNombre(string nombre)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public Task<Dato> ObtenerContacto()
         {
@@ -56,7 +49,7 @@ namespace Mate.Speak.BLL.Services
            return await _DatosRepo.ObtenerTodos();
         }
 
-        public Task<Dato> Obtener(string nombre)
+        public Task<Dato> Obtenerxnombre(string nombre)
         {
             throw new NotImplementedException();
         }

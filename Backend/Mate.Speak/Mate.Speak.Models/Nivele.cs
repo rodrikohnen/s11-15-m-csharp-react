@@ -11,6 +11,7 @@ namespace Mate.Speak.Models
         }
 
         public int IdNivel { get; set; }
+       
         public string? Nivel { get; set; }
 
         public virtual ICollection<Estudio> Estudios { get; set; }
