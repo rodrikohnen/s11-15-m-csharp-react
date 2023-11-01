@@ -7,7 +7,7 @@ export default function DatosPerfil() {
   return (
     <div className="flex flex-col text-xl">
       <h1>
-        {loginState.nombre} {loginState.apellido}
+        {loginState?.nombre} {loginState?.apellido}
       </h1>
     </div>
   );

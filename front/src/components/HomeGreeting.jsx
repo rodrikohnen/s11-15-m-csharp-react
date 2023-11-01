@@ -6,7 +6,7 @@ export const HomeGreeting = () => {
   console.log(loginState);
   return (
     <h1 className="text-negromate text-3xl font-bold">
-      Hola {loginState.nombre}!
+      Hola {loginState?.nombre}!
     </h1>
   );
 };
