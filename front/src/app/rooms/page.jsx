@@ -1,6 +1,10 @@
 "use client";
 
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState, useEffect, useContext, Fragment } from "react";
+>>>>>>> 0228798 (fix: Improve styles for the page rooms)
 import CardMoreRooms from "@/components/Rooms/CardMoreRooms";
 import NavBarRooms from "@/components/Rooms/NavBarRooms";
 import GroupVideo from "../../assets/pictures/Group-video-pana1.jpg";
@@ -14,8 +18,13 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { Medalla, PerfilDefault } from "@/components/svg/Svgs";
 import { CreateRoomContext } from "@/context/createRoom";
 import { useGetRooms } from "@/hooks/useGetRooms";
+<<<<<<< HEAD
 import { usePathname } from "next/navigation";
 >>>>>>> a228a3b (fix: changes render)
+=======
+import { usePathname, useRouter } from "next/navigation";
+
+>>>>>>> 0228798 (fix: Improve styles for the page rooms)
 
 export default function Rooms() {
   const [isMobile, setIsMobile] = useState(false);
@@ -44,7 +53,7 @@ export default function Rooms() {
   return (
     <>
       <NavBarRooms className="w-full" />
-      <div className="flex flex-col h-screen w-[screen] gap-10 p-10">
+      <div className="flex flex-col gap-10 p-10">
         <section className="flex  items-center justify-center p-4 gap-10 text-center">
           <div className="flex items-center sm:items-start gap-5">
             <p className="sm:text-lg text-sm  text-negromate">
@@ -78,10 +87,11 @@ export default function Rooms() {
 export const LiveCard = () => {
   const { isLoading, listRooms, setRooms } = useContext(CreateRoomContext);
   const { showRooms, getRooms, setShowRooms } = useGetRooms();
-  const infoUser = useLoginStore(state => state.usuario)
-  
+  const infoUser = useLoginStore((state) => state.usuario);
+  const router = useRouter();
   const path = usePathname();
- 
+
+  const formatDate = new Date();
 
   useEffect(() => {
     const storedRooms = JSON.parse(localStorage.getItem("listrooms"));
@@ -101,7 +111,7 @@ export const LiveCard = () => {
       setRooms(localStorage.removeItem("rooms"));
     }
   }, []);
-  console.log(showRooms)
+  console.log(showRooms);
   return (
     <>
       {isLoading ? (
@@ -113,7 +123,8 @@ export const LiveCard = () => {
           {showRooms && listRooms ? (
             <>
               {[...showRooms].map((room) => (
-                <Link
+                <Fragment key={room.id}>
+                  <Link
                   legacyBehavior
                   href={`${
                     path === "/rooms"
@@ -139,7 +150,8 @@ export const LiveCard = () => {
                         <div className="flex flex-col ml-3">
                           <div className="flex flex-col">
                             <div className="flex flex-row space-x-2">
-                              Sala de: {infoUser && infoUser.nombre} {infoUser && infoUser.apellido} 
+                              Sala de: {infoUser && infoUser.nombre}{" "}
+                              {infoUser && infoUser.apellido}
                             </div>
                           </div>
                           {room.ready ? (
@@ -150,12 +162,15 @@ export const LiveCard = () => {
                         </div>
                       </div>
                       <div className="flex font-bold py-1 text-negromate">
-                        <div className="flex flex-row">{room.started_at}</div>
+                        <div className="flex flex-row">
+                          {formatDate.toLocaleString()}
+                        </div>
                         <div className="flex flex-row"></div>
                       </div>
                     </div>
                   </span>
                 </Link>
+                </Fragment>
               ))}
             </>
           ) : (
