@@ -2,9 +2,20 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import Footer from "../components/Footer";
-import NavBar from "@/components/NavBar";
-import { useAuthStore } from "@/context/authUser";
-import NavBarRegister from "@/components/NavBarRegister";
+import { CreateRoomProvider } from "@/context/createRoom";
+import useLoginStore from "@/context/loginStore";
+import dynamic from "next/dynamic";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const CSRNavbarRegister = dynamic(() => import("@/components/NavBarRegister"), {
+  ssr: false,
+});
+
+const CSRNavbar = dynamic(() => import("@/components/NavBar"), {
+  ssr: false,
+});
+
 const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 
 /* export const metadata = {
@@ -13,14 +24,17 @@ const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
 };
  */
 export default function RootLayout({ children }) {
-  const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const isAuthenticated = useLoginStore((state) => state.isAuth);
 
   return (
     <html lang="en">
-      <body className={roboto.className}>
-        {isAuthenticated ? <NavBarRegister /> : <NavBar />}
-        {children}
-        <Footer />
+      <body className={`flex flex-col ${roboto.className}`}>
+        <CreateRoomProvider>
+          {isAuthenticated ? <CSRNavbarRegister /> : <CSRNavbar />}
+          {children}
+          <Footer />
+        </CreateRoomProvider>
+        <ToastContainer />
       </body>
     </html>
   );

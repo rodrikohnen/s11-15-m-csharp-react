@@ -1,116 +1,16 @@
-"use client";
-import { UserCard } from "@/components/UserCard";
-import { UserFilterBar } from "@/components/UserFilterBar";
-import { useState } from "react";
-
-const users = [
-  {
-    id: 1,
-    name: "Alice",
-    lastname: "Smith",
-    country: "USA",
-    rating: 4,
-    nativelanguage: "EN",
-    languagetolearn: "ES",
-  },
-  {
-    id: 2,
-    name: "Bob",
-    lastname: "Johnson",
-    country: "Canada",
-    rating: 3,
-    nativelanguage: "ES",
-    languagetolearn: "EN",
-  },
-  {
-    id: 3,
-    name: "Charlie",
-    lastname: "Brown",
-    country: "Mexico",
-    rating: 5,
-    nativelanguage: "PR",
-    languagetolearn: "EN",
-  },
-  {
-    id: 4,
-    name: "David",
-    lastname: "Lee",
-    country: "Spain",
-    rating: 2,
-    nativelanguage: "EN",
-    languagetolearn: "PR",
-  },
-  {
-    id: 5,
-    name: "Eva",
-    lastname: "Garcia",
-    country: "Brazil",
-    rating: 1,
-    nativelanguage: "PR",
-    languagetolearn: "ES",
-  },
-  {
-    id: 6,
-    name: "Frank",
-    lastname: "Martinez",
-    country: "Argentina",
-    rating: 4,
-    nativelanguage: "ES",
-    languagetolearn: "PR",
-  },
-  {
-    id: 7,
-    name: "Grace",
-    lastname: "Chen",
-    country: "Portugal",
-    rating: 5,
-    nativelanguage: "EN",
-    languagetolearn: "ES",
-  },
-  {
-    id: 8,
-    name: "Hector",
-    lastname: "Lopez",
-    country: "France",
-    rating: 3,
-    nativelanguage: "PR",
-    languagetolearn: "EN",
-  },
-  {
-    id: 9,
-    name: "Ivy",
-    lastname: "Wang",
-    country: "Germany",
-    rating: 2,
-    nativelanguage: "EN",
-    languagetolearn: "PR",
-  },
-  {
-    id: 10,
-    name: "Jack",
-    lastname: "Taylor",
-    country: "Italy",
-    rating: 4,
-    nativelanguage: "ES",
-    languagetolearn: "EN",
-  },
-];
+import { UserBackArrow } from "@/components/UserBackArrow";
+import { UserPageComponent } from "@/components/UserPageComponent";
+import { UserType } from "@/components/UserType";
 
 const UserPage = () => {
-  const [filterType, setFilterType] = useState("general");
-
-  console.log(filterType);
-
   return (
     <>
+      <header className="w-full h-[60px] lg:h-20 bg-primary flex items-center">
+        <UserBackArrow />
+      </header>
       <h1 className="text-lg font-normal self-start p-4">Usuarios</h1>
-      <UserFilterBar setFilterType={setFilterType} />
-      <main className="mainContainer gap-2">
-        <UserCard
-          users={users}
-          filterType={filterType}
-        />
-      </main>
+      <UserType />
+      <UserPageComponent />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import starblack from "../assets/icons/starblack.png";
-import starwhite from "../assets/icons/starwhite.png";
+import pinkStar from "../assets/icons/StarPink.svg";
+import starWhite from "../assets/icons/StarWhiteBorderPink.svg";
 
 export const UserRating = ({ rating }) => {
   const renderImagenes = () => {
@@ -10,7 +10,7 @@ export const UserRating = ({ rating }) => {
         images.push(
           <Image
             key={i}
-            src={starblack}
+            src={pinkStar}
             alt="Black"
           />
         );
@@ -18,7 +18,7 @@ export const UserRating = ({ rating }) => {
         images.push(
           <Image
             key={i}
-            src={starwhite}
+            src={starWhite}
             alt="White"
           />
         );

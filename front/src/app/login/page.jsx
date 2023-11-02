@@ -1,16 +1,29 @@
 import LoginForm from "@/components/LoginForm";
+import { MateSpeakHeader } from "@/components/MateSpeakHeader";
 import Link from "next/link";
 
 export default function Login() {
   return (
-    <main className="flex-col">
-      <div className="text-3xl flex justify-start flex-col mt-12 mb-16 ml-4">
-        <h1>Iniciar sesión</h1>
-        <Link className="text-sm text-sky-500" href="/signup">
-          ¿Aun no tienes cuenta?
-        </Link>
-      </div>
-      <LoginForm />
-    </main>
+    <>
+      <header
+        className="w-full h-[60px] lg:h-20 bg-primary flex 
+           justify-center items-center">
+        <MateSpeakHeader />
+      </header>
+      <main className="mainContainer">
+        <aside className="flex flex-col justify-start w-full mb-4">
+          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
+            Inicia Sesión
+          </h1>
+          <span className="text-sm text-black flex gap-4 font-semibold">
+            <h2 className="text-gray-400 font-light">
+              ¿Aún no tienes cuenta?{" "}
+            </h2>
+            <Link href={"/signup"}>Registrate</Link>
+          </span>
+        </aside>
+        <LoginForm />
+      </main>
+    </>
   );
 }

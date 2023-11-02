@@ -1,38 +1,38 @@
-import CardEnVivo from "@/components/CardEnVIvo";
-import Link from "next/link";
+import SwiperHome from "@/components/Swiper.jsx";
+import { LiveCard } from "../rooms/page";
+
+import dynamic from "next/dynamic";
+
+const CSRHomeGreeting = dynamic(() => import("@/components/HomeGreeting"), {
+  ssr: false
+})
 
 export default function HomeUser() {
-  const cardsData = [1, 2, 3, 4];
-  const currentTime = new Date();
-  const currentHour = currentTime.getHours();
-
-  let greeting = "";
-
-  if (currentHour >= 5 && currentHour < 12) {
-    greeting = "Buenos días 🌤️";
-  } else if (currentHour >= 12 && currentHour < 22) {
-    greeting = "Buenas tardes 🌄";
-  } else {
-    greeting = "Buenas noches 🌙";
-  }
-
   return (
-    <main className="flex-col">
-      <div className="text-3xl flex justify-start flex-col mt-12  ml-4">
-        <h1 className="mb-4">{greeting}</h1>
-        <span className="flex flex-row justify-start items-start text-sm">
-          <input type="text" placeholder="Search" className="border border-zinc-400 mb-8 w-[17rem] h-[2rem] rounded-sm" />
-        </span>
-        <h1>Mis grupos</h1>
-        <span className="flex flex-col justify-start items-start ">
-        </span>
-        <h1>En vivo</h1>
-        <span className="flex flex-col justify-start items-start ">
-          {cardsData.map((item, index) => (
-            <CardEnVivo key={index} />
-          ))}
+    <main className="mainContainer p-4 sm:p-20">
+      {/* Reduzco el espacio en dispositivos pequeños */}
+      <div className="flex flex-col mt-4 sm:flex-row sm:mt-12 space-y-4 sm:space-y-0 sm:space-x-8">
+        <CSRHomeGreeting />
+        <span className="text-sm sm:flex items-center mt-4 sm-mt-0">
+          <input
+            type="text"
+            placeholder="Search"
+            className="border border-zinc-400  mb-4 sm:w-72 sm:h-8 rounded-sm"
+          />
         </span>
       </div>
+      <h1 className="mt-20 sm:mt-4 text-negromate text-xl font-bold">
+        Mis grupos
+      </h1>
+      <span className="flex mt-4 sm:mt-10">
+        <SwiperHome />
+      </span>
+      <h1 className="mt-20 sm:mt-10 text-negromate text-xl font-bold">
+        En vivo
+      </h1>
+      <span className="flex flex-col mt-4 sm:flex-row sm:mt-6 gap-4 sm:justify-start">
+        <LiveCard />
+      </span>
     </main>
   );
 }

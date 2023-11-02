@@ -1,16 +1,20 @@
-export const UserFilterBar = ({ setFilterType }) => {
+export const UserFilterBar = ({ filterType, setFilterType }) => {
   const handleRadioClick = (e) => {
-    e.stopPropagation();
     setFilterType(e.target.value);
   };
 
   return (
-    <section className="h-12 bg-gray-400 w-full m-0">
-      <form className="flex items-center h-12">
-        <div className="flex items-center justify-center w-full">
+    <section className="h-12 bg-primary w-full m-0 mt-4 ">
+      <form className="flex items-center h-12 relative ">
+        <div
+          className={` flex items-center justify-center w-full after:content-[''] after:absolute after:w-[33.33%] after:h-1  after:top-11 ${
+            filterType === "general" ? "after:bg-white" : "after:bg-negromate"
+          }`}>
           <label
             htmlFor="general"
-            className="relative">
+            className={`relative ${
+              filterType === "general" ? "text-white " : ""
+            }`}>
             General
             <input
               type="radio"
@@ -22,10 +26,15 @@ export const UserFilterBar = ({ setFilterType }) => {
             />
           </label>
         </div>
-        <div className="flex items-center justify-center w-full">
+        <div
+          className={` flex items-center justify-center w-full after:content-[''] after:absolute after:w-[33.33%] after:h-1  after:top-11 ${
+            filterType === "populares" ? "after:bg-white" : "after:bg-negromate"
+          }`}>
           <label
             htmlFor="populares"
-            className="relative">
+            className={`relative ${
+              filterType === "populares" ? "text-white" : ""
+            }`}>
             Más Populares
             <input
               type="radio"
@@ -37,17 +46,22 @@ export const UserFilterBar = ({ setFilterType }) => {
             />
           </label>
         </div>
-        <div className="flex items-center justify-center w-full">
+        <div
+          className={`flex items-center justify-center w-full after:content-[''] after:absolute after:w-[33.33%] after:h-1 after:top-11 ${
+            filterType === "cerca" ? "after:bg-white" : "after:bg-negromate"
+          }`}>
           <label
             htmlFor="cerca"
-            className="relative">
+            className={`relative  ${
+              filterType === "cerca" ? "text-white" : ""
+            }`}>
             Cerca
             <input
               type="radio"
               id="cerca"
               name="filterBtn"
               value="cerca"
-              className="filterRadioBtn"
+              className="filterRadioBtn "
               onClick={handleRadioClick}
             />
           </label>

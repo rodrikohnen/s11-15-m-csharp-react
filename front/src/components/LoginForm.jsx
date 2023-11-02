@@ -2,68 +2,105 @@
 import { valibotResolver } from "@hookform/resolvers/valibot";
 import { object, string, minLength, maxLength, email } from "valibot";
 import { useForm } from "react-hook-form";
-import { useAuthStore } from "@/context/authUser";
 import { useRouter } from "next/navigation";
+import { API_URL, AUTENTICACION_URL } from "@/libs/routes";
+import { toast } from "react-toastify";
 
+import { HttpRequest } from "@/helpers/httpRequest";
+import useLoginStore from "@/context/loginStore";
 const LoginSchema = object({
-  correo: string("Debes ingresar caracteres validos.", [
+  correo: string([
     minLength(1, "Ingresa tu email."),
-    email("The email address is badly formatted."),
+    email("El email tiene un formato inválido"),
   ]),
   contraseña: string("Debes ingresar caracteres validos.", [
     minLength(1, "Ingresa tu contraseña"),
-    minLength(8, "Tu contraseña debe contener 8 caracteres."),
+    minLength(4, "Tu contraseña debe contener 4 caracteres."),
     maxLength(15, "Tu contraseña no puede contener mas de 15 caracteres."),
   ]),
 });
 
 export default function LoginForm() {
   const router = useRouter();
-  const login = useAuthStore((state) => state.isLogin);
-
+  const loginState = useLoginStore();
+  const { setLoginInfo } = useLoginStore();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: valibotResolver(LoginSchema) });
+  } = useForm({
+    resolver: valibotResolver(LoginSchema),
+  });
 
   const onSubmit = (e) => {
-    /*  e.preventDefault(); */
-    login();
-    router.push("/user");
     console.log("Formulario enviado:", e);
+    const req = HttpRequest();
+
+    const url = `${API_URL}${AUTENTICACION_URL}`;
+    const options = {
+      headers: { "content-type": "application/json" },
+
+      body: {
+        correo: e.correo,
+        password: e.contraseña,
+      },
+    };
+    req.post(url, options).then((res) => {
+      console.log(res, "respuesta");
+      if (res.token) {
+        setLoginInfo({
+          token: res.token,
+          usuario: {
+            nombre: res.usuario?.nombre,
+            apellido: res.usuario?.apellido,
+          },
+          isAuth: true,
+        });
+        toast(`Bienvenido ${res.usuario?.nombre}`, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        router.push("/");
+      } else {
+        console.log("error");
+      }
+    });
   };
 
   return (
-    <span className="flex flex-col items-center justify-center ">
+    <div className="w-full flex justify-center items-center">
       <form
-        className="flex flex-col items-center max-full mb-20 "
+        className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
         onSubmit={handleSubmit(onSubmit)}>
         <input
-          placeholder="Correo elctronico"
+          placeholder="Correo electrónico"
           type="email"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="input"
           {...register("correo")}
         />
-        {errors.correo && (
-          <p className="text-pink-700">{errors.correo?.message}</p>
-        )}
+        {errors.correo && <p className="errormsj">{errors.correo?.message}</p>}
         <input
           placeholder="Contraseña"
           type="password"
-          className="border border-zinc-800 w-[20rem] h-[2.5rem] m-3 rounded-md"
+          className="input"
           {...register("contraseña")}
         />
         {errors.contraseña && (
-          <p className="text-pink-700">{errors.contraseña?.message}</p>
+          <p className="errormsj">{errors.contraseña?.message}</p>
         )}
-        <a className="text-sm text-sky-500">¿Olvidaste tu contraseña?</a>
+
         <button
           type="submit"
-          className="border border-zinc-800 rounded-xl h-[2rem] w-[20rem] mt-[6.5rem]">
+          className="registerBtn">
           Iniciar sesión
         </button>
       </form>
-    </span>
+    </div>
   );
 }

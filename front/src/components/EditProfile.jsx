@@ -1,139 +1,206 @@
 import { useForm } from "react-hook-form";
-import { valibotResolver } from "@hookform/resolvers/valibot";
-import { minLength, object, string, maxLength } from "valibot";
 import Image from "next/image";
-import backArrow from "../assets/icons/back-arrow.png";
 import avatar from "../assets/icons/avatar.png";
-import { selectArrow } from "./svg/Svgs";
+import { HttpRequest } from "@/helpers/httpRequest";
+import {
+  API_URL,
+  IDIOMA_URL,
+  PAIS_URL,
+  DATOS_URL,
+  NIVEL_URL,
+} from "@/libs/routes";
+import { useState, useEffect } from "react";
+import { useRegisterStore } from "@/context/registerStore";
+import { useRouter } from "next/navigation";
 
-const profileSchema = object({
-  country: string([minLength(2, "Por favor ingresa tu ciudad")]),
-  nativelanguage: string([minLength(2, "Elije un idioma del listado")]),
-  languagetolearn: string([minLength(2, "Elije un idioma del listado")]),
-  level: string([minLength(2, "Debes seleccionar un nivel del listado")]),
-  username: string([
-    minLength(1, "Tu username debe tener un mínimo de 1 caracteres"),
-    maxLength(10, "Tu username debe tener un máximo de 10 caracteres"),
-  ]),
-});
-
-export const EditProfile = ({ user, setUser, setFormView, formView }) => {
+export const EditProfile = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({ resolver: valibotResolver(profileSchema) });
+  } = useForm();
+  const user = useRegisterStore((state) => state.user);
+  const [languages, setLanguages] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [nivel, setNivel] = useState([]);
+
+  const req = HttpRequest();
+  const urlIdiomas = `${API_URL}${IDIOMA_URL}`;
+  const urlCountries = `${API_URL}${PAIS_URL}`;
+  const urlNivel = `${API_URL}${NIVEL_URL}`;
+  const urlDatos = `${API_URL}${DATOS_URL}`;
+
+  useEffect(() => {
+    req.get(urlIdiomas).then((res) => {
+      if (!res.err) {
+        setLanguages(res);
+      } else {
+        setLanguages(null);
+      }
+    });
+
+    req.get(urlCountries).then((res) => {
+      if (!res.err) {
+        setCountries(res);
+      } else {
+        setCountries(null);
+      }
+    });
+
+    req.get(urlNivel).then((res) => {
+      if (!res.err) {
+        setNivel(res);
+      } else {
+        setNivel(null);
+      }
+    });
+
+    req.get(urlCountries).then((res) => {
+      if (!res.err) {
+        setCountries(res);
+      } else {
+        setCountries(null);
+      }
+    });
+
+    console.log(user);
+  }, [urlIdiomas]);
 
   const onSubmit = (data) => {
-    setUser({
-      ...user,
-      country: data.country,
-      nativelanguage: data.nativelanguage,
-      languagetolearn: data.languagetolearn,
-      level: data.level,
-      username: data.username,
-    });
-    console.log(user);
-  };
+    const { nativeLanguage, country, level, languageToLearn } = data;
 
-  console.log(user);
-  const handleClick = () => {
-    setFormView(formView - 1);
+    console.log(data, user.idUsuario);
+
+    const options = {
+      headers: { "content-type": "application/json" },
+      body: {
+        nativo: nativeLanguage,
+        idPais: country,
+        idCalificacion: level,
+        idInteres: languageToLearn,
+        /* idUsuario: user.idUsuario, */
+        telefono: "2131",
+        avatarRoot: null,
+        nombreAvatar: null,
+        idCalificacion: 1,
+        urlcertificado: null,
+        nombrecertificado: null,
+        certificado: null,
+      },
+    };
+    req.post(urlDatos, options).then((response) => {
+      console.log(response);
+      router.push("/login");
+    });
   };
 
   return (
     <>
       <section className="w-full">
-        <header className="flex items-center justify-start gap-4 py-4 px-0 mx-0 w-full">
-          <Image
-            src={backArrow}
-            alt="go back"
-            className="object-contain"
-            onClick={handleClick}
-          />
-          <h2 className="text-black-400 text-xl">Completá tu perfil</h2>
-        </header>
-        <article className="my-4 flex flex-col items-center">
-          <p className="text-center mb-4">
+        <article className="my-4 flex flex-col items-center lg:items-start">
+          <h1 className="text-xl text-black font-extrabold text-left mb-2 lg:text-[26px]">
+            Completá tu perfil
+          </h1>
+          <p className="text-center mb-4 lg:w-[256px] lg:text-left text-sm text-[#545454] font-light">
             Completa tu información para una mejor experiencia en la plataforma
           </p>
-          <Image
-            className="object-contain"
-            src={avatar}
-            alt="avatar img"
-          />
         </article>
       </section>
       <form
-        className="flex flex-col w-full justify-start items-start gap-6"
+        className="flex flex-col w-full justify-start items-start gap-6 lg:justify-center lg:items-center lg:w-[328px] lg:mt-8"
         onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-full">
-          <input
-            placeholder="username"
-            name="username"
-            type="text"
-            className="input"
-            {...register("username")}
-          />
-          {errors.username && (
-            <p className="errormsj">{errors.username.message}</p>
-          )}
-        </div>
-
+        <Image
+          className="object-contain self-center"
+          src={avatar}
+          alt="avatar img"
+        />
         <div className="w-full">
           <select
             {...register("country")}
             name="country"
             className="select">
-            <option value="">Yo soy de</option>
-            <option value="argentina">Argentina</option>
-            <option value="colombia">Colombia</option>
-            <option value="venezuela">Venezuela</option>
-            <option value="chile">Chile</option>
+            {countries && (
+              <>
+                <option value="">Yo soy de</option>
+                {countries.map((country) => (
+                  <option
+                    value={Number(country.idPais)}
+                    key={country.idPais}>
+                    {country.pais}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
           {errors.country && (
             <p className="errormsj">{errors.country.message}</p>
           )}
         </div>
-
         <div className="w-full">
           <select
-            {...register("nativelanguage")}
-            name="nativelanguage"
+            {...register("nativeLanguage")}
+            name="nativeLanguage"
             className="select">
-            <option value="">Idioma nativo</option>
-            <option value="english">Inglés</option>
-            <option value="spanish">Español</option>
+            {languages && (
+              <>
+                <option value="">Idioma Nativo</option>
+                {languages.map((language) => (
+                  <option
+                    value={Number(language.idIdioma)}
+                    key={language.idIdioma}>
+                    {language.idiomas}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
-          {errors.nativelanguage && (
-            <p className="errormsj">{errors.nativelanguage.message}</p>
+          {errors.nativeLanguage && (
+            <p className="errormsj">{errors.nativeLanguage.message}</p>
           )}
         </div>
 
         <div className="w-full">
           <select
-            {...register("languagetolearn")}
-            name="languagetolearn"
+            {...register("languageToLearn")}
+            name="languageToLearn"
             className="select">
-            <option value="">Me interesa</option>
-            <option value="english">Inglés</option>
-            <option value="spanish">Español</option>
+            {languages && (
+              <>
+                <option value="">Me interesa</option>
+                {languages.map((language) => (
+                  <option
+                    value={Number(language.idIdioma)}
+                    key={language.idIdioma}>
+                    {language.idiomas}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
-          {errors.languagetolearn && (
-            <p className="errormsj">{errors.languagetolearn.message}</p>
+          {errors.languageToLearn && (
+            <p className="errormsj">{errors.languageToLearn.message}</p>
           )}
         </div>
-
         <div className="w-full">
           <select
             {...register("level")}
             name="level"
             className="select">
-            <option value="-">Nivel</option>
-            <option value="begginer">Principiante</option>
-            <option value="intermediate">Intermedio</option>
-            <option value="advanced">Avanzado</option>
+            {nivel && (
+              <>
+                <option value="-">Nivel</option>
+                {nivel.map((level) => (
+                  <option
+                    value={Number(level.idNivel)}
+                    key={level.idNivel}>
+                    {level.nivel}
+                  </option>
+                ))}
+              </>
+            )}
           </select>
+
           {errors.level && <p className="errormsj">{errors.level.message}</p>}
         </div>
 
