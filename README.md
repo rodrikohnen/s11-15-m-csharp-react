@@ -1,5 +1,8 @@
 # 💫About:
-MATESPEAK<br>Comienza tu viaje lingüístico con Mate Speak, se parte de nuestra comunidad global y experimenta una forma emocionante y efectiva de aprender un nuevo idioma.<br><br>Bruno Viscay - Project Manager<br>Juan Pablo Passadore - Tester<br>Ariel Jaime - Backend<br>Deivison Jiménez - Backend<br>Nicolás Arteaga - Backend<br>Rodrigo Kohnen - Backend<br>Juan Martín De Rosa - Frontend<br>Nicolás Ramirez - Frontend<br>Simón Montoya - Frontend<br>Sofía Costamagna - Frontend<br>Soledad Ramirez - Diseño UX/UI
+MATESPEAK<br>Comienza tu viaje lingüístico con Mate Speak, se parte de nuestra comunidad global y experimenta una forma emocionante y efectiva de aprender un nuevo idioma.<br>
+
+# 💫Equipo:
+<br>Bruno Viscay - Project Manager<br>Juan Pablo Passadore - Tester<br>Ariel Jaime - Backend<br>Deivison Jiménez - Backend<br>Nicolás Arteaga - Backend<br>Rodrigo Kohnen - Backend<br>Juan Martín De Rosa - Frontend<br>Nicolás Ramirez - Frontend<br>Simón Montoya - Frontend<br>Sofía Costamagna - Frontend<br>Soledad Ramirez - Diseño UX/UI
 
 
 # 💻 Tech Stack:
