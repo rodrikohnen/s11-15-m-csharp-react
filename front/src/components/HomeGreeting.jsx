@@ -1,7 +1,7 @@
 "use client";
 import useLoginStore from "@/context/loginStore";
 
-export const HomeGreeting = () => {
+export default function HomeGreeting() {
   const loginState = useLoginStore((state) => state.usuario);
   console.log(loginState);
   return (
