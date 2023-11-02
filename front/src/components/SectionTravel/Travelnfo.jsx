@@ -23,13 +23,13 @@ export default function Travelnfo() {
             comunidad global y experimenta una forma emocionante y efectiva de
             aprender un nuevo idioma.
           </p>
-          {!loginState ? (
+          {/*{!loginState ? (
             <div className={`${styled.divButton}`}>Registrarse</div>
           ) : (
             <button className={`${styled.divButton}`} onClick={() => toSalas()}>
               Ir a Salas
             </button>
-          )}
+          )} */}
         </div>
       </div>
     </>
