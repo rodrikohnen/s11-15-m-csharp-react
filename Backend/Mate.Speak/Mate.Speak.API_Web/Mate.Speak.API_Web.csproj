@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mate.Speak.API_Conexion\Mate.Speak.API_Conexion.csproj" />
+    <ProjectReference Include="..\Mate.Speak.BLL\Mate.Speak.BLL.csproj" />
+    <ProjectReference Include="..\Mate.Speak.Models\Mate.Speak.Models.csproj" />
+  </ItemGroup>
+
+</Project>

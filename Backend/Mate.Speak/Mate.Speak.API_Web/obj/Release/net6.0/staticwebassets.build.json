@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ucDncHjOIGoQPX+iJimbH5xnwvra1EVrZOtfLf3x+QM=",
+  "Source": "Mate.Speak.API_Web",
+  "BasePath": "_content/Mate.Speak.API_Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
