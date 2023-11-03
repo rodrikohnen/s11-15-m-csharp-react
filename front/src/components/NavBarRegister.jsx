@@ -15,12 +15,13 @@ import Image from "next/image";
 import Link from "next/link";
 import useLoginStore from "@/context/loginStore";
 
-export default function NavBarRegister() {
-  const logout = useAuthStore((state) => state.isLogout);
+export default function NavBarRegister({ isAuthenticared }) {
+  const logout = useLoginStore((state) => state.logout);
   const router = useRouter();
 
   // Definición de estados iniciales utilizando el hook useState
   const [menuOpen, setMenuOpen] = useState(false); // Estado para controlar la apertura/cierre del menú
+  const [userMenuOpen, setUserMenuOpen] = useState(false); // Estado para controlar el menú de usuario
   const [selectedOption, setSelectedOption] = useState(null); // Estado para mantener la opción seleccionada en el menú
   const [showHamburgerMenu, setShowHamburgerMenu] = useState(true); // Estado para determinar si mostrar el menú hamburguesa
   const menuRef = useRef(null); // Ref para el menú hamburguesa
@@ -56,12 +57,31 @@ export default function NavBarRegister() {
     setMenuOpen(false); // Cerrar el menú después de seleccionar una opción
   };
 
+  // Manejador de clic en cualquier lugar de la pantalla
+  const handleDocumentClick = (e) => {
+    if (menuRef.current && !menuRef.current.contains(e.target)) {
+      setMenuOpen(false); // Cierra el menú hamburguesa si el clic fue fuera de él
+    }
+    if (userMenuRef.current && !userMenuRef.current.contains(e.target)) {
+      setUserMenuOpen(false); // Cierra el menú de usuario si el clic fue fuera de él
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    document.addEventListener("click", handleDocumentClick); // Agrega el manejador de clic global
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("click", handleDocumentClick); // Limpia el manejador de clic global
+    };
+  }, []);
+
   // Opciones del menú de usuario, incluyendo "Cerrar sesión"
   const userMenuOptions = ["Mi perfil", "Cerrar sesión"];
 
   const handleUserMenuClick = (userOption) => {
     if (userOption === "Mi perfil") {
-      router.push("/miperfil");
       router.push("/miperfil");
     } else if (userOption === "Cerrar sesión") {
       handleLogout(); // Llama a la función handleLogout para cerrar la sesión
@@ -73,6 +93,21 @@ export default function NavBarRegister() {
   const handleLogout = () => {
     logout();
     router.push("/");
+  };
+
+  // Función para redirigir a las rutas correspondientes al hacer clic en una opción del menú
+  const handleMenuOptionClick = (option) => {
+    if (option === "Salas") {
+      router.push("/home");
+    } else if (option === "Usuarios") {
+      router.push("/user");
+    } else if (option === "Mis Salas") {
+      router.push("/rooms");
+    } else if (option === "Quiero ser Tutor") {
+      router.push("/tutor");
+    }
+
+    setMenuOpen(false); // Cierra el menú después de seleccionar una opción
   };
 
   // Definición de las opciones del menú
@@ -106,10 +141,6 @@ export default function NavBarRegister() {
                     option
                   )}
                   <span className="ml-4">{option}</span>
-                  {/* Renderizar el nombre de la opción */}
-=======
-                  <span className="ml-4">{userOption}</span>
-(chages alta definicion salas y home)
                 </li>
               ))}
             </ul>
@@ -157,9 +188,7 @@ export default function NavBarRegister() {
             ))}
           </ul>
         )}
-
       </div>
-
     </header>
   );
 }

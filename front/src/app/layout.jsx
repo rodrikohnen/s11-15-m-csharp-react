@@ -25,7 +25,6 @@ const roboto = Roboto({ weight: ["400", "700"], subsets: ["latin"] });
  */
 export default function RootLayout({ children }) {
   const isAuthenticated = useLoginStore((state) => state.isAuth);
-  const isAuthenticated = useLoginStore((state) => state.isAuth);
 
   return (
     <html lang="en">
