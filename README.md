@@ -1,8 +1,11 @@
 # MATESPEAK:
 
+
 Comienza tu viaje lingüístico con Mate Speak, se parte de nuestra comunidad global y experimenta una forma emocionante y efectiva de aprender un nuevo idioma.<br>
 
 ## Equipo:
+=======
+
 
 | Rol               | Nombre               | Redes                                                                                                        |
 | :---------------- | :------------------- | :----------------------------------------------------------------------------------------------------------- |
@@ -18,7 +21,9 @@ Comienza tu viaje lingüístico con Mate Speak, se parte de nuestra comunidad gl
 | `Back End`        | Nicolás Arteaga      | [![GitHub]]() [![linkedin]](https://www.linkedin.com/in/nicolasarteagadev/)                                  |
 | `Back End`        | Rodrigo Kohnen       | [![GitHub]](https://github.com/rodrikohnen) [![linkedin]](https://www.linkedin.com/in/rodrigo-kohnen)        |
 
+
 ## Stack Tecnológico
+
 
 | Rama          | Tecnologías                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | :------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -30,10 +35,11 @@ Comienza tu viaje lingüístico con Mate Speak, se parte de nuestra comunidad gl
 | Others        | ![GIT](https://img.shields.io/badge/Git-fc6d26?style=for-the-badge&logo=git&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)                                                                                                                                                                                                                                                                                                                                                                                                               |
 |               |
 
-# 💻 Deploy:
 
+## Demo
 https://s11-15-m-csharp-react.vercel.app/
 
 [behance]: https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white
 [linkedin]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
 [github]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
+
